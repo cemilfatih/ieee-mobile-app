@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:ieee_mobile_app/mixin/firebaseService.dart';
+import 'package:ieee_mobile_app/mixin/firebaseMixin.dart';
 
 class mailVerifyService extends StatefulWidget with firebaseMixin {
    mailVerifyService({Key? key}) : super(key: key);

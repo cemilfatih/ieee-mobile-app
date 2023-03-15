@@ -2,7 +2,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:ieee_mobile_app/helper/user.dart';
-import 'package:ieee_mobile_app/mixin/firebaseService.dart';
+import 'package:ieee_mobile_app/mixin/firebaseMixin.dart';
 import 'package:provider/provider.dart';
 
 class Helper with firebaseMixin, ChangeNotifier{

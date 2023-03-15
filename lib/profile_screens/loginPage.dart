@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ieee_mobile_app/helper/helper.dart';
-import 'package:ieee_mobile_app/mixin/firebaseService.dart';
+import 'package:ieee_mobile_app/mixin/firebaseMixin.dart';
+import 'package:ieee_mobile_app/extensions/isValid.dart';
 
 
 class LoginPage extends StatefulWidget {
@@ -48,10 +49,19 @@ class _LoginPageState extends State<LoginPage> {
                               mail = textValue!;
                             },
                             validator: (textValue) {
-                              if(textValue == null || textValue.isEmpty) {
-                                return 'Email is required!';
+
+
+                              if(textValue!.isNull){
+                                return 'This part can not be null';
                               }
 
+                              // şu an için gtu uzantılı mailleri invalid olarak ayarladım.
+                              //domain sorunu çzöülüp gtu mailleri test edebilir hale geldiğimizde değişecek
+
+                              else if(textValue.isValidMail){
+                                return 'Invalid Format';
+
+                              }
                               return null;
                             }
                         ),
@@ -66,9 +76,15 @@ class _LoginPageState extends State<LoginPage> {
                             psw = textValue!;
                           },
                           validator: (textValue) {
-                            if(textValue == null || textValue.isEmpty) {
-                              return 'Password is required!';
+
+                            if(textValue!.isNull){
+                              return 'This part can not be null';
                             }
+                            else if(!textValue.isValidPassword){
+                              return 'Invalid Format';
+
+                            }
+
                             return null;
                           },
                         ),
@@ -128,7 +144,7 @@ class _LoginPageState extends State<LoginPage> {
         const SnackBar(content: Text('Submitting data..')),
       );
 
-      
+
       _loginFormKey.currentState!.save();
       Helper.login(mail, psw);
 
@@ -178,6 +194,7 @@ class _CustomInputFieldState extends State<CustomInputField> {
             child: Text(widget.labelText, style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
           ),
           TextFormField(
+            autocorrect: false,
             obscureText: (widget.obscureText && _obscureText),
             decoration: InputDecoration(
               isDense: (widget.isDense != null) ? widget.isDense : false,
