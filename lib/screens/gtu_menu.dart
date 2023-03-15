@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ieee_mobile_app/constants/menu_button.dart';
 import 'package:ieee_mobile_app/gtu_screens/akademik_kadro.dart';
 import 'package:ieee_mobile_app/gtu_screens/akademik_takvim.dart';
-import 'package:ieee_mobile_app/gtu_screens/bus_menu.dart';
+import 'package:ieee_mobile_app/gtu_screens/buses/bus_menu.dart';
 import 'package:ieee_mobile_app/gtu_screens/duyurular.dart';
 import 'package:ieee_mobile_app/gtu_screens/haberler.dart';
 import 'package:ieee_mobile_app/gtu_screens/harita.dart';

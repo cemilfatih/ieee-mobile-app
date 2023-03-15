@@ -13,8 +13,8 @@ import 'package:flutter/services.dart';
 import 'package:ieee_mobile_app/constants/stateData.dart';
 import 'package:provider/provider.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:ieee_mobile_app/ieee_gtu_screens/register.dart';
-import 'package:ieee_mobile_app/ieee_gtu_screens/login.dart';
+import 'package:ieee_mobile_app/ieee_gtu_screens/NOTUSINGregister.dart';
+import 'package:ieee_mobile_app/ieee_gtu_screens/NOTUSINGlogin.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

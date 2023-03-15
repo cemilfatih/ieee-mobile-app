@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ieee_mobile_app/screens/profile_page.dart';
-import '../constants/menu_button.dart';
+import '../../constants/menu_button.dart';
+import 'bus.dart';
 
 class bus_menu extends StatefulWidget {
   const bus_menu({
@@ -19,43 +20,44 @@ class _bus_menuState extends State<bus_menu> {
   var pages = [null, profile_page(), profile_page(), profile_page()];
 
   Widget build(BuildContext context) {
-    if (defaultIndex == 0) {
-      return GridView.builder(
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-          childAspectRatio: 1.5 / 1,
-        ),
-        itemCount: otobusler.length,
-        itemBuilder: (context, index) {
-          return Container(
-            child: InkWell(
-                onTap: () {
-                  setState(() {
-                    defaultIndex = rota[index];
-                  });
-                },
-                child: menu_button(
-                    colours[index],
-                    colours2[index],
-                    text_colours[index],
-                    otobus_resim[index],
-                    otobusler[index],
-                    rota[index])),
-          );
-        },
-      );
-    } else {
-      return WillPopScope(
-        onWillPop: () async {
-          setState(() {
-            defaultIndex = 0;
-          });
-          return false;
-        },
-        child: Scaffold(
-          body: pages[defaultIndex],
-        ),);
-    }
+    return FlutterApp();
+    // if (defaultIndex == 0) {
+    //   return GridView.builder(
+    //     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+    //       crossAxisCount: 2,
+    //       childAspectRatio: 1.5 / 1,
+    //     ),
+    //     itemCount: otobusler.length,
+    //     itemBuilder: (context, index) {
+    //       return Container(
+    //         child: InkWell(
+    //             onTap: () {
+    //               setState(() {
+    //                 defaultIndex = rota[index];
+    //               });
+    //             },
+    //             child: menu_button(
+    //                 colours[index],
+    //                 colours2[index],
+    //                 text_colours[index],
+    //                 otobus_resim[index],
+    //                 otobusler[index],
+    //                 rota[index])),
+    //       );
+    //     },
+    //   );
+    // } else {
+    //   return WillPopScope(
+    //     onWillPop: () async {
+    //       setState(() {
+    //         defaultIndex = 0;
+    //       });
+    //       return false;
+    //     },
+    //     child: Scaffold(
+    //       body: pages[defaultIndex],
+    //     ),);
+    // }
   }
 }
 

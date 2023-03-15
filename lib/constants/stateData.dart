@@ -11,6 +11,8 @@ class StateData extends ChangeNotifier{
 
   int profileIndex = 0 ;
 
+  int busesIndex = 0 ;
+
   void newIndexGtu(x){ gtuIndex = x ;
   notifyListeners();
   }
@@ -23,6 +25,10 @@ class StateData extends ChangeNotifier{
   }
 
   void newIndexProfile(x){ profileIndex = x ;
+  notifyListeners();
+  }
+
+  void newIndexBuses(x){ busesIndex = x ;
   notifyListeners();
   }
 

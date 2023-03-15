@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ieee_mobile_app/screens/profile_page.dart';
-import '../constants/menu_button.dart';
+import '../../constants/menu_button.dart';
+import 'cs.dart';
 
 class komiteler_menu extends StatefulWidget {
   const komiteler_menu({
@@ -16,7 +17,7 @@ class _komiteler_menuState extends State<komiteler_menu> {
 
   var defaultIndex = 0;
 
-  var pages = [null, profile_page(), profile_page(), profile_page(),profile_page(),profile_page(),profile_page(),profile_page(),profile_page()];
+  var pages = [null, MyProfile(), MyProfile(), profile_page(),profile_page(),profile_page(),profile_page(),profile_page(),profile_page()];
 
   Widget build(BuildContext context) {
     if (defaultIndex == 0) {

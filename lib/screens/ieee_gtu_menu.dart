@@ -6,7 +6,7 @@ import 'package:ieee_mobile_app/ieee_gtu_screens/etkinlik_takvimi.dart';
 import 'package:ieee_mobile_app/ieee_gtu_screens/haberler.dart';
 import 'package:ieee_mobile_app/ieee_gtu_screens/idari_kurul.dart';
 import 'package:ieee_mobile_app/ieee_gtu_screens/yonetim_kurulu.dart';
-import 'package:ieee_mobile_app/ieee_gtu_screens/komiteler_menu.dart';
+import 'package:ieee_mobile_app/ieee_gtu_screens/komiteler/komiteler_menu.dart';
 import 'package:ieee_mobile_app/ieee_gtu_screens/sosyalMedya/sosyal_medya.dart';
 import "package:provider/provider.dart";
 import 'package:ieee_mobile_app/constants/stateData.dart';

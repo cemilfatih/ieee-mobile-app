@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ieee_mobile_app/gtu_screens/bus_menu.dart';
+import 'package:ieee_mobile_app/gtu_screens/buses/bus_menu.dart';
 import 'package:provider/provider.dart';
 import 'package:ieee_mobile_app/constants/stateData.dart';
 
