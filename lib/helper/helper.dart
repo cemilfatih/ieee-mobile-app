@@ -12,10 +12,7 @@ class Helper with firebaseMixin, ChangeNotifier{
 
   static Future<void> register(name, surname, mail, telNum, sClass, department, committee, password) async {
 
-    final docUser = Helper().setCollection('user');
-
-
-
+     final docUser = Helper().setCollection('user');
 
      final registerUser = user(
         id: docUser!.id,
@@ -26,7 +23,10 @@ class Helper with firebaseMixin, ChangeNotifier{
         sClass: sClass,
         department: department,
         committee: committee,
-        password: password);
+        password: password,
+        level: 1
+     );
+
      print(registerUser.toJson());
 
     final json = registerUser.toJson();
@@ -34,9 +34,6 @@ class Helper with firebaseMixin, ChangeNotifier{
   //navigate to verify page and get register
     await Helper().setData(docUser, json);
     await Helper().createUser(mail, password);
-
-
-
   }
 
   static Future<void> login(mail, password) async {

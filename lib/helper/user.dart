@@ -9,6 +9,7 @@ class user{
   final String department;
   final String committee;
   final String password;
+  final int level;
 
 
   late int _getAuth;
@@ -23,6 +24,7 @@ class user{
     required this.department,
     required this.committee,
     required this.password,
+    required this.level,
 });
 
 //  User(this._id,this._name, this._surname, this._mail, this._telNum, this._sClass,
@@ -38,6 +40,7 @@ class user{
     'sClass':sClass,
     'department':department,
     'committee':committee,
+    'level':level,
   };
 
   static user fromJson(Map<String, dynamic> json) => user(
@@ -50,6 +53,7 @@ class user{
     department: json['department'],
     committee: json['committee'],
     password: json['password'],
+    level: json['level']
   );
 /*
   String get password => _password;

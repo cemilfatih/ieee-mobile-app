@@ -333,8 +333,7 @@ packages:
     dependency: "direct main"
     description:
       name: smooth_page_indicator
-      sha256: "8c301bc686892306cd41672c1880167f140c16be305d5ede8201fefd9fcda829"
-      url: "https://pub.dev"
+      url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.1"
   source_span:
