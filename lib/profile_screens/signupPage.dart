@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ieee_mobile_app/extensions/isValid.dart';
 
 import '../helper/helper.dart';
 
@@ -84,9 +85,15 @@ class _SignupPageState extends State<SignupPage> {
                             name = textValue!;
                           },
                           validator: (textValue) {
-                            if(textValue == null || textValue.isEmpty) {
-                              return 'İsim Girmek Zorunludur!';
+
+                            if(textValue!.isNull){
+                              return 'This part can not be null';
                             }
+                            else if(!textValue.isValidName){
+                              return 'Invalid Format';
+
+                            }
+
                             return null;
                           }
                       ),
@@ -99,9 +106,19 @@ class _SignupPageState extends State<SignupPage> {
                             mail = textValue!;
                           },
                           validator: (textValue) {
-                            if(textValue == null || textValue.isEmpty) {
-                              return 'Email Girmek Zorunludur!';
+
+                            if(textValue!.isNull){
+                              return 'This part can not be null';
                             }
+
+                            // şu an için gtu uzantılı mailleri invalid olarak ayarladım.
+                            //domain sorunu çzöülüp gtu mailleri test edebilir hale geldiğimizde değişecek
+
+                            else if(textValue.isValidMail){
+                              return 'Invalid Format';
+
+                            }
+
                             return null;
                           }
                       ),
@@ -114,9 +131,15 @@ class _SignupPageState extends State<SignupPage> {
                             telNo = textValue!;
                           },
                           validator: (textValue) {
-                            if(textValue == null || textValue.isEmpty) {
-                              return 'Telefon Numarası Girmek Zorunludur!';
+
+                            if(textValue!.isNull){
+                              return 'This part can not be null';
                             }
+                            else if(!textValue.isValidPhone){
+                              return 'Invalid Format';
+
+                            }
+
                             return null;
                           }
                       ),
@@ -130,9 +153,15 @@ class _SignupPageState extends State<SignupPage> {
                           psw = textValue!;
                         },
                         validator: (textValue) {
-                          if(textValue == null || textValue.isEmpty) {
-                            return 'Şifre Zorunludur';
+
+                          if(textValue!.isNull){
+                            return 'This part can not be null';
                           }
+                          else if(!textValue.isValidPassword){
+                            return 'Invalid Format';
+
+                          }
+
                           return null;
                         },
                         suffixIcon: true,
@@ -146,9 +175,11 @@ class _SignupPageState extends State<SignupPage> {
                             department = textValue!;
                           },
                           validator: (textValue) {
-                            if(textValue == null || textValue.isEmpty) {
-                              return 'Bölüm Bilgisi Girmek Zorunludur!';
+
+                            if(textValue!.isNull){
+                              return 'This part can not be null';
                             }
+
                             return null;
                           }
                       ),
@@ -161,9 +192,11 @@ class _SignupPageState extends State<SignupPage> {
                             committee = textValue!;
                           },
                           validator: (textValue) {
-                            if(textValue == null || textValue.isEmpty) {
-                              return 'Komite Bilgisi Girmek Zorunludur!';
+
+                            if(textValue!.isNull){
+                              return 'This part can not be null';
                             }
+
                             return null;
                           }
                       ),
@@ -322,6 +355,7 @@ class _CustomInputFieldState extends State<CustomInputField> {
             child: Text(widget.labelText, style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
           ),
           TextFormField(
+            autocorrect: false,
             obscureText: (widget.obscureText && _obscureText),
             decoration: InputDecoration(
               isDense: (widget.isDense != null) ? widget.isDense : false,
