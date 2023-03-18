@@ -33,11 +33,13 @@ mixin firebaseMixin {
 
 
 
-  Future<void> createUser(String email , String password) async {
+  Future<User?> createUser(String email , String password) async {
     try{
 
       var snapshot = await fire_auth.createUserWithEmailAndPassword(email: email, password: password);
       loginUser(email, password);
+
+      return snapshot.user!;
 
     }catch(error){
       print(error.toString());
@@ -45,10 +47,11 @@ mixin firebaseMixin {
 
   }
 
-  Future<void> loginUser(String email , String password) async{
+  Future<User?> loginUser(String email , String password) async{
     try{
 
       var snapshot = await fire_auth.signInWithEmailAndPassword(email: email, password: password);
+      return snapshot.user!;
 
     }catch(error){
       print(error.toString());
