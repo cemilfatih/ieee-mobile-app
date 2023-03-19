@@ -6,52 +6,76 @@ import 'tablepage.dart';
 import '../../constants/menu_button.dart';
 import 'package:html/parser.dart' as parser;
 import 'package:http/http.dart' as http;
-
+import 'package:provider/provider.dart';
+import 'package:ieee_mobile_app/constants/stateData.dart';
 
 void main() => runApp(FlutterApp());
 
-class FlutterApp extends StatelessWidget {
+class FlutterApp extends StatefulWidget {
+  @override
+  State<FlutterApp> createState() => _FlutterAppState();
+}
+
+class _FlutterAppState extends State<FlutterApp> {
+
+
   @override
   Widget build(BuildContext context) {
 
-    for (int i = 0 ; i < busNums.length ; i++){ _fetchHTMLContent(i); }
+    var defaultIndex = 0;
+   // var busIndex = Provider.of<StateData>(context).busesIndex;
+    var pages = [null , TablePage(busIndex: Provider.of<StateData>(context).busesIndex)] ;
 
 
-    return GridView.builder(
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            childAspectRatio: 1.5 / 1,
-          ),
-          itemCount: busNames.length,
-          itemBuilder: (context, index) {
-            return Padding(
-              padding:
-              const EdgeInsets.symmetric(horizontal: 5.0, vertical: 5),
-              child: GestureDetector(
+
+    for (int i = 0; i < busNums.length; i++) {
+      _fetchHTMLContent(i);
+    }
+
+    if (defaultIndex == 0) {
+      return GridView.builder(
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          childAspectRatio: 1.5 / 1,
+        ),
+        itemCount: busNames.length,
+        itemBuilder: (context, index) {
+          return Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 5.0, vertical: 5),
+            child: InkWell(
                 onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => TablePage(
-                          busIndex: index,
-                        )),
-                  );
+                  setState(() {
+
+                  Provider.of<StateData>(context, listen: false).newIndexBuses(index);
+                  print(Provider.of<StateData>(context , listen : false).busesIndex);
+                  defaultIndex = 1;
+                   Navigator.push(context , MaterialPageRoute(builder: (context) => TablePage(busIndex: index) )
+                    );
+                  });
                 },
                 child: menu_button(
-                            colours[index],
-                            colours2[index],
-                            text_colours[index],
+                    colours[index],
+                    colours2[index],
+                    text_colours[index],
                     "lib/assets/images/490.png",
-                            busNums[index],
-                            2)
-              ),
-            );
-          },
-        );
-
+                    busNums[index],
+                    2)),
+          );
+        },
+      );
+    }
+    else{ return WillPopScope(
+      onWillPop: () async {
+        setState(() {
+          defaultIndex = 0;
+        });
+        return false;
+      },
+      child: Scaffold(
+        body: pages[defaultIndex],
+      ),);}
   }
 }
-
 
 Future<void> _fetchHTMLContent(int busIndex) async {
   /// bu fonksiyon günde bi kere yapılması gereken fonksiyon ben şuanlık hangi otobüsün sayfasına tıkladıysam onun saatlerini çekiyor
@@ -115,5 +139,3 @@ Future<void> _fetchHTMLContent(int busIndex) async {
     busTables[busIndex][1].add(stringElement);
   }
 }
-
-

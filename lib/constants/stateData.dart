@@ -11,7 +11,7 @@ class StateData extends ChangeNotifier{
 
   int profileIndex = 0 ;
 
-  int busesIndex = 0 ;
+  int busesIndex = 1 ;
 
   void newIndexGtu(x){ gtuIndex = x ;
   notifyListeners();

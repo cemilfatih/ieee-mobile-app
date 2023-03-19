@@ -1,8 +1,10 @@
 import 'const.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:ieee_mobile_app/constants/stateData.dart';
 
 class TablePage extends StatefulWidget {
-  final int busIndex;
+  final int busIndex ;
 
   TablePage({required this.busIndex});
 
@@ -18,9 +20,10 @@ class _TablePageState extends State<TablePage> {
 
   @override
   Widget build(BuildContext context) {
+
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: Colors.grey.shade400,
+        backgroundColor: Colors.white,
         body: SafeArea(
             child: Column(
               children: [

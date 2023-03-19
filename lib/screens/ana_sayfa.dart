@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ieee_mobile_app/constants/buttons_fast.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:ieee_mobile_app/gtu_screens/buses/bus_menu.dart';
-import 'package:ieee_mobile_app/gtu_screens/marmaray_page.dart';
+import 'package:ieee_mobile_app/gtu_screens/marmaray/marmaray_page.dart';
 import 'package:ieee_mobile_app/gtu_screens/yemekhane/yemekhane.dart';
 import 'package:ieee_mobile_app/ieee_gtu_screens/komiteler/komiteler_menu.dart';
 import 'package:ieee_mobile_app/screens/ieee_gtu_menu.dart';
