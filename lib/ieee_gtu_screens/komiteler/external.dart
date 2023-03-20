@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'external_panel.dart';
 
 
 
@@ -23,7 +23,10 @@ class externalr extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(onPressed: (){},child: Icon(Icons.add_circle_outline_rounded) ,backgroundColor: Colors.indigo),
+      floatingActionButton: FloatingActionButton(onPressed: (){Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => panel()),
+      );},child: Icon(Icons.add_circle_outline_rounded) ,backgroundColor: Colors.indigo),
       // FLOAT BUTTON , ADMİNE GÖZÜKECEK , PANELE GİDECEK
       body: SingleChildScrollView(
         child: Column(

@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
+import 'cs_panel.dart';
 
 
 
 
-var pp_link = "https://via.placeholder.com/150";
-var galeri1 = "https://via.placeholder.com/150";
-var galeri2 = "https://via.placeholder.com/150";
-var galeri3 = "https://via.placeholder.com/150";
-var galeri4 = "https://via.placeholder.com/150";
+var pp_link = "https://via.placeholder.com/150";  // GALERİDEN FOTO SEÇER - PAKETİ VAR GALİBA IMAGEPİCKER
+var galeri1 = "https://via.placeholder.com/150"; // GALERİDEN FOTO SEÇER - PAKETİ VAR GALİBA IMAGEPİCKER
+var galeri2 = "https://via.placeholder.com/150";  // GALERİDEN FOTO SEÇER - PAKETİ VAR GALİBA IMAGEPİCKER
+var galeri3 = "https://via.placeholder.com/150";  // GALERİDEN FOTO SEÇER - PAKETİ VAR GALİBA IMAGEPİCKER
+var galeri4 = "https://via.placeholder.com/150";  // GALERİDEN FOTO SEÇER - PAKETİ VAR GALİBA IMAGEPİCKER
 var isim = "Melih Tumur";
 var posta = "melihtumur@ieeegtu.con";
 var tel = "05392613502";
@@ -23,7 +24,12 @@ class cs extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(onPressed: (){},child: Icon(Icons.add_circle_outline_rounded) ,backgroundColor: Colors.indigo),
+      floatingActionButton: FloatingActionButton(onPressed: (){
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => panel()),
+        );
+      },child: Icon(Icons.add_circle_outline_rounded) ,backgroundColor: Colors.indigo),
       // FLOAT BUTTON , ADMİNE GÖZÜKECEK , PANELE GİDECEK
       body: SingleChildScrollView(
         child: Column(
