@@ -19,7 +19,7 @@ var etkinlik3 = "LetMeCode";
 var etkinlik4 = "Etkinlik4";
 
 
-class cs extends StatelessWidget {
+class pes extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,7 +49,7 @@ class cs extends StatelessWidget {
 
                         ),
                         Text(
-                          'Computer Society Başkanı',
+                          'PES Başkanı',
                           textAlign:TextAlign.center,
                           style: TextStyle(
                             color: Color(0xff00609c),
@@ -93,7 +93,7 @@ class cs extends StatelessWidget {
                         ),
                         SizedBox(height: 8),
                         Text(
-                          bolum,
+                          'Bölüm : Elektronik Mühendisliği',
                           style: TextStyle(
                             fontSize: 18,
                             color: Colors.grey[600],
@@ -105,7 +105,7 @@ class cs extends StatelessWidget {
                 ],
               ),
             ),
-           // Divider( thickness: 5,color: Colors.black, ),
+            // Divider( thickness: 5,color: Colors.black, ),
             Padding(
               padding: EdgeInsets.all(16),
               child: Column(
@@ -141,7 +141,7 @@ class cs extends StatelessWidget {
                 ],
               ),
             ),
-           // Divider(),
+            // Divider(),
             Padding(
               padding: EdgeInsets.all(16),
               child: Column(

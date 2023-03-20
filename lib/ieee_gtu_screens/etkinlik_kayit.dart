@@ -17,6 +17,9 @@ class _etkinlik_kayitState extends State<etkinlik_kayit> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(child :Text("kayıt"));
+    return Scaffold(
+        floatingActionButton: FloatingActionButton(onPressed: (){},child: Icon(Icons.add_circle_outline_rounded) ,backgroundColor: Colors.indigo),
+        // ETKİNLİK KAYDI AÇMAK İÇİN GİDİLECEK EKRAN
+        body: Container(child :Text("kayıt")));
   }
 }

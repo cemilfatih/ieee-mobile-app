@@ -2,6 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:ieee_mobile_app/screens/profile_page.dart';
 import '../../constants/menu_button.dart';
 import 'cs.dart';
+import 'comsoc.dart';
+import 'eac.dart';
+import 'embs.dart';
+import 'external.dart';
+import 'girisim.dart';
+import 'ik.dart';
+import 'kariyer.dart';
+import 'malzeme.dart';
+import 'matematik.dart';
+import 'medya.dart';
+import 'pes.dart';
+import 'ras.dart';
+import 'wie.dart';
+
 
 class komiteler_menu extends StatefulWidget {
   const komiteler_menu({
@@ -17,7 +31,7 @@ class _komiteler_menuState extends State<komiteler_menu> {
 
   var defaultIndex = 0;
 
-  var pages = [null, MyProfile(), MyProfile(), profile_page(),profile_page(),profile_page(),profile_page(),profile_page(),profile_page()];
+  var pages = [null, cs(), comsoc(), eac(),embs(),externalr(),girisim(),ik(),kariyer(),malzeme(),matematik(),medya(),pes(),ras(),wie()];
 
   Widget build(BuildContext context) {
     if (defaultIndex == 0) {
@@ -95,21 +109,20 @@ var komite_resim = [
 ];
 
 var rota = [
+  1,
   2,
-  2,
-  2,
-  2,
-  2,
-  2,
-  2,
-  2,
-  2,
-  2,
-  2,
-  2,
-  2,
-  2,
-  2
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  11,
+  12,
+  13,
+  14,
 ];
 var colours = [
   Color(0xfff59c1a),

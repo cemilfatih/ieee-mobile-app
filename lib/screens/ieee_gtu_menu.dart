@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ieee_mobile_app/ieee_gtu_screens/yoklama.dart';
 import '../constants/menu_button.dart';
 import 'package:ieee_mobile_app/ieee_gtu_screens/btg.dart';
 import 'package:ieee_mobile_app/ieee_gtu_screens/etkinlik_kayit.dart';
@@ -26,7 +27,7 @@ class _ieee_gtu_menuState extends State<ieee_gtu_menu> {
   @override
 
 
-  var pages = [null, btg(), etkinlik_takvim(),etkinlik_kayit(),sosyal_medya(),haberler(),komiteler_menu(),yonetim_kurulu(),idari_kurul()];
+  var pages = [null, btg(), etkinlik_takvim(),etkinlik_kayit(),sosyal_medya(),haberler(),komiteler_menu(),yonetim_kurulu(),idari_kurul(),yoklama()];
 
   Widget build(BuildContext context) {
 
@@ -82,7 +83,8 @@ var sekmeler = [
   "Haberler",
   "Komitelerimiz",
   "Yönetim Kurulu",
-  "İdari Kurul"
+  "İdari Kurul",
+  "Yoklama"
 ];
 var sekme_resim = [
   "lib/assets/images/btg.jpg",
@@ -92,7 +94,8 @@ var sekme_resim = [
   "lib/assets/images/haber6.png",
   "lib/assets/images/komiteler-icon_beyaz.png",
   "lib/assets/images/yk_icon.png",
-  "lib/assets/images/ik_icon_siyah.png"
+  "lib/assets/images/ik_icon_siyah.png",
+  "lib/assets/images/yoklama.png"
 ];
 
 var rota = [
@@ -104,6 +107,7 @@ var rota = [
   6,
   7,
   8,
+  9,
 ];
 
 var colours = [
@@ -150,6 +154,7 @@ var text_colours = [
   Colors.black,
   Colors.white,
   Colors.white,
+  Colors.black,
   Colors.black
 ];
 

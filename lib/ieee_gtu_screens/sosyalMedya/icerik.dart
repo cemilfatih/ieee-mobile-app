@@ -36,6 +36,8 @@ class _imagesScreenState extends State<imagesScreen> {
     "https://pbs.twimg.com/media/FqC-v0BXgAcWhqv?format=jpg&name=large",
     "https://www.gtu.edu.tr/Files/etkinlikler/2019/nisan/Poster.jpg",
   ];
+ // DATABASEDEN GÜNCELlENECEK
+
 
   List<String> texts = [
     "Okulumuz Şehir ve Bölge Planlama Bölüm Başkanı Doç. Dr. Tayfun Salihoğlu ile 10 Mart Cuma günü saat 20.30’da 'Kentlerin Depreme Dayanıklılığı' konusuyla YouTube'da canlı yayındayız.longText longText longText longText longText longText longText longText longText longText longText longText longText longText longText ",
@@ -44,6 +46,17 @@ class _imagesScreenState extends State<imagesScreen> {
     "Okulumuz Şehir ve Bölge Planlama Bölüm Başkanı Doç. Dr. Tayfun Salihoğlu ile 10 Mart Cuma günü saat 20.30’da 'Kentlerin Depreme Dayanıklılığı' konusuyla YouTube'da canlı yayındayız.",
     "Okulumuz Şehir ve Bölge Planlama Bölüm Başkanı Doç. Dr. Tayfun Salihoğlu ile 10 Mart Cuma günü saat 20.30’da 'Kentlerin Depreme Dayanıklılığı' konusuyla YouTube'da canlı yayındayız."
   ];
+  // DATABASEDEN GÜNCELlENECEK
+
+  List<String> baslik = [
+    "BASLIK",
+    "BASLIK",
+    "BASLIK",
+    "BASLIK",
+    "BASLIK",
+  ];
+  // DATABASEDEN GÜNCELlENECEK
+
   List<Color> colors =[
     Color(0xffbe1238),
     Color(0xfff5af19),
@@ -95,7 +108,7 @@ class _imagesScreenState extends State<imagesScreen> {
                       child: SingleChildScrollView(
                         child: Column(
                           children: [
-                            Text("BASLIK" , style: TextStyle(fontWeight: FontWeight.bold)),
+                            Text(baslik[index], style: TextStyle(fontWeight: FontWeight.bold)),
                             Text(texts[index] , ),
                           ],
                         ),),

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 
 
-
+// BU VERİLER DATABASEDEN GÜNCELLENECEK
 var pp_link = "https://via.placeholder.com/150";
 var galeri1 = "https://via.placeholder.com/150";
 var galeri2 = "https://via.placeholder.com/150";
@@ -17,9 +17,9 @@ var etkinlik1 = "Mobiletech";
 var etkinlik2 = "HelloWorld";
 var etkinlik3 = "LetMeCode";
 var etkinlik4 = "Etkinlik4";
+// BU VERİLER DATABASEDEN GÜNCELLENECEK
 
-
-class cs extends StatelessWidget {
+class eac extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,7 +49,7 @@ class cs extends StatelessWidget {
 
                         ),
                         Text(
-                          'Computer Society Başkanı',
+                          'EAC Başkanı',
                           textAlign:TextAlign.center,
                           style: TextStyle(
                             color: Color(0xff00609c),
@@ -105,7 +105,7 @@ class cs extends StatelessWidget {
                 ],
               ),
             ),
-           // Divider( thickness: 5,color: Colors.black, ),
+            // Divider( thickness: 5,color: Colors.black, ),
             Padding(
               padding: EdgeInsets.all(16),
               child: Column(
@@ -141,7 +141,7 @@ class cs extends StatelessWidget {
                 ],
               ),
             ),
-           // Divider(),
+            // Divider(),
             Padding(
               padding: EdgeInsets.all(16),
               child: Column(

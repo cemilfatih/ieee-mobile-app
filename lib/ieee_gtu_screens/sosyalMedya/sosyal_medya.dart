@@ -19,6 +19,10 @@ class _sosyal_medyaState extends State<sosyal_medya> {
 
   @override
   Widget build(BuildContext context) {
-    return imagesScreen();
+    return Scaffold(
+      floatingActionButton: FloatingActionButton(onPressed: (){},child: Icon(Icons.add_circle_outline_rounded) ,backgroundColor: Colors.indigo),
+      // FLOAT BUTTON , ADMİNE GÖZÜKECEK , PANELE GİDECEK
+      body:imagesScreen()
+    );
   }
 }
