@@ -2,6 +2,7 @@ import "package:flutter/material.dart";
 import "package:ieee_mobile_app/helper/user.dart";
 import 'package:ieee_mobile_app/ieee_gtu_screens/etkinlik_kayit_panel.dart';
 import 'etkinlik_kontrol.dart';
+import 'yoklama_kontrol.dart';
 
 // Column loginTrue(double height, double width) {
 //   return Column(
@@ -101,7 +102,12 @@ class _loginTrueState extends State<loginTrue> {
               ),
               SizedBox(width: 10,),
               FloatingActionButton(
-                onPressed: () => {},
+                onPressed: () => {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => yoklama_kontrol()),
+                  )
+                },
                 // YOKLAMAYI LİSTEYELEN SAYFAYA GİDER
                 child: Icon(Icons.person_off),
                 heroTag: "yoklama",
