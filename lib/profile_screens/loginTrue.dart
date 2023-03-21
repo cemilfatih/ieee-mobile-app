@@ -1,7 +1,7 @@
 import "package:flutter/material.dart";
-
 import "package:ieee_mobile_app/helper/user.dart";
-import 'package:ieee_mobile_app/ieee_gtu_screens/etkinlik_kayit.dart';
+import 'package:ieee_mobile_app/ieee_gtu_screens/etkinlik_kayit_panel.dart';
+import 'etkinlik_kontrol.dart';
 
 // Column loginTrue(double height, double width) {
 //   return Column(
@@ -90,7 +90,10 @@ class _loginTrueState extends State<loginTrue> {
             children: [
               FloatingActionButton( backgroundColor: Colors.red,
                 onPressed: () => {
-
+                Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => etkinlik_kontrol()),
+                )
                 },
                 // ETKİNLİK KATILIMCILARINI LİSTELEYEN SAYFAYA SAYFAYA GİDER
                 child: Icon(Icons.event),

@@ -58,7 +58,7 @@ class marmaray_page extends StatelessWidget {
                                     borderRadius:
                                     BorderRadius.all(Radius.circular(50))),
                                 child: ListView.builder(
-                                  itemCount: halkali_saatler.length,
+                                  itemCount: gebze_saatler.length,
                                   itemBuilder: (BuildContext context, int index) {
                                     return ListTile(
                                       title: Text(gebze_saatler[index],textAlign: TextAlign.center ,style: TextStyle(fontSize: 20,color: Colors.white)),
@@ -121,6 +121,6 @@ class marmaray_page extends StatelessWidget {
               ),
             )
           ],
-        ));
+        ),);
   }
 }
