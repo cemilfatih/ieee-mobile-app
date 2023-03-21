@@ -1,5 +1,17 @@
 
 class user{
+  static user currentUser = user(id: "-1",
+      name: "name",
+      surname: "surname",
+      mail: "mail",
+      telNum: "telNum",
+      sClass: "sClass",
+      department: "department",
+      committee: "committee",
+      password: "password",
+      level: 1,
+      katEtkinlikler: <String>[]);
+
   final String id;
   final String name;
   final String surname;
@@ -9,6 +21,7 @@ class user{
   final String department;
   final String committee;
   final String password;
+  final List<dynamic> katEtkinlikler;
   final int level;
 
 
@@ -25,6 +38,7 @@ class user{
     required this.committee,
     required this.password,
     required this.level,
+    required this.katEtkinlikler,
 });
 
 //  User(this._id,this._name, this._surname, this._mail, this._telNum, this._sClass,
@@ -41,6 +55,7 @@ class user{
     'department':department,
     'committee':committee,
     'level':level,
+    'katEtkinlikler': {},
   };
 
   static user fromJson(Map<String, dynamic> json) => user(
@@ -53,62 +68,8 @@ class user{
     department: json['department'],
     committee: json['committee'],
     password: json['password'],
-    level: json['level']
+    level: json['level'],
+      katEtkinlikler: json['katEtkinlikler'],
   );
-/*
-  String get password => _password;
 
-  set password(String value) {
-    _password = value;
-  }
-  String get id => _id;
-  set String(int value) {
-    _id = value;
-  }
-
-  String get name => _name;
-  set name(String value) {
-    _name = value;
-  }
-
-  String get surname => _surname;
-  set surname(String value) {
-    _surname = value;
-  }
-
-  String get mail => _mail;
-  set mail(String value) {
-    _mail = value;
-  }
-
-  String get telNum => _telNum;
-  set telNum(String value) {
-    _telNum = value;
-  }
-
-  String get sClass => _sClass;
-  set sClass(String value) {
-    _sClass = value;
-  }
-
-  String get department => _department;
-  set department(String value) {
-    _department = value;
-  }
-
-  String get committee => _committee;
-  set committee(String value) {
-    _committee = value;
-  }
-
-  String get school => _school;
-  set school(String value) {
-    _school = value;
-  }
-
-  int get getAuth => _getAuth;
-  set getAuth(int value) {
-    _getAuth = value;
-  }
-*/
 }

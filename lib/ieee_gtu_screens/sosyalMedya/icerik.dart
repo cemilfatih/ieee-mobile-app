@@ -27,7 +27,7 @@ class imagesScreen extends StatefulWidget {
 class _imagesScreenState extends State<imagesScreen> {
 
   final PageController _pageController =
-      PageController(viewportFraction: 0.8, keepPage: true);
+  PageController(viewportFraction: 0.8, keepPage: true);
 
   List<String> imagesUrl = [
     "https://pbs.twimg.com/media/FqXjJfrWIAEZStv?format=jpg&name=large",
@@ -36,14 +36,27 @@ class _imagesScreenState extends State<imagesScreen> {
     "https://pbs.twimg.com/media/FqC-v0BXgAcWhqv?format=jpg&name=large",
     "https://www.gtu.edu.tr/Files/etkinlikler/2019/nisan/Poster.jpg",
   ];
+ // DATABASEDEN GÜNCELlENECEK
+
 
   List<String> texts = [
     "Okulumuz Şehir ve Bölge Planlama Bölüm Başkanı Doç. Dr. Tayfun Salihoğlu ile 10 Mart Cuma günü saat 20.30’da 'Kentlerin Depreme Dayanıklılığı' konusuyla YouTube'da canlı yayındayız.longText longText longText longText longText longText longText longText longText longText longText longText longText longText longText ",
-        "Okulumuz Şehir ve Bölge Planlama Bölüm Başkanı Doç. Dr. Tayfun Salihoğlu ile 10 Mart Cuma günü saat 20.30’da 'Kentlerin Depreme Dayanıklılığı' konusuyla YouTube'da canlı yayındayız.",
-        "Okulumuz Şehir ve Bölge Planlama Bölüm Başkanı Doç. Dr. Tayfun Salihoğlu ile 10 Mart Cuma günü saat 20.30’da 'Kentlerin Depreme Dayanıklılığı' konusuyla YouTube'da canlı yayındayız.",
-        "Okulumuz Şehir ve Bölge Planlama Bölüm Başkanı Doç. Dr. Tayfun Salihoğlu ile 10 Mart Cuma günü saat 20.30’da 'Kentlerin Depreme Dayanıklılığı' konusuyla YouTube'da canlı yayındayız.",
-        "Okulumuz Şehir ve Bölge Planlama Bölüm Başkanı Doç. Dr. Tayfun Salihoğlu ile 10 Mart Cuma günü saat 20.30’da 'Kentlerin Depreme Dayanıklılığı' konusuyla YouTube'da canlı yayındayız."
+    "Okulumuz Şehir ve Bölge Planlama Bölüm Başkanı Doç. Dr. Tayfun Salihoğlu ile 10 Mart Cuma günü saat 20.30’da 'Kentlerin Depreme Dayanıklılığı' konusuyla YouTube'da canlı yayındayız.",
+    "Okulumuz Şehir ve Bölge Planlama Bölüm Başkanı Doç. Dr. Tayfun Salihoğlu ile 10 Mart Cuma günü saat 20.30’da 'Kentlerin Depreme Dayanıklılığı' konusuyla YouTube'da canlı yayındayız.",
+    "Okulumuz Şehir ve Bölge Planlama Bölüm Başkanı Doç. Dr. Tayfun Salihoğlu ile 10 Mart Cuma günü saat 20.30’da 'Kentlerin Depreme Dayanıklılığı' konusuyla YouTube'da canlı yayındayız.",
+    "Okulumuz Şehir ve Bölge Planlama Bölüm Başkanı Doç. Dr. Tayfun Salihoğlu ile 10 Mart Cuma günü saat 20.30’da 'Kentlerin Depreme Dayanıklılığı' konusuyla YouTube'da canlı yayındayız."
   ];
+  // DATABASEDEN GÜNCELlENECEK
+
+  List<String> baslik = [
+    "BASLIK",
+    "BASLIK",
+    "BASLIK",
+    "BASLIK",
+    "BASLIK",
+  ];
+  // DATABASEDEN GÜNCELlENECEK
+
   List<Color> colors =[
     Color(0xffbe1238),
     Color(0xfff5af19),
@@ -59,7 +72,7 @@ class _imagesScreenState extends State<imagesScreen> {
     return Scaffold(
       body: ListView(
         children: [
-          SizedBox(height: height/30),
+          SizedBox(height: height/50),
           Container(
 
             height: height / 1.5,
@@ -70,16 +83,16 @@ class _imagesScreenState extends State<imagesScreen> {
               itemBuilder: (_, index) => Card(
 
                 //borderOnForeground: true,
-                shadowColor: colors[index],
-                elevation: 5,
+                //shadowColor: colors[index],
+                //elevation: 5,
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Container(
                       height: height / 2.3,
                       margin:  EdgeInsets.all(width/20),
                       decoration: BoxDecoration(
-                       // color: Colors.grey,
+                        // color: Colors.grey,
                         borderRadius: BorderRadius.circular(5),
                         image: DecorationImage(
                             image: NetworkImage(
@@ -92,13 +105,13 @@ class _imagesScreenState extends State<imagesScreen> {
                     Container(
                       height: height/7,
                       width: width/1.5,
-                        child: SingleChildScrollView(
-                            child: Column(
-                              children: [
-                                Text("BASLIK" , style: TextStyle(fontWeight: FontWeight.bold)),
-                                Text(texts[index] , ),
-                              ],
-                            ),),
+                      child: SingleChildScrollView(
+                        child: Column(
+                          children: [
+                            Text(baslik[index], style: TextStyle(fontWeight: FontWeight.bold)),
+                            Text(texts[index] , ),
+                          ],
+                        ),),
                     ),
                   ],
                 ),

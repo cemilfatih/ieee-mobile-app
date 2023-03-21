@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ieee_mobile_app/helper/helper.dart';
 import 'package:ieee_mobile_app/mixin/firebaseMixin.dart';
 import 'package:ieee_mobile_app/extensions/isValid.dart';
+import 'package:ieee_mobile_app/profile_screens/loginTrue.dart';
 
 
 class LoginPage extends StatefulWidget {
@@ -146,8 +147,13 @@ class _LoginPageState extends State<LoginPage> {
 
 
       _loginFormKey.currentState!.save();
-      Helper.login(mail, psw);
+      await Helper.login(mail, psw);
 
+      /* burada sayfa donusumleri ayarlanmalı */
+      if ( Helper.isLogin ) loginTrue();
+      else ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Wrong email or password...')),
+      );
     }
   }
 }
