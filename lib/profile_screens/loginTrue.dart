@@ -158,6 +158,11 @@ class _loginTrueState extends State<loginTrue> {
           Icons.notification_important,
           "Computer Society Bildirimleri \n Elk müh bildirimleri \n Comsoc Bildirimleri \n Genel Okul Duyuruları",
         ),
+        ElevatedButton(onPressed: () {
+
+        }, child: Text("Çıkış Yap"))
+        // LOG OUT EKLENECEK
+
       ],
     ));
   }
