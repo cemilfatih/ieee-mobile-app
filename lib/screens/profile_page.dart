@@ -5,6 +5,7 @@ import "package:ieee_mobile_app/profile_screens/signupPage.dart";
 import 'package:provider/provider.dart';
 import 'package:ieee_mobile_app/constants/stateData.dart';
 import 'package:ieee_mobile_app/profile_screens/loginTrue.dart';
+import 'package:ieee_mobile_app/helper/helper.dart';
 
 class profile_page extends StatefulWidget {
   const profile_page({super.key});
@@ -24,8 +25,13 @@ class _profile_pageState extends State<profile_page> {
     var width = MediaQuery.of(context).size.width;
 
     var _pages = [
-      loginTrue(), // GİRİŞ YAPTIYSA GÖZÜKECEK EKRAN
-      notLogin(), // GİRİŞ YAPMAN GEREK EKRANI
+
+      if ( Helper.isLogin ) loginTrue()
+      else notLogin()
+
+     // loginTrue(), // GİRİŞ YAPTIYSA GÖZÜKECEK EKRAN
+     // notLogin(), // GİRİŞ YAPMAN GEREK EKRANI
+
       //LoginPage(), // GİRİŞ YAPMA EKRANI
       //SignupPage(), // KAYIT OLMANI EKRANI
     ];

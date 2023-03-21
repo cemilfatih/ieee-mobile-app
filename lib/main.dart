@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ieee_mobile_app/ieee_gtu_screens/etkinlik_kayit.dart';
 import 'package:ieee_mobile_app/logic/isLoading.dart';
 import 'package:ieee_mobile_app/logic/mail_verify.dart';
 import 'package:ieee_mobile_app/screens/ana_sayfa.dart';
@@ -15,6 +16,10 @@ import 'package:provider/provider.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:ieee_mobile_app/ieee_gtu_screens/NOTUSINGregister.dart';
 import 'package:ieee_mobile_app/ieee_gtu_screens/NOTUSINGlogin.dart';
+
+
+import 'helper/helper.dart';
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -79,6 +84,9 @@ class _HomeState extends State<Home> {
     var sol_bosluk = width * 0.05;
     final ieee_icon = "lib/assets/images/ieee_icon.png";
     final gtu_icon = "lib/assets/images/gtü_icon.png";
+
+    // checking user is already login or not
+    Helper.loginwithID();
 
     var _pages = [
 

@@ -1,5 +1,8 @@
 import "package:flutter/material.dart";
 
+import "package:ieee_mobile_app/helper/user.dart";
+import 'package:ieee_mobile_app/ieee_gtu_screens/etkinlik_kayit.dart';
+
 // Column loginTrue(double height, double width) {
 //   return Column(
 //     mainAxisAlignment: MainAxisAlignment.center,
@@ -80,12 +83,15 @@ class _loginTrueState extends State<loginTrue> {
     var width = MediaQuery.of(context).size.width;
 
     return Scaffold(
+
       // SADECE KOMİTE BASKANINA  GÖZÜKECEK 2 BUTON
         floatingActionButton: Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               FloatingActionButton( backgroundColor: Colors.red,
-                onPressed: () => {},
+                onPressed: () => {
+
+                },
                 // ETKİNLİK KATILIMCILARINI LİSTELEYEN SAYFAYA SAYFAYA GİDER
                 child: Icon(Icons.event),
                 heroTag: "etkinlik",
@@ -108,14 +114,19 @@ class _loginTrueState extends State<loginTrue> {
               NetworkImage('https://www.example.com/images/profile.jpg'),
         ),
         Text(
-          'Melih Tumur',
+
+          "${user.currentUser.name[0].toUpperCase()}${user.currentUser.name.substring(1).toLowerCase()}" + " "
+              "${user.currentUser.surname[0].toUpperCase()}${user.currentUser.surname.substring(1).toLowerCase()}",
+
           style: TextStyle(
             fontSize: height / 20,
             fontWeight: FontWeight.bold,
           ),
         ),
         Text(
-          'COMPUTER SOCIETY',
+
+          user.currentUser.committee,
+
           style: TextStyle(
             fontSize: height / 45,
             color: Colors.teal[100],
@@ -130,7 +141,9 @@ class _loginTrueState extends State<loginTrue> {
             color: Colors.teal.shade100,
           ),
         ),
-        tercih_card(height, Icons.school, "Elektronik Mühendisliği"),
+
+        tercih_card(height, Icons.school, user.currentUser.department),
+
         tercih_card(
           height,
           Icons.notification_important,
