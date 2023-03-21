@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:ieee_mobile_app/ieee_gtu_screens/etkinlik_kayit.dart';
 import 'package:ieee_mobile_app/ieee_gtu_screens/yoklama.dart';
 import '../constants/menu_button.dart';
 import 'package:ieee_mobile_app/ieee_gtu_screens/btg.dart';
-import 'package:ieee_mobile_app/ieee_gtu_screens/etkinlik_kayit.dart';
 import 'package:ieee_mobile_app/ieee_gtu_screens/etkinlik_takvimi.dart';
 import 'package:ieee_mobile_app/ieee_gtu_screens/haberler.dart';
 import 'package:ieee_mobile_app/ieee_gtu_screens/idari_kurul.dart';

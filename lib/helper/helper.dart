@@ -25,9 +25,9 @@ class Helper with firebaseMixin, ChangeNotifier{
      FirebaseFirestore.instance.collection('users');
      final currentUser = await Helper().createUser(mail, password);
 
-     final CollectionReference _userRef =
-     FirebaseFirestore.instance.collection('user');
-     final currentUser = await Helper().createUser(mail, password);
+     // final CollectionReference _userRef =
+     // FirebaseFirestore.instance.collection('user');
+     // final currentUser = await Helper().createUser(mail, password);
 
      final registerUser = user(
         id: currentUser!.uid,

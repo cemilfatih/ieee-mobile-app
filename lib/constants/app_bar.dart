@@ -35,12 +35,12 @@ class app_bar extends StatelessWidget {
               Scaffold.of(context).openDrawer();
             });
       }),
-      actions: [
-        IconButton(
-            padding: EdgeInsets.fromLTRB(0.0, height / 36, 0.0, 0.0),
-            icon: Icon(Icons.settings, color: Colors.blueAccent, size: 30),
-            onPressed: () {})
-      ],
+      // actions: [
+      //   IconButton(
+      //       padding: EdgeInsets.fromLTRB(0.0, height / 36, 0.0, 0.0),
+      //       icon: Icon(Icons.settings, color: Colors.blueAccent, size: 30),
+      //       onPressed: () {})
+      // ],
     );
   }
 }

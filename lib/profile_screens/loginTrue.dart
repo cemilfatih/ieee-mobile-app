@@ -1,7 +1,8 @@
 import "package:flutter/material.dart";
-
 import "package:ieee_mobile_app/helper/user.dart";
-import 'package:ieee_mobile_app/ieee_gtu_screens/etkinlik_kayit.dart';
+import 'package:ieee_mobile_app/ieee_gtu_screens/etkinlik_kayit_panel.dart';
+import 'etkinlik_kontrol.dart';
+import 'yoklama_kontrol.dart';
 
 // Column loginTrue(double height, double width) {
 //   return Column(
@@ -90,7 +91,10 @@ class _loginTrueState extends State<loginTrue> {
             children: [
               FloatingActionButton( backgroundColor: Colors.red,
                 onPressed: () => {
-
+                Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => etkinlik_kontrol()),
+                )
                 },
                 // ETKİNLİK KATILIMCILARINI LİSTELEYEN SAYFAYA SAYFAYA GİDER
                 child: Icon(Icons.event),
@@ -98,7 +102,12 @@ class _loginTrueState extends State<loginTrue> {
               ),
               SizedBox(width: 10,),
               FloatingActionButton(
-                onPressed: () => {},
+                onPressed: () => {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => yoklama_kontrol()),
+                  )
+                },
                 // YOKLAMAYI LİSTEYELEN SAYFAYA GİDER
                 child: Icon(Icons.person_off),
                 heroTag: "yoklama",
@@ -149,6 +158,11 @@ class _loginTrueState extends State<loginTrue> {
           Icons.notification_important,
           "Computer Society Bildirimleri \n Elk müh bildirimleri \n Comsoc Bildirimleri \n Genel Okul Duyuruları",
         ),
+        ElevatedButton(onPressed: () {
+
+        }, child: Text("Çıkış Yap"))
+        // LOG OUT EKLENECEK
+
       ],
     ));
   }

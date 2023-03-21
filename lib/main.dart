@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ieee_mobile_app/ieee_gtu_screens/etkinlik_kayit.dart';
+import 'package:ieee_mobile_app/ieee_gtu_screens/etkinlik_kayit_panel.dart';
 import 'package:ieee_mobile_app/logic/isLoading.dart';
 import 'package:ieee_mobile_app/logic/mail_verify.dart';
 import 'package:ieee_mobile_app/screens/ana_sayfa.dart';
