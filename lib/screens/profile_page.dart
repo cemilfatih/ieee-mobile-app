@@ -25,8 +25,13 @@ class _profile_pageState extends State<profile_page> {
     var width = MediaQuery.of(context).size.width;
 
     var _pages = [
+
       if ( Helper.isLogin ) loginTrue()
       else notLogin()
+
+     // loginTrue(), // GİRİŞ YAPTIYSA GÖZÜKECEK EKRAN
+     // notLogin(), // GİRİŞ YAPMAN GEREK EKRANI
+
       //LoginPage(), // GİRİŞ YAPMA EKRANI
       //SignupPage(), // KAYIT OLMANI EKRANI
     ];

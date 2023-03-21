@@ -19,6 +19,7 @@ class _etkinlik_kayitState extends State<etkinlik_kayit> {
   final dateController = TextEditingController();
 
   @override
+
   Widget build(BuildContext context) => Scaffold(
     appBar: AppBar(
       title: Text('etkinlik_kayit'),

@@ -25,6 +25,10 @@ class Helper with firebaseMixin, ChangeNotifier{
      FirebaseFirestore.instance.collection('users');
      final currentUser = await Helper().createUser(mail, password);
 
+     final CollectionReference _userRef =
+     FirebaseFirestore.instance.collection('user');
+     final currentUser = await Helper().createUser(mail, password);
+
      final registerUser = user(
         id: currentUser!.uid,
         name: name,
@@ -35,8 +39,10 @@ class Helper with firebaseMixin, ChangeNotifier{
         department: department,
         committee: committee,
         password: password,
+
         level: 1,
          katEtkinlikler: <String>[],
+
      );
 
 
@@ -47,6 +53,7 @@ class Helper with firebaseMixin, ChangeNotifier{
 
 
   }
+
   static Future<void> loginwithID() async {
     // checking user is already login or not
 
@@ -58,6 +65,7 @@ class Helper with firebaseMixin, ChangeNotifier{
         isLogin = await Helper().loginUserWithId(id) ? true : false;
     }
   }
+
   static Future<void> login(mail, password) async {
 
     isLogin = await  Helper().loginUser(mail, password) ? true : false;

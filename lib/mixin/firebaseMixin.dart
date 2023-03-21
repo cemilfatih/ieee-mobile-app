@@ -8,6 +8,7 @@ import 'package:ieee_mobile_app/helper/user.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 
+
 mixin firebaseMixin {
 
   final fire_auth = FirebaseAuth.instance;
@@ -49,7 +50,12 @@ mixin firebaseMixin {
     }
 
   }
+
   Future<bool> loginUserWithId(id) async{
+
+
+ // Future<bool> loginUser(String email , String password) async{
+
     try{
       bool flag = false;
 
@@ -113,6 +119,11 @@ mixin firebaseMixin {
         await prefs.setString('user', user.currentUser.id);
       }
       return flag;
+
+    //  await fire_auth.signInWithEmailAndPassword(email: email, password: password);
+
+     // return true;
+
 
     }catch(error){
       print(error.toString());
