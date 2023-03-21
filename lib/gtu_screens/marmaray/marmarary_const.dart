@@ -2,7 +2,7 @@ int kacDkKaldi(route) {
   DateTime now = DateTime.now();
   DateTime turkishTime = now.toUtc().add(Duration(hours: 3));
   int currentMinuteOfDay = turkishTime.hour * 60 + turkishTime.minute;
-  while (true) {
+  // while (true) {
     for (String trainTime in route) {
       int trainHour = int.parse(trainTime.split('.')[0]);
       int trainMinute = int.parse(trainTime.split('.')[1]);
@@ -12,8 +12,8 @@ int kacDkKaldi(route) {
         return trainMinuteOfDay - currentMinuteOfDay;
       }
     }
-  }
-  // return -1; // if all train times are in the past, return -1 to indicate an error
+ // }
+   return -1; // if all train times are in the past, return -1 to indicate an error
 }
 
 
