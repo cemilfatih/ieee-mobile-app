@@ -1,4 +1,6 @@
 
+import 'dart:ffi';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class etkinlik{
@@ -7,15 +9,15 @@ class etkinlik{
   final String id;
   final String not;
   final String komite;
-  final Timestamp date;
-  final List<dynamic> katilimcilar;
+  final String tarih;
+  final List<String> katilimcilar;
 
 
   etkinlik({
     this.id="id",
     required this.ad,
     required this.not,
-    required this.date,
+    required this.tarih,
     required this.komite,
     required this.katilimcilar,
   });
@@ -27,7 +29,7 @@ class etkinlik{
     'id':id,
     'ad':ad,
     'not':not,
-    'date':date,
+    'date':tarih,
     'komite':komite,
     'katilimcilar':katilimcilar,
 
@@ -37,7 +39,7 @@ class etkinlik{
     id: json['id'],
     ad: json['ad'],
     not: json['not'],
-    date: json['date'],
+    tarih: json['tarih'],
     komite: json['komite'],
     katilimcilar: json['katilimcilar'],
   );

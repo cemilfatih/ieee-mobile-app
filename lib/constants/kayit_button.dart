@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-
+import 'package:ieee_mobile_app/helper/etkinlik.dart';
+import 'package:ieee_mobile_app/helper/helper.dart';
 import 'package:ieee_mobile_app/main.dart';
+
 
 class kayit_button extends StatefulWidget {
   // Color renk1;
@@ -8,15 +10,15 @@ class kayit_button extends StatefulWidget {
   String aciklama;
   String baslik;
   String tarih ;
+  String etkinlikID;
 
-  kayit_button(this.aciklama, this.baslik ,this.tarih );
+  kayit_button(this.aciklama, this.baslik ,this.tarih , this.etkinlikID);
   //int get rota => rota ;
 
   @override
   State<kayit_button> createState() => _kayit_buttonState();
 }
 class _kayit_buttonState extends State<kayit_button> {
-
 
 
   @override
@@ -70,7 +72,7 @@ class _kayit_buttonState extends State<kayit_button> {
             ),),
             Expanded(flex: 1 ,
                 child: ElevatedButton(onPressed: () {
-
+                  Helper.userEtkinlikKayit(widget.etkinlikID);
                 },
                 child: Text("KATIL"),
                 ),
