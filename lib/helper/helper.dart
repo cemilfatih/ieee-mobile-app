@@ -14,7 +14,7 @@ class Helper with firebaseMixin, ChangeNotifier{
   static bool isLogin = false;
   static bool isVerified = false;
   late user registerUser;
-
+  static int etkinlikSayisi = 0;
 
   static Future<void> register(name, surname, mail, telNum, sClass, department, committee, password) async {
 
@@ -88,7 +88,25 @@ class Helper with firebaseMixin, ChangeNotifier{
     await docEtkinliker.set(json);
 
   }
+  static Future<int> etkinlikSayisiHesapla() async{
+    etkinlikSayisi = 0;
 
+    await FirebaseFirestore.instance
+        .collection('etkinlikler')
+        .get()
+        .then((QuerySnapshot querySnapshot){
+      querySnapshot.docs.forEach((doc) {
+          if(doc["komite"] == user.currentUser.committee) {
+            print("heerrre********");
+            etkinlikSayisi++;
+          }
+        });
+    });
+
+
+
+    return etkinlikSayisi;
+  }
   static void logout(){
     isLogin = false;
   }

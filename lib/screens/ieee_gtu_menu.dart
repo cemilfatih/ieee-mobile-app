@@ -15,10 +15,10 @@ import 'package:ieee_mobile_app/constants/stateData.dart';
 
 
 class ieee_gtu_menu extends StatefulWidget {
+
   const ieee_gtu_menu({
     Key? key,
   }) : super(key: key);
-
   @override
   State<ieee_gtu_menu> createState() => _ieee_gtu_menuState();
 }
@@ -68,6 +68,7 @@ class _ieee_gtu_menuState extends State<ieee_gtu_menu> {
           return false;
         },
         child: Scaffold(
+
           body: pages[defaultIndex],
         ),);
     }
@@ -111,7 +112,7 @@ var rota = [
 ];
 
 var colours = [
-  Colors.purple,
+  yellow1,
   red1,
   red1,
   yellow1,
@@ -129,7 +130,7 @@ var colours = [
   yellow1
 ];
 var colours2 = [
-  Colors.black54,
+  yellow2,
   red2,
   red2,
   yellow2,
