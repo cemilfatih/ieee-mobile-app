@@ -74,8 +74,8 @@ mixin firebaseMixin {
                 department: doc["department"],
                 committee: doc["committee"],
                 password: doc["password"],
-                level: doc["level"],
-                katEtkinlikler: doc["katEtkinlikler"]);
+                level: doc["level"]
+            );
             flag = true;
           }
         });
@@ -108,8 +108,7 @@ mixin firebaseMixin {
                  department: doc["department"],
                  committee: doc["committee"],
                  password: doc["password"],
-                 level: doc["level"],
-                 katEtkinlikler: doc["katEtkinlikler"]);
+                 level: doc["level"],);
              flag = true;
            }
          });

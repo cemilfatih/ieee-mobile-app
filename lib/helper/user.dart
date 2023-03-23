@@ -1,4 +1,7 @@
 
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:ieee_mobile_app/helper/helper.dart';
+
 class user{
   static user currentUser = user(id: "-1",
       name: "name",
@@ -9,10 +12,9 @@ class user{
       department: "department",
       committee: "committee",
       password: "password",
-      level: 1,
-      katEtkinlikler: <String>[]);
+      level: 1);
 
-  final String id;
+  late final String id;
   final String name;
   final String surname;
   final String mail;
@@ -21,7 +23,6 @@ class user{
   final String department;
   final String committee;
   final String password;
-  final List<dynamic> katEtkinlikler;
   final int level;
 
 
@@ -38,7 +39,6 @@ class user{
     required this.committee,
     required this.password,
     required this.level,
-    required this.katEtkinlikler,
 });
 
 //  User(this._id,this._name, this._surname, this._mail, this._telNum, this._sClass,
@@ -55,7 +55,6 @@ class user{
     'department':department,
     'committee':committee,
     'level':level,
-    'katEtkinlikler': {},
   };
 
   static user fromJson(Map<String, dynamic> json) => user(
@@ -69,7 +68,13 @@ class user{
     committee: json['committee'],
     password: json['password'],
     level: json['level'],
-      katEtkinlikler: json['katEtkinlikler'],
   );
 
+  Future<void> logout() async {
+    SharedPreferences preferences = await SharedPreferences.getInstance();
+    await preferences.clear();
+
+    this.id = "-1";
+    Helper.logout();
+  }
 }

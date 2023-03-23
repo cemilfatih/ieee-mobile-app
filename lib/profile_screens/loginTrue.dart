@@ -1,6 +1,8 @@
 import "package:flutter/material.dart";
 import "package:ieee_mobile_app/helper/user.dart";
+import "package:ieee_mobile_app/helper/helper.dart";
 import 'package:ieee_mobile_app/ieee_gtu_screens/etkinlik_kayit_panel.dart';
+import 'package:ieee_mobile_app/mixin/firebaseMixin.dart';
 import 'etkinlik_kontrol.dart';
 import 'yoklama_kontrol.dart';
 
@@ -159,6 +161,8 @@ class _loginTrueState extends State<loginTrue> {
           "Computer Society Bildirimleri \n Elk müh bildirimleri \n Comsoc Bildirimleri \n Genel Okul Duyuruları",
         ),
         ElevatedButton(onPressed: () {
+
+          user.currentUser.logout();
 
         }, child: Text("Çıkış Yap"))
         // LOG OUT EKLENECEK

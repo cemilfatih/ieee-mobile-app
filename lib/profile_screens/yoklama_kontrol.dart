@@ -2,6 +2,7 @@
 // 2 ADET TABLO OLUR SÜREKLİ ONLAR GĞNCELLENİR
 
 import "package:flutter/material.dart";
+import 'package:ieee_mobile_app/helper/helper.dart';
 import "package:ieee_mobile_app/helper/user.dart";
 import 'package:ieee_mobile_app/ieee_gtu_screens/etkinlik_kayit_panel.dart';
 import 'etkinlik_kontrol.dart';
@@ -31,8 +32,6 @@ import 'etkinlik_kontrol.dart';
 //
 
 
-
-
 class yoklama_kontrol extends StatefulWidget {
   const yoklama_kontrol({Key? key}) : super(key: key);
 
@@ -44,14 +43,23 @@ class _yoklama_kontrolState extends State<yoklama_kontrol> {
   @override
   Widget build(BuildContext context) {
 
+
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
 
 
-    List<String>  yoklamalist1 = ["A - BİLGİLER" , "B- BİLGİLER","A - BİLGİLER" , "B- BİLGİLER","A - BİLGİLER" , "B- BİLGİLER","A - BİLGİLER" , "B- BİLGİLER"] ;
+    List<String>  yoklamalist1 = ["YOKLAMA BILGILER" ] ;
+
     //KATILIMCI LİSTESİ  BURAYA EKLENMELİ
 
-    List<String>  yoklamalist2 = ["A - BİLGİLER" , "B- BİLGİLER","A - BİLGİLER" , "B- BİLGİLER","A - BİLGİLER" , "B- BİLGİLER","A - BİLGİLER" , "B- BİLGİLER"] ;
+    for(int etkinlik = 0 ; etkinlik < Helper.etkinlikListesi.length - 1; etkinlik++){
+      yoklamalist1.add("Etkinlik" + (etkinlik + 1).toString() );
+      for(int idx = 0; idx < Helper.etkinlikListesi[etkinlik].length; idx++){
+        print("here");
+        yoklamalist1.add(Helper.etkinlikListesi[etkinlik][idx]);
+      }
+    }
+
     //KATILIMCI LİSTESİ  BURAYA EKLENMELİ
 
     return Scaffold(
@@ -68,18 +76,6 @@ class _yoklama_kontrolState extends State<yoklama_kontrol> {
                   );
                 },
               ),),
-            Container(
-              decoration: BoxDecoration(color: Colors.yellow),
-              height: height/3,
-              child: ListView.builder(
-                itemCount: yoklamalist2.length,
-                itemBuilder: (BuildContext context, int index) {
-                  return ListTile(
-                    title: Text(yoklamalist2[index],textAlign: TextAlign.center ,style: TextStyle(fontSize: 20,color: Colors.black)),
-                  );
-                },
-              ),),
-
 
             // tercih_card(height, Icons.school, user.currentUser.department ),
             // tercih_card(

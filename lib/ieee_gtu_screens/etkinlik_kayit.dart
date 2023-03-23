@@ -5,10 +5,7 @@ import 'package:ieee_mobile_app/constants/kayit_button.dart';
 import 'package:ieee_mobile_app/helper/user.dart'    ;
 
 void main()  {
-
-
-  Helper.etkinlikSayisiHesapla();
-  print("hello");
+user.currentUser.level;
   runApp(const etkinlik_kayit());
 }
 
@@ -29,7 +26,9 @@ class _etkinlik_kayitState extends State<etkinlik_kayit> {
 
       child: Scaffold(
 
-        floatingActionButton: FloatingActionButton(
+        floatingActionButton : Visibility(
+          visible: user.currentUser.level > 1,
+          child: FloatingActionButton(
             onPressed: () {
               Navigator.push(
                 context,
@@ -37,13 +36,14 @@ class _etkinlik_kayitState extends State<etkinlik_kayit> {
               );
             },
             child: Icon(Icons.add_circle_outline_rounded),
-            backgroundColor: Colors.indigo),
+            backgroundColor: Colors.indigo)
+    ),
         body: Column(
             children: [
 
-              for( int x = 0; x <= Helper.etkinlikSayisi ;x++)...[
+              for( int x = 0; x < Helper.etkinlikSayisi ;x++)...[
                 Container(
-                child: kayit_button("acıklama,acıklama,acıklama,acıklama,acıklama,acıklama,acıklama,acıklama,acıklama,acıklama,acıklama,acıklama", "baslik" , "1.1.2022"),
+                child:  kayit_button(Helper.etkinlikler[x][2], Helper.etkinlikler[x][0] , Helper.etkinlikler[x][1], Helper.etkinlikler[x][3]),
                 ),
               ],
             ],

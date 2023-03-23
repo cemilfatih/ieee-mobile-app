@@ -23,9 +23,14 @@ import 'helper/helper.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
 
+  await Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform,);
+
+// checking user is already login or not
+  Helper.loginwithID();
+  await Helper.etkinlikSayisiHesapla();
+  await Helper.yoneticiEtkinlik();
 
   runApp(ChangeNotifierProvider(
       create: (BuildContext context) => StateData(), child: const main_page()));
@@ -84,9 +89,6 @@ class _HomeState extends State<Home> {
     var sol_bosluk = width * 0.05;
     final ieee_icon = "lib/assets/images/ieee_icon.png";
     final gtu_icon = "lib/assets/images/gtü_icon.png";
-
-    // checking user is already login or not
-    Helper.loginwithID();
 
     var _pages = [
 
