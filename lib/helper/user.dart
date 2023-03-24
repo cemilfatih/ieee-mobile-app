@@ -55,6 +55,7 @@ class user{
     'department':department,
     'committee':committee,
     'level':level,
+    'katEtkinlikler': [],
   };
 
   static user fromJson(Map<String, dynamic> json) => user(
