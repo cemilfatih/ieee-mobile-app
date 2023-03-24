@@ -49,16 +49,18 @@ class _menu_buttonState extends State<menu_button> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Expanded(flex: 2,
+            Expanded(flex: 7,
               child: SizedBox(
                   width: width/7.5,
-                  height: height/5,
+                  height: height/4,
                   child: Image.asset(widget.image_adresi)),
             ),
-            Expanded(flex: 1 ,child: Text(widget.baslik,style: TextStyle(
-                color: widget.baslik_renk,
-                fontSize: height/50,
-                fontWeight: FontWeight.bold)
+            Expanded(flex: 4 ,child: SingleChildScrollView(
+              child: Text(widget.baslik, textAlign: TextAlign.center ,style: TextStyle(
+                  color: widget.baslik_renk,
+                  fontSize: height/50,
+                  fontWeight: FontWeight.bold)
+              ),
             ),)
           ],
         ),

@@ -15,10 +15,10 @@ import 'package:ieee_mobile_app/constants/stateData.dart';
 
 
 class ieee_gtu_menu extends StatefulWidget {
+
   const ieee_gtu_menu({
     Key? key,
   }) : super(key: key);
-
   @override
   State<ieee_gtu_menu> createState() => _ieee_gtu_menuState();
 }
@@ -68,6 +68,7 @@ class _ieee_gtu_menuState extends State<ieee_gtu_menu> {
           return false;
         },
         child: Scaffold(
+
           body: pages[defaultIndex],
         ),);
     }
@@ -76,7 +77,7 @@ class _ieee_gtu_menuState extends State<ieee_gtu_menu> {
 
 //
 var sekmeler = [
-  "BTG",
+  "Bilim ve Teknoloji \nGünleri",
   "Etkinlik Takvimi",
   "Etkinlik Kayıt",
   "Sosyal Medya",
@@ -87,7 +88,7 @@ var sekmeler = [
   "Yoklama"
 ];
 var sekme_resim = [
-  "lib/assets/images/btg.jpg",
+   "lib/assets/images/btg.png",
   "lib/assets/images/takvim3b.png",
   "lib/assets/images/kayit4b.png",
   "lib/assets/images/sosyalmedya1b.png",
