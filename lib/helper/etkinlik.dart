@@ -29,7 +29,7 @@ class etkinlik{
     'id':id,
     'ad':ad,
     'not':not,
-    'date':tarih,
+    'tarih':tarih,
     'komite':komite,
     'katilimcilar':katilimcilar,
 
