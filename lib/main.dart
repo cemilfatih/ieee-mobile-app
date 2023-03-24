@@ -24,8 +24,11 @@ import 'helper/helper.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
-
       options: DefaultFirebaseOptions.currentPlatform,);
+
+  SystemChrome.setPreferredOrientations(
+      [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
+    // YAN DÖNDÜRMEMESİ İÇİN KOD
 
   runApp(ChangeNotifierProvider(
       create: (BuildContext context) => StateData(), child: const main_page()));

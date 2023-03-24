@@ -28,11 +28,17 @@ class _MyHomePageState extends State<MyHomePage> {
     var res = await http.get(Uri.parse(
         'https://ieeegtu.com/haberler/'));
     final document = parser.parse(res.body);
-    var response = document.getElementsByClassName( 'jl_large_builder jl_nonav_margin jelly_homepage_builder jl-post-block-19394');
+    var response = document.getElementsByClassName( 'row main_content');
     List<haber_ieee> haberler = [];
     for (int i = 0; i < 8; i++) {
       haberler.add(haber_ieee(
           baslik: response[0]
+              .children[0]
+              .children[0]
+              .children[0]
+              .children[0]
+              .children[0]
+              .children[0]
               .children[i]
               .children[1]
               .children[0]
@@ -40,6 +46,12 @@ class _MyHomePageState extends State<MyHomePage> {
               .toString()
               .trim(),
           link: response[0]
+              .children[0]
+              .children[0]
+              .children[0]
+              .children[0]
+              .children[0]
+              .children[0]
               .children[i]
               .children[1]
               .children[0]
@@ -47,6 +59,7 @@ class _MyHomePageState extends State<MyHomePage> {
               .attributes['href']
               .toString()
               .trim()));
+
     }
     return haberler;
   }
