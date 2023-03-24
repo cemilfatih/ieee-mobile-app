@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-void main() {
-  runApp(const MyApp());
-}
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+
+class sosyal_icerik extends StatelessWidget {
+  const sosyal_icerik({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
