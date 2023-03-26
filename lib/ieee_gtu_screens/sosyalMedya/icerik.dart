@@ -47,11 +47,11 @@ class _imagesScreenState extends State<imagesScreen> {
   // DATABASEDEN GÜNCELlENECEK
 
   List<String> baslik = [
-    "BASLIK",
-    "BASLIK",
-    "BASLIK",
-    "BASLIK",
-    "BASLIK",
+    "ETKİNLİK BASLIGI",
+    "ETKİNLİK BASLIGI",
+    "ETKİNLİK BASLIGI",
+    "ETKİNLİK BASLIGI",
+    "ETKİNLİK BASLIGI",
   ];
   // DATABASEDEN GÜNCELlENECEK
 
@@ -73,50 +73,52 @@ class _imagesScreenState extends State<imagesScreen> {
           SizedBox(height: height/50),
           Container(
 
-            height: height / 1.5,
+            height: height / 1.35,
             child: PageView.builder(
 
               controller: _pageController,
               itemCount: imagesUrl.length,
-              itemBuilder: (_, index) => Card(
+              itemBuilder: (_, index) => Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Container(
+                    height: height / 2.3,
 
-                //borderOnForeground: true,
-                //shadowColor: colors[index],
-                //elevation: 5,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Container(
-                      height: height / 2.3,
-                      margin:  EdgeInsets.all(width/20),
-                      decoration: BoxDecoration(
-                        // color: Colors.grey,
-                        borderRadius: BorderRadius.circular(5),
-                        image: DecorationImage(
-                            image: NetworkImage(
-                              imagesUrl[index],
-                            ),
-                            fit: BoxFit.cover
-                        ),
+                    margin:  EdgeInsets.all(width/20),
+                    decoration: BoxDecoration(
+                      // color: Colors.grey,
+                      borderRadius: BorderRadius.only(topLeft: Radius.circular(30) , topRight: Radius.circular(30)),
+                      image: DecorationImage(
+                          image: NetworkImage(
+                            imagesUrl[index],
+                          ),
+                          fit: BoxFit.cover
                       ),
                     ),
-                    Container(
-                      height: height/7,
-                      width: width/1.5,
-                      child: SingleChildScrollView(
-                        child: Column(
-                          children: [
-                            Text(baslik[index], style: TextStyle(fontWeight: FontWeight.bold)),
-                            Text(texts[index] , ),
-                          ],
-                        ),),
-                    ),
-                  ],
-                ),
+                  ),
+                  Container(
+                    decoration: BoxDecoration(color: Color(0xff00609c), borderRadius: BorderRadius.only(bottomRight: Radius.circular(30) , bottomLeft: Radius.circular(30)) ),
+                    height: height/5,
+                    width: width/1.4,
+                    child: SingleChildScrollView(
+                      child: Column(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(2.0),
+                            child: Text(baslik[index], style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white , fontSize: 20)),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(12.0),
+                            child: Text(texts[index] , style: TextStyle(color: Colors.white) , ),
+                          ),
+                        ],
+                      ),),
+                  ),
+                ],
               ),
             ),
           ),
-          SizedBox( height : height/30),
+         // SizedBox( height : height/30),
           Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [

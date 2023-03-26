@@ -33,18 +33,21 @@ class _etkinlik_kayitState extends State<etkinlik_kayit> {
                   },
                   child: Icon(Icons.add_circle_outline_rounded),
                   backgroundColor: Colors.indigo)),
-          body: Column(
-            children: [
-              for (int x = 0; x < Helper.etkinlikSayisi; x++) ...[
-                Container(
-                  child: kayit_button(
-                      Helper.etkinlikler[x][2],
-                      Helper.etkinlikler[x][0],
-                      Helper.etkinlikler[x][1],
-                      Helper.etkinlikler[x][3]),
-                ),
+          body: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,mainAxisSize: MainAxisSize.max,
+              children: [
+                for (int x = 0; x < Helper.etkinlikSayisi; x++) ...[
+                  Container(width: double.infinity,
+                    child: kayit_button(
+                        Helper.etkinlikler[x][2],
+                        Helper.etkinlikler[x][0],
+                        Helper.etkinlikler[x][1],
+                        Helper.etkinlikler[x][3]),
+                  ),
+                ],
               ],
-            ],
+            ),
           )),
     );
   }
