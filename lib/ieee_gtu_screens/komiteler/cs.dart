@@ -10,7 +10,7 @@ var galeri2 = "https://via.placeholder.com/150";  // GALERİDEN FOTO SEÇER - PA
 var galeri3 = "https://via.placeholder.com/150";  // GALERİDEN FOTO SEÇER - PAKETİ VAR GALİBA IMAGEPİCKER
 var galeri4 = "https://via.placeholder.com/150";  // GALERİDEN FOTO SEÇER - PAKETİ VAR GALİBA IMAGEPİCKER
 var isim = "Melih Tumur";
-var posta = "melihtumur@ieeegtu.con";
+var posta = "melihtumur@ieeegtu.com";
 var tel = "05392613502";
 var bolum = "Elektronik Mühendisliği";
 var aboutCommite = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
@@ -55,7 +55,7 @@ class cs extends StatelessWidget {
 
                         ),
                         Text(
-                          'Computer Society Başkanı',
+                          'Computer Society',
                           textAlign:TextAlign.center,
                           style: TextStyle(
                             color: Color(0xff00609c),
@@ -162,12 +162,12 @@ class cs extends StatelessWidget {
                   ),
                   SizedBox(height: 8),
                   Container(
-                    height: 100,
+                    height: 240,
                     child: ListView(
                       scrollDirection: Axis.horizontal,
                       children: [
                         Container(
-                          width: 100,
+                          width: 192,
                           margin: EdgeInsets.only(right: 8),
                           color: Colors.grey,
                           child: Center(
@@ -175,7 +175,7 @@ class cs extends StatelessWidget {
                           ),
                         ),
                         Container(
-                          width: 100,
+                          width: 192,
                           margin: EdgeInsets.only(right: 8),
                           color: Colors.grey,
                           child: Center(
@@ -183,7 +183,7 @@ class cs extends StatelessWidget {
                           ),
                         ),
                         Container(
-                          width: 100,
+                          width: 192,
                           margin: EdgeInsets.only(right: 8),
                           color: Colors.grey,
                           child: Center(
@@ -191,7 +191,7 @@ class cs extends StatelessWidget {
                           ),
                         ),
                         Container(
-                          width: 100,
+                          width: 192,
                           margin: EdgeInsets.only(right: 8),
                           color: Colors.grey,
                           child: Center(

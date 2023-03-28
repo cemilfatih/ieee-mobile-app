@@ -52,9 +52,11 @@ dependencies:
   smooth_page_indicator: ^1.0.1
   html: ^0.15.2
   #flip_card: ^0.7.0
-  # webview_flutter: ^3.0.4
+  webview_flutter: ^3.0.4
+  photo_view: ^0.14.0
 
 dev_dependencies:
+#  flutter_native_splash: ^2.2.19
   flutter_launcher_icons: ^0.11.0
   flutter_test:
     sdk: flutter
@@ -64,6 +66,10 @@ flutter_icons:
   android: true
   ios: true
   image_path: lib/assets/images/app_icon.png
+
+#flutter_native_splash:
+#  image : lib/assets/images/splash.png
+#  color : "#00609c"
 
 
   # The "flutter_lints" package below contains a set of recommended lints to

@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:ieee_mobile_app/ieee_gtu_screens/etkinlik_kayit_panel.dart';
 import 'package:ieee_mobile_app/logic/isLoading.dart';
@@ -24,18 +25,52 @@ import 'helper/helper.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
+  SystemChrome.setPreferredOrientations(
+      [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
+    // YAN DÖNDÜRMEMESİ İÇİN KOD
+
   await Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform,);
-
 // checking user is already login or not
   Helper.loginwithID();
   await Helper.etkinlikSayisiHesapla();
   await Helper.yoneticiEtkinlik();
 
+
   runApp(ChangeNotifierProvider(
       create: (BuildContext context) => StateData(), child: const main_page()));
 
 }
+// //////////////////splash screen
+// class splash extends StatefulWidget {
+//   @override
+//   _splashState createState() => _splashState();
+// }
+//
+// class _splashState extends State<splash> {
+//   @override
+//   void initState() {
+//     super.initState();
+//     Future.delayed(Duration(seconds: 1), () {
+//       Navigator.push(
+//           context, MaterialPageRoute(builder: (context) => Home()));
+//     });
+//   }
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       body: Container(
+//         width: double.infinity,
+//         height: double.infinity,
+//         child: Container(child: Image(image: AssetImage("lib/assets/images/splash.png"),)),
+//         decoration: BoxDecoration(color: Color(0xff00609c)),
+//       ),
+//     );
+//   }
+// }
+// ////// splash screen
+
 
 class main_page extends StatelessWidget {
   const main_page({super.key});
@@ -45,20 +80,16 @@ class main_page extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return MultiProvider(
-
       providers: [
         ChangeNotifierProvider(create: (_) => StateData()),
         ChangeNotifierProvider(create: (_) => loading())
       ],
-
       child: MaterialApp(
-
         routes: {
           "/verifyPage"   :(context) => mailVerifyService(),
           "/registerPage" :(context) => register(),
           "/homePage"     :(context) => Home()
          },
-
         theme: ThemeData(
           fontFamily: "TitilliumWeb",
         ),

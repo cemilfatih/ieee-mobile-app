@@ -4,7 +4,7 @@
 import "package:flutter/material.dart";
 import "package:ieee_mobile_app/helper/user.dart";
 import 'package:ieee_mobile_app/ieee_gtu_screens/etkinlik_kayit_panel.dart';
-import 'etkinlik_kontrol.dart';
+import 'toplantı_yoklama_kontrol.dart';
 //
 // Card tercih_card(
 //     double height,
@@ -33,14 +33,14 @@ import 'etkinlik_kontrol.dart';
 
 
 
-class etkinlik_kontrol extends StatefulWidget {
-  const etkinlik_kontrol({Key? key}) : super(key: key);
+class toplanti_yoklama_kontrol extends StatefulWidget {
+  const toplanti_yoklama_kontrol({Key? key}) : super(key: key);
 
   @override
-  State<etkinlik_kontrol> createState() => _etkinlik_kontrolState();
+  State<toplanti_yoklama_kontrol> createState() => _toplanti_yoklama_kontrolState();
 }
 
-class _etkinlik_kontrolState extends State<etkinlik_kontrol> {
+class _toplanti_yoklama_kontrolState extends State<toplanti_yoklama_kontrol> {
   @override
   Widget build(BuildContext context) {
 

@@ -44,10 +44,7 @@ class _notLoginState extends State<notLogin> {
               ),
               onPressed: () {
 
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => LoginPage()),
-                );
+                Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
                 //   setState(() {
               //   Provider.of<StateData>(context, listen: false).newIndexProfile(1);
               // });

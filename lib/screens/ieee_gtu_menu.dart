@@ -77,7 +77,7 @@ class _ieee_gtu_menuState extends State<ieee_gtu_menu> {
 
 //
 var sekmeler = [
-  "BTG",
+  "Bilim ve Teknoloji \nGünleri",
   "Etkinlik Takvimi",
   "Etkinlik Kayıt",
   "Sosyal Medya",
@@ -88,7 +88,7 @@ var sekmeler = [
   "Yoklama"
 ];
 var sekme_resim = [
-  "lib/assets/images/btg.jpg",
+   "lib/assets/images/btg.png",
   "lib/assets/images/takvim3b.png",
   "lib/assets/images/kayit4b.png",
   "lib/assets/images/sosyalmedya1b.png",
@@ -112,7 +112,7 @@ var rota = [
 ];
 
 var colours = [
-  yellow1,
+  Colors.purple,
   red1,
   red1,
   yellow1,
@@ -130,7 +130,7 @@ var colours = [
   yellow1
 ];
 var colours2 = [
-  yellow2,
+  Colors.black54,
   red2,
   red2,
   yellow2,

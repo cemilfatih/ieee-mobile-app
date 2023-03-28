@@ -3,8 +3,8 @@ import "package:ieee_mobile_app/helper/user.dart";
 import "package:ieee_mobile_app/helper/helper.dart";
 import 'package:ieee_mobile_app/ieee_gtu_screens/etkinlik_kayit_panel.dart';
 import 'package:ieee_mobile_app/mixin/firebaseMixin.dart';
-import 'etkinlik_kontrol.dart';
-import 'yoklama_kontrol.dart';
+import 'toplantı_yoklama_kontrol.dart';
+import 'etkinlik_yoklama_kontrol.dart';
 
 // Column loginTrue(double height, double width) {
 //   return Column(
@@ -88,31 +88,42 @@ class _loginTrueState extends State<loginTrue> {
     return Scaffold(
 
       // SADECE KOMİTE BASKANINA  GÖZÜKECEK 2 BUTON
-        floatingActionButton: Row(
-            mainAxisAlignment: MainAxisAlignment.end,
+        floatingActionButton: Column(
+            mainAxisAlignment: MainAxisAlignment.end ,
             children: [
-              FloatingActionButton( backgroundColor: Colors.red,
-                onPressed: () => {
-                Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => etkinlik_kontrol()),
-                )
-                },
-                // ETKİNLİK KATILIMCILARINI LİSTELEYEN SAYFAYA SAYFAYA GİDER
-                child: Icon(Icons.event),
-                heroTag: "etkinlik",
-              ),
-              SizedBox(width: 10,),
-              FloatingActionButton(
-                onPressed: () => {
-                  Navigator.push(
+              Row( mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Text("Toplantı Yoklamaları"  , style: TextStyle(fontWeight: FontWeight.bold , color: Colors.red), ),
+                  SizedBox(width: 10,),
+                  FloatingActionButton( backgroundColor: Colors.red,
+                    onPressed: () => {
+                    Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => yoklama_kontrol()),
-                  )
-                },
-                // YOKLAMAYI LİSTEYELEN SAYFAYA GİDER
-                child: Icon(Icons.person_off),
-                heroTag: "yoklama",
+                    MaterialPageRoute(builder: (context) => toplanti_yoklama_kontrol()),
+                    )
+                    },
+                    // ETKİNLİK KATILIMCILARINI LİSTELEYEN SAYFAYA SAYFAYA GİDER
+                    child: Icon(Icons.perm_contact_cal_rounded),
+                    heroTag: "etkinlik",
+                  ),
+                ],
+              ),
+              Row( mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Text("Etkinlik Yoklamaları" , style: TextStyle(fontWeight: FontWeight.bold , color: Colors.blue),),
+                  SizedBox(width: 10),
+                  FloatingActionButton(
+                    onPressed: () => {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => etkinlik_yoklama_kontrol()),
+                      )
+                    },
+                    // YOKLAMAYI LİSTEYELEN SAYFAYA GİDER
+                    child: Icon(Icons.event_busy_outlined),
+                    heroTag: "yoklama",
+                  ),
+                ],
               ),
             ]
         ),

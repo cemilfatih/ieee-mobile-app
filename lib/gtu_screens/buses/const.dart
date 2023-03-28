@@ -48,19 +48,7 @@ List<String> busNames = [
 //aşağıdaki listenin ilk değerini 0 yap
 //diğer sayfada butona basınca hem sayfa indexi değişsin hem
 
-List<List<List<String>>> busTables = [
-  [[], []],
-  [[], []],
-  [[], []],
-  [[], []],
-  [[], []],
-  [[], []],
-  [[], []],
-  [[], []],
-  [[], []],
-  [[], []],
-  [[], []]
-];
+//
 
 Color yellow1 = Color(0xfff12711);
 Color yellow2 = Color(0xfff5af19);
@@ -155,4 +143,23 @@ var text_colours = [
   Colors.white,
   Colors.white,
   Colors.black
+];
+
+var busIcons = [
+  "lib/assets/images/bus2.png",
+  "lib/assets/images/bus2b.png",
+  "lib/assets/images/bus2b.png",
+  "lib/assets/images/bus2.png",
+  "lib/assets/images/bus2.png",
+  "lib/assets/images/bus2b.png",
+  "lib/assets/images/bus2b.png",
+  "lib/assets/images/bus2.png",
+  "lib/assets/images/bus2.png",
+  "lib/assets/images/bus2b.png",
+  "lib/assets/images/bus2b.png",
+  "lib/assets/images/bus2.png",
+  "lib/assets/images/bus2.png",
+  "lib/assets/images/bus2b.png",
+  "lib/assets/images/bus2b.png",
+  "lib/assets/images/bus2.png",
 ];
