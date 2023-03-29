@@ -1,4 +1,3 @@
-
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:ieee_mobile_app/helper/helper.dart';
 
@@ -56,6 +55,7 @@ class user{
     'committee':committee,
     'level':level,
     'katEtkinlikler': [],
+    'yapilanEtkinlikler': [],
   };
 
   static user fromJson(Map<String, dynamic> json) => user(

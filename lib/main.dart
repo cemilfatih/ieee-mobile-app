@@ -15,8 +15,7 @@ import 'package:flutter/services.dart';
 import 'package:ieee_mobile_app/constants/stateData.dart';
 import 'package:provider/provider.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:ieee_mobile_app/ieee_gtu_screens/NOTUSINGregister.dart';
-import 'package:ieee_mobile_app/ieee_gtu_screens/NOTUSINGlogin.dart';
+import 'package:ieee_mobile_app/profile_screens/signupPage.dart';
 
 
 import 'helper/helper.dart';
@@ -33,8 +32,6 @@ void main() async {
       options: DefaultFirebaseOptions.currentPlatform,);
 // checking user is already login or not
   Helper.loginwithID();
-  await Helper.etkinlikSayisiHesapla();
-  await Helper.yoneticiEtkinlik();
 
 
   runApp(ChangeNotifierProvider(
@@ -87,7 +84,7 @@ class main_page extends StatelessWidget {
       child: MaterialApp(
         routes: {
           "/verifyPage"   :(context) => mailVerifyService(),
-          "/registerPage" :(context) => register(),
+          "/registerPage" :(context) => SignupPage(),
           "/homePage"     :(context) => Home()
          },
         theme: ThemeData(
