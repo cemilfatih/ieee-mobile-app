@@ -91,7 +91,10 @@ class _loginTrueState extends State<loginTrue> {
         floatingActionButton: Column(
             mainAxisAlignment: MainAxisAlignment.end ,
             children: [
-              Row( mainAxisAlignment: MainAxisAlignment.end,
+              Visibility(
+                visible: user.currentUser.level > 1 ? true : false,
+                child:
+                Row( mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Text("Toplantı Yoklamaları"  , style: TextStyle(fontWeight: FontWeight.bold , color: Colors.red), ),
                   SizedBox(width: 10,),
@@ -107,9 +110,12 @@ class _loginTrueState extends State<loginTrue> {
                     heroTag: "etkinlik",
                   ),
                 ],
-              ),
+              ),),
+              Visibility(
+                visible: user.currentUser.level > 1 ? true : false,
+                child:
               Row( mainAxisAlignment: MainAxisAlignment.end,
-                children: [
+                children: <Widget>[
                   Text("Etkinlik Yoklamaları" , style: TextStyle(fontWeight: FontWeight.bold , color: Colors.blue),),
                   SizedBox(width: 10),
                   FloatingActionButton(
@@ -125,7 +131,8 @@ class _loginTrueState extends State<loginTrue> {
                   ),
                 ],
               ),
-            ]
+              ),
+            ],
         ),
         body: Column(
       mainAxisAlignment: MainAxisAlignment.center,

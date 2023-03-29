@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ieee_mobile_app/helper/helper.dart';
-import 'package:ieee_mobile_app/mixin/firebaseMixin.dart';
 import 'package:ieee_mobile_app/extensions/isValid.dart';
 import 'package:ieee_mobile_app/profile_screens/loginTrue.dart';
-import 'package:ieee_mobile_app/main.dart';
 
 
 class LoginPage extends StatefulWidget {
@@ -151,8 +149,7 @@ class _LoginPageState extends State<LoginPage> {
       await Helper.login(mail, psw);
 
       /* burada sayfa donusumleri ayarlanmalı */
-      Navigator.push(context, MaterialPageRoute(builder: (context) => main_page()));
-      if ( Helper.isLogin ) loginTrue() ;
+      if ( Helper.isLogin ) loginTrue();
       else ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('Wrong email or password...')),
       );

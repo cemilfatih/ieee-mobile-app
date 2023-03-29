@@ -1,21 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:ieee_mobile_app/screens/profile_page.dart';
+import 'package:ieee_mobile_app/ieee_gtu_screens/komiteler/onePageKomite.dart';
 import '../../constants/menu_button.dart';
-import 'cs.dart';
-import 'comsoc.dart';
-import 'eac.dart';
-import 'embs.dart';
-import 'external.dart';
-import 'girisim.dart';
-import 'ik.dart';
-import 'kariyer.dart';
-import 'malzeme.dart';
-import 'matematik.dart';
-import 'medya.dart';
-import 'pes.dart';
-import 'ras.dart';
-import 'wie.dart';
-
+import 'package:ieee_mobile_app/helper/helper.dart';
 
 class komiteler_menu extends StatefulWidget {
   const komiteler_menu({
@@ -31,7 +17,6 @@ class _komiteler_menuState extends State<komiteler_menu> {
 
   var defaultIndex = 0;
 
-  var pages = [null, cs(), comsoc(), eac(),embs(),externalr(),girisim(),ik(),kariyer(),malzeme(),matematik(),medya(),pes(),ras(),wie()];
 
   Widget build(BuildContext context) {
     if (defaultIndex == 0) {
@@ -46,6 +31,7 @@ class _komiteler_menuState extends State<komiteler_menu> {
             child: InkWell(
                 onTap: () {
                   setState(() {
+                    Helper.komitePage = index;
                     defaultIndex = rota[index];
                   });
                 },
@@ -68,7 +54,7 @@ class _komiteler_menuState extends State<komiteler_menu> {
           return false;
         },
         child: Scaffold(
-          body: pages[defaultIndex],
+          body: komite_one_page(),
         ),);
     }
   }

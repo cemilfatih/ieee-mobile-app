@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:ieee_mobile_app/extensions/isValid.dart';
-
 import '../helper/helper.dart';
+
+const List<String> komiteList = <String>['ComSoc', 'CS', 'EAC', 'EMBS', 'EXTERNALRELATIONS','Girisimcilik','ik','kariyer','malzeme','mat','medya','pes','ras','wie'];
+String secilenKomite = "";
 
 class SignupPage extends StatefulWidget {
   const SignupPage({Key? key}) : super(key: key);
@@ -184,22 +186,8 @@ class _SignupPageState extends State<SignupPage> {
                           }
                       ),
                       const SizedBox(height: 16,),
-                      CustomInputField(
-                          labelText: 'Komite',
-                          hintText: 'Kayıt Olduğunuz Komiteyi Giriniz',
-                          isDense: true,
-                          onSaved: (textValue){
-                            committee = textValue!;
-                          },
-                          validator: (textValue) {
+                      komiteSec(),
 
-                            if(textValue!.isNull){
-                              return 'This part can not be null';
-                            }
-
-                            return null;
-                          }
-                      ),
                       const SizedBox(height: 22,),
                       CustomFormButton(innerText: 'Kayıt Ol', onPressed: _handleSignupUser,),
                       const SizedBox(height: 18,),
@@ -240,7 +228,7 @@ class _SignupPageState extends State<SignupPage> {
       _signupFormKey.currentState!.save();
 
       // !!!!soy ad ve sınıf eklenmeli
-      await Helper.register( name, " surname ", mail, telNo, " class", department, committee, psw);
+      await Helper.register( name, " surname ", mail, telNo, " class", department, secilenKomite, psw);
 
     }
   }
@@ -381,6 +369,44 @@ class _CustomInputFieldState extends State<CustomInputField> {
           ),
         ],
       ),
+    );
+  }
+}
+
+class komiteSec extends StatefulWidget {
+  const komiteSec({super.key});
+
+  @override
+  State<komiteSec> createState() => _komiteSecState();
+}
+
+class _komiteSecState extends State<komiteSec> {
+  String dropdownValue = komiteList.first;
+
+  @override
+  Widget build(BuildContext context) {
+    return DropdownButton<String>(
+      value: dropdownValue,
+      icon: const Icon(Icons.arrow_downward),
+      elevation: 16,
+      style: const TextStyle(color: Colors.deepPurple),
+      underline: Container(
+        height: 2,
+        color: Colors.deepPurpleAccent,
+      ),
+      onChanged: (String? value) {
+        // This is called when the user selects an item.
+        setState(() {
+          dropdownValue = value!;
+          secilenKomite = dropdownValue.toLowerCase();
+        });
+      },
+      items: komiteList.map<DropdownMenuItem<String>>((String value) {
+        return DropdownMenuItem<String>(
+          value: value,
+          child: Text(value),
+        );
+      }).toList(),
     );
   }
 }

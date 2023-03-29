@@ -1,8 +1,3 @@
-
-import 'dart:ffi';
-
-import 'package:cloud_firestore/cloud_firestore.dart';
-
 class etkinlik{
 
   final String ad;
@@ -23,7 +18,7 @@ class etkinlik{
   });
 
 //  User(this._id,this._name, this._surname, this._mail, this._telNum, this._sClass,
-  //    this._department, this._committee, this._school, this._password);
+//    this._department, this._committee, this._school, this._password);
 
   Map<String, dynamic> toJson() => {
     'id':id,
@@ -32,6 +27,7 @@ class etkinlik{
     'tarih':tarih,
     'komite':komite,
     'katilimcilar':katilimcilar,
+    'katilanlar':[],
 
   };
 

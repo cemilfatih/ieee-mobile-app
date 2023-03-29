@@ -1,93 +1,106 @@
-// BU SAYFADA ETKİNLİK KATILIMCLARI LİSTELENECEK
-// 2 ADET TABLO OLUR SÜREKLİ ONLAR GĞNCELLENİR
-
 import "package:flutter/material.dart";
 import "package:ieee_mobile_app/helper/user.dart";
-import 'package:ieee_mobile_app/ieee_gtu_screens/etkinlik_kayit_panel.dart';
-import 'toplantı_yoklama_kontrol.dart';
-//
-// Card tercih_card(
-//     double height,
-//     icon,
-//     icerik,
-//     ) {
-//   return Card(
-//     margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 25.0),
-//     child: ListTile(
-//       leading: Icon(
-//         icon,
-//         color: Colors.teal,
-//       ),
-//       title: Text(
-//         icerik,
-//         style: TextStyle(
-//           // color: Colors.teal.shade900,
-//           fontSize: height / 45,
-//         ),
-//       ),
-//     ),
-//   );
-// }
-//
-
-
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 
 class toplanti_yoklama_kontrol extends StatefulWidget {
-  const toplanti_yoklama_kontrol({Key? key}) : super(key: key);
+  toplanti_yoklama_kontrol({Key? key}) : super(key: key);
 
   @override
-  State<toplanti_yoklama_kontrol> createState() => _toplanti_yoklama_kontrolState();
+  _toplanti_yoklama_kontrolState createState() => _toplanti_yoklama_kontrolState();
 }
 
 class _toplanti_yoklama_kontrolState extends State<toplanti_yoklama_kontrol> {
+
+  final databaseRef = FirebaseFirestore.instance;
+  List<String> uyeList = [] ;
+
+
+  bool _isLoading = true;
+
+  @override
+  void initState() {
+    super.initState();
+    loadData();
+  }
+
+  Future<void> loadData() async {
+    bool _isLoadingSecond = true;
+    List<String> idList = [] ;
+
+    await FirebaseFirestore.instance
+        .collection('komiteler')
+        .doc(user.currentUser.committee)
+        .get()
+        .then((value) {
+      List.from(value["uyeler"]).forEach((element)  async {
+        idList.add( element );
+      });
+      setState(() {
+        _isLoadingSecond = false;
+      });
+    });
+
+    while(_isLoadingSecond);
+    _isLoadingSecond = true;
+
+    for(int idx = 0 ; idx < idList.length; idx++){
+
+      await FirebaseFirestore.instance
+          .collection('users')
+          .doc(idList[idx])
+          .get()
+          .then((value) {
+            uyeList.add(value["name"] + " " + value["surname"] + "  " + value["telephone"]);
+            if(idx == idList.length-1){
+              setState(() {
+                _isLoadingSecond = false;
+              });
+            }
+      });
+    }
+
+    while(_isLoadingSecond);
+    _isLoading = false;
+
+  }
+
   @override
   Widget build(BuildContext context) {
 
-    var height = MediaQuery.of(context).size.height;
-    var width = MediaQuery.of(context).size.width;
-
-
-    List<String>  katilimcilist1 = ["A - BİLGİLER" , "B- BİLGİLER","A - BİLGİLER" , "B- BİLGİLER","A - BİLGİLER" , "B- BİLGİLER","A - BİLGİLER" , "B- BİLGİLER"] ;
-    //KATILIMCI LİSTESİ  BURAYA EKLENMELİ
-
-    List<String>  katilimcilist2 = ["A - BİLGİLER" , "B- BİLGİLER","A - BİLGİLER" , "B- BİLGİLER","A - BİLGİLER" , "B- BİLGİLER","A - BİLGİLER" , "B- BİLGİLER"] ;
-    //KATILIMCI LİSTESİ  BURAYA EKLENMELİ
-
     return Scaffold(
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Container(decoration: BoxDecoration(color: Colors.red),
-              height: height/3,
-              child: ListView.builder(
-              itemCount: katilimcilist1.length,
-              itemBuilder: (BuildContext context, int index) {
-                return ListTile(
-                  title: Text(katilimcilist1[index],textAlign: TextAlign.center ,style: TextStyle(fontSize: 20,color: Colors.black)),
-                );
-              },
-            ),),
-            Container(
-              decoration: BoxDecoration(color: Colors.greenAccent),
-              height: height/3,
-              child: ListView.builder(
-              itemCount: katilimcilist2.length,
-              itemBuilder: (BuildContext context, int index) {
-                return ListTile(
-                  title: Text(katilimcilist2[index],textAlign: TextAlign.center ,style: TextStyle(fontSize: 20,color: Colors.black)),
-                );
-              },
-            ),),
 
+      body: _isLoading
+          ? Center(
+        child: CircularProgressIndicator(),
+      )
+          : SafeArea(
+        child: Scaffold(
+            body: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Container(decoration: BoxDecoration(color: Colors.red),
+                  height: MediaQuery.of(context).size.height/3,
+                  child: ListView.builder(
+                    itemCount: uyeList.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      return ListTile(
+                        title: Text(uyeList[index],textAlign: TextAlign.center ,style: TextStyle(fontSize: 20,color: Colors.black)),
+                      );
+                    },
+                  ),),
 
-            // tercih_card(height, Icons.school, user.currentUser.department ),
-            // tercih_card(
-            //   height,
-            //   Icons.notification_important,
-            //   "Computer Society Bildirimleri \n Elk müh bildirimleri \n Comsoc Bildirimleri \n Genel Okul Duyuruları",
-            // ),
-          ],
-        ));
+                // tercih_card(height, Icons.school, user.currentUser.department ),
+                // tercih_card(
+                //   height,
+                //   Icons.notification_important,
+                //   "Computer Society Bildirimleri \n Elk müh bildirimleri \n Comsoc Bildirimleri \n Genel Okul Duyuruları",
+                // ),
+              ],
+            )),
+      ),
+    );
   }
 }
+
+
