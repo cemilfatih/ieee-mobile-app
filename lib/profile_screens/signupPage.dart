@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ieee_mobile_app/extensions/isValid.dart';
 import '../helper/helper.dart';
+import 'loginPage.dart';
 
 const List<String> komiteList = <String>['ComSoc', 'CS', 'EAC', 'EMBS', 'EXTERNALRELATIONS','Girisimcilik','ik','kariyer','malzeme','mat','medya','pes','ras','wie'];
 String secilenKomite = "";
@@ -228,8 +229,13 @@ class _SignupPageState extends State<SignupPage> {
       _signupFormKey.currentState!.save();
 
       // !!!!soy ad ve sınıf eklenmeli
-      await Helper.register( name, " surname ", mail, telNo, " class", department, secilenKomite, psw);
-
+      await Helper.register( name, "-", mail, telNo, "2", department, secilenKomite, psw);
+      if (Helper.isRegistered){
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const LoginPage()),
+        );
+      }
     }
   }
 }

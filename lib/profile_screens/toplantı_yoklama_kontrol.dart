@@ -33,7 +33,8 @@ class _toplanti_yoklama_kontrolState extends State<toplanti_yoklama_kontrol> {
         .doc(user.currentUser.committee)
         .get()
         .then((value) {
-      List.from(value["uyeler"]).forEach((element)  async {
+          if(value["toplantıyaKatılanlar"] == []) _isLoadingSecond = false;
+      List.from(value["toplantıyaKatılanlar"]).forEach((element)  async {
         idList.add( element );
       });
       setState(() {
@@ -60,6 +61,7 @@ class _toplanti_yoklama_kontrolState extends State<toplanti_yoklama_kontrol> {
       });
     }
 
+    if(idList.length == 0) _isLoadingSecond = false;
     while(_isLoadingSecond);
     _isLoading = false;
 
