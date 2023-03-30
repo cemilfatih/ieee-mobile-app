@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:ieee_mobile_app/helper/etkinlik.dart';
 import 'package:ieee_mobile_app/helper/helper.dart';
-import 'package:ieee_mobile_app/main.dart';
+import 'package:ieee_mobile_app/helper/user.dart';
 
 
 class kayit_button extends StatefulWidget {
@@ -19,7 +18,6 @@ class kayit_button extends StatefulWidget {
   State<kayit_button> createState() => _kayit_buttonState();
 }
 class _kayit_buttonState extends State<kayit_button> {
-
 
   @override
   Widget build(BuildContext context) {
@@ -83,9 +81,9 @@ class _kayit_buttonState extends State<kayit_button> {
                 child: Column( mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                    ElevatedButton(style: ElevatedButton.styleFrom( minimumSize: Size(height/10, height/12) , backgroundColor: Colors.black , shape: CircleBorder()) ,onPressed: () {
-                        Helper.userEtkinlikKayit(widget.etkinlikID);
+                        if(user.currentUser.id != "-1") Helper.userEtkinlikKayit(widget.etkinlikID);
                       },
-                        child: Text("KATIL" , style: TextStyle(color: Colors.white , fontWeight: FontWeight.bold)),
+                        child: Text(user.currentUser.id != "-1" ? "KATIL" : "Giriş Yapman Gerekli", style: TextStyle(color: Colors.white , fontWeight: FontWeight.bold)),
                       ),
                   ],
                 ),
