@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../sosyalMedya/sosyal_medya_panel.dart';
 import 'package:ieee_mobile_app/helper/helper.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:ieee_mobile_app/helper/user.dart';
@@ -39,9 +38,7 @@ class _komite_one_pageState extends State<komite_one_page> {
   Future<void> loadData() async {
     String komite = "comsoc";
     int komiteTiklanmasi = Helper.komitePage + 1;
-    print("*************");
-    print(komiteTiklanmasi);
-    print("*************");
+
     if(komiteTiklanmasi == 1) komite = "cs";
     else if(komiteTiklanmasi == 2) komite = "comsoc";
     else if(komiteTiklanmasi == 3) komite = "eac";

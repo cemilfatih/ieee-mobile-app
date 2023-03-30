@@ -17,6 +17,10 @@ class _btgState extends State<btg> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(child :Text("btg"));
+    return Column(mainAxisSize: MainAxisSize.max,mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Container(child :Image(image: AssetImage("lib/assets/images/yakında.png"),)),
+      ],
+    );
   }
 }

@@ -35,12 +35,31 @@ class app_bar extends StatelessWidget {
               Scaffold.of(context).openDrawer();
             });
       }),
-      // actions: [
-      //   IconButton(
-      //       padding: EdgeInsets.fromLTRB(0.0, height / 36, 0.0, 0.0),
-      //       icon: Icon(Icons.settings, color: Colors.blueAccent, size: 30),
-      //       onPressed: () {})
-      // ],
+      actions: [
+        IconButton(
+            padding: EdgeInsets.fromLTRB(0.0, height / 36, 0.0, 0.0),
+            icon: Image(image :AssetImage("lib/assets/images/info2.gif")),
+            onPressed: () {
+              showDialog(
+                context: context,
+                builder: (BuildContext context) {
+                  return AlertDialog(icon: Icon(Icons.help_center_outlined),
+                    title: Text('IEEE GTÜ MOBILE APP' , style: TextStyle(fontWeight: FontWeight.bold),),
+                    content: Text('Uygulamamız geliştirme aşamasındadır. Hata görürsen veya önerin olursa bize bildirir misin? \n \nieeegtu.mobileapp@gmail.com' ),
+                    actions: <Widget>[
+                      ElevatedButton(
+                        child: Text('Çıkış'),
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                      ),
+                    ],
+                  );
+                },
+              );
+
+            })
+      ],
     );
   }
 }

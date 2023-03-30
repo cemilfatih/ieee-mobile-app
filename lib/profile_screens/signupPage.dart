@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:ieee_mobile_app/extensions/isValid.dart';
 import '../helper/helper.dart';
+import 'loginPage.dart';
 
-const List<String> komiteList = <String>['ComSoc', 'CS', 'EAC', 'EMBS', 'EXTERNALRELATIONS','Girisimcilik','ik','kariyer','malzeme','mat','medya','pes','ras','wie'];
+const List<String> komiteList = <String>['Communication Society', 'Computer Society', 'EAC', 'EMBS', 'External Relations','Girisimcilik Komitesi','İnsan Kaynakları Komitesi','Kişisel Gelilişim ve K.','Malzeme Bilimi Komitesi','Matematik Komitesi','Medya ve Tasarım Komitesi','Power and Energy Society','Robotic and Automation Society','Woman in Engineering Society'];
 String secilenKomite = "";
 
 class SignupPage extends StatefulWidget {
@@ -186,7 +187,14 @@ class _SignupPageState extends State<SignupPage> {
                           }
                       ),
                       const SizedBox(height: 16,),
-                      komiteSec(),
+                      Container(
+                        child: Column(crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Text("Komite Seç  " , style: TextStyle(fontWeight: FontWeight.bold , fontSize: 17),),
+                            komiteSec(),
+                          ],
+                        ),
+                      ),
 
                       const SizedBox(height: 22,),
                       CustomFormButton(innerText: 'Kayıt Ol', onPressed: _handleSignupUser,),
@@ -228,8 +236,13 @@ class _SignupPageState extends State<SignupPage> {
       _signupFormKey.currentState!.save();
 
       // !!!!soy ad ve sınıf eklenmeli
-      await Helper.register( name, " surname ", mail, telNo, " class", department, secilenKomite, psw);
-
+      await Helper.register( name, "-", mail, telNo, "2", department, secilenKomite, psw);
+      if (Helper.isRegistered){
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const LoginPage()),
+        );
+      }
     }
   }
 }
@@ -389,7 +402,7 @@ class _komiteSecState extends State<komiteSec> {
       value: dropdownValue,
       icon: const Icon(Icons.arrow_downward),
       elevation: 16,
-      style: const TextStyle(color: Colors.deepPurple),
+      style: const TextStyle(color: Colors.black),
       underline: Container(
         height: 2,
         color: Colors.deepPurpleAccent,

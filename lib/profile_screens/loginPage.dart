@@ -3,6 +3,8 @@ import 'package:ieee_mobile_app/helper/helper.dart';
 import 'package:ieee_mobile_app/extensions/isValid.dart';
 import 'package:ieee_mobile_app/profile_screens/loginTrue.dart';
 
+import '../main.dart';
+
 
 class LoginPage extends StatefulWidget {
    const LoginPage({Key? key}) : super(key: key);
@@ -149,8 +151,12 @@ class _LoginPageState extends State<LoginPage> {
       await Helper.login(mail, psw);
 
       /* burada sayfa donusumleri ayarlanmalı */
-      if ( Helper.isLogin ) loginTrue();
-      else ScaffoldMessenger.of(context).showSnackBar(
+      if ( Helper.isLogin ) {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const main_page())
+        );
+      } else ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('Wrong email or password...')),
       );
     }

@@ -17,6 +17,10 @@ class _akademik_kadroState extends State<akademik_kadro> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(child :Text("Akademik Kadro"));
+    return Column(mainAxisSize: MainAxisSize.max,mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Container(child :Image(image: AssetImage("lib/assets/images/yakında.png"),)),
+      ],
+    );
   }
 }

@@ -1,8 +1,10 @@
 import "package:flutter/material.dart";
+import 'package:fluttertoast/fluttertoast.dart';
 import "package:ieee_mobile_app/helper/user.dart";
 import "package:ieee_mobile_app/helper/helper.dart";
 import 'package:ieee_mobile_app/ieee_gtu_screens/etkinlik_kayit_panel.dart';
 import 'package:ieee_mobile_app/mixin/firebaseMixin.dart';
+import '../main.dart';
 import 'toplantı_yoklama_kontrol.dart';
 import 'etkinlik_yoklama_kontrol.dart';
 
@@ -182,6 +184,19 @@ class _loginTrueState extends State<loginTrue> {
 
           user.currentUser.logout();
 
+          Fluttertoast.showToast(
+              msg: "Çıkış işlemlerin başarılı bir şekilde yapıldı!",
+              toastLength: Toast.LENGTH_SHORT,
+              gravity: ToastGravity.CENTER,
+              timeInSecForIosWeb: 1,
+              backgroundColor: Colors.amber,
+              textColor: Colors.white,
+              fontSize: 16.0
+          );
+          Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const main_page())
+          );
         }, child: Text("Çıkış Yap"))
         // LOG OUT EKLENECEK
 

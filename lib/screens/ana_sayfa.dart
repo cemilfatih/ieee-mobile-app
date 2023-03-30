@@ -80,7 +80,7 @@ class _ana_sayfaState extends State<ana_sayfa> {
                     child: Padding(
                       padding: EdgeInsets.only(left: widget.sol_bosluk),
                       child: Text(
-                          "Kampüste neye ihtiyacin varsa , hepsi burada.. ",
+                          "Kampüste neye ihtiyacin varsa , hepsi bu uygulamada... ",
                           textAlign: TextAlign.left,
                           style: TextStyle(
                               fontSize: widget.height / 70,

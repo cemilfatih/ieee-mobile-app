@@ -80,11 +80,13 @@ class _kayit_buttonState extends State<kayit_button> {
               Expanded(flex: 1,
                 child: Column( mainAxisAlignment: MainAxisAlignment.center,
                   children: [
+
                     ElevatedButton(style: ElevatedButton.styleFrom( minimumSize: Size(height/10, height/12) , backgroundColor: Colors.black , shape: CircleBorder()) ,onPressed: () {
                       if(user.currentUser.id != "-1") Helper.userEtkinlikKayit(widget.etkinlikID);
                     },
                       child: Text(user.currentUser.id != "-1" ? "KATIL" : "Giriş Yapman Gerekli", style: TextStyle(color: Colors.white , fontWeight: FontWeight.bold)),
                     ),
+
                   ],
                 ),
               ),
