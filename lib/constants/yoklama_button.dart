@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:ieee_mobile_app/helper/user.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
-import 'package:ieee_mobile_app/main.dart';
 
 class yoklama_button extends StatefulWidget {
 
-  String baslik;
+  String sifre;
   String tarih ;
 
-  yoklama_button( this.baslik ,this.tarih );
+  yoklama_button( this.sifre ,this.tarih );
   //int get rota => rota ;
 
   @override
@@ -15,7 +17,7 @@ class yoklama_button extends StatefulWidget {
 }
 class _yoklama_buttonState extends State<yoklama_button> {
 
-
+  final sifreController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -44,15 +46,26 @@ class _yoklama_buttonState extends State<yoklama_button> {
           ),
           borderRadius: BorderRadius.circular(60),//boy*0.28
         ),
+
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+
+            Expanded(flex: 1 ,child: TextField(
+              decoration: InputDecoration(
+                  border: InputBorder.none,
+                  labelText: 'Toplantı Şifresini Giriniz',
+                  hintText: 'Şifre'
+              ),
+              controller: sifreController,
+            ),),
             Expanded(flex: 1 ,child: Text(
-                widget.baslik, // KOMİTE İSMİ
+                user.currentUser.committee, // KOMİTE İSMİ
                 style: TextStyle(
                     fontSize: height/50,
                     fontWeight: FontWeight.bold)
             ),),
+
             Expanded(flex: 1 ,child: Text(
                 widget.tarih, // KOMİTE TARİHİ
                 style: TextStyle(
@@ -60,8 +73,25 @@ class _yoklama_buttonState extends State<yoklama_button> {
                 )
             ),),
             Expanded(flex: 1 ,
-              child: ElevatedButton(onPressed: () {
-
+              child: ElevatedButton(onPressed: () async{
+                FirebaseFirestore firestore = FirebaseFirestore.instance;
+                List<dynamic> l = [user.currentUser.id];
+                String msg = "Toplantı için girdiğin şifre yanlış! Komite Başkanından şifreni tekrar al!";
+                Color color = Colors.red;
+                if(widget.sifre == sifreController.text){
+                  firestore.collection("komiteler").doc(user.currentUser.committee).update({"toplantıyaKatılanlar": FieldValue.arrayUnion(l) });
+                  msg = "Toplantı yoklaman başarıyla alındı. Teşekkür ederiz";
+                  color = Colors.lightGreenAccent;
+                }
+                Fluttertoast.showToast(
+                    msg: msg,
+                    toastLength: Toast.LENGTH_SHORT,
+                    gravity: ToastGravity.CENTER,
+                    timeInSecForIosWeb: 1,
+                    backgroundColor: color,
+                    textColor: Colors.white,
+                    fontSize: 16.0
+                );
               },
                 child: Text("BURADAYIM"),
               ),

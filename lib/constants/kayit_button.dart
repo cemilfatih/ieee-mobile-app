@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:ieee_mobile_app/helper/etkinlik.dart';
 import 'package:ieee_mobile_app/helper/helper.dart';
-import 'package:ieee_mobile_app/main.dart';
+import 'package:ieee_mobile_app/helper/user.dart';
 
 
 class kayit_button extends StatefulWidget {
@@ -19,7 +18,6 @@ class kayit_button extends StatefulWidget {
   State<kayit_button> createState() => _kayit_buttonState();
 }
 class _kayit_buttonState extends State<kayit_button> {
-
 
   @override
   Widget build(BuildContext context) {
@@ -59,22 +57,22 @@ class _kayit_buttonState extends State<kayit_button> {
                   children: [
                     Expanded(flex: 1,
                       child: SizedBox(
-                          width: width/1.5,
-                          height: height/5,
-                          child: Text(widget.aciklama , textAlign: TextAlign.center , style: TextStyle(color: Colors.black),),// ACIKLAMA
+                        width: width/1.5,
+                        height: height/5,
+                        child: Text(widget.aciklama , textAlign: TextAlign.center , style: TextStyle(color: Colors.black),),// ACIKLAMA
                       ),
                     ),
                     Expanded(flex: 2 ,child: Text(
                         widget.baslik, // ETKİNLİĞİN İSMİ
                         style: TextStyle(
-                        fontSize: height/35,
-                        fontWeight: FontWeight.bold , color: Colors.white)
+                            fontSize: height/35,
+                            fontWeight: FontWeight.bold , color: Colors.white)
                     ),),
                     Expanded(flex: 1 ,child: Text(
                         widget.tarih, // ETKİNLİĞİN TARİHİ
                         style: TextStyle(
                             fontSize: height/50, color: Colors.black
-                            )
+                        )
                     ),),
                   ],
                 ),
@@ -82,11 +80,11 @@ class _kayit_buttonState extends State<kayit_button> {
               Expanded(flex: 1,
                 child: Column( mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                   ElevatedButton(style: ElevatedButton.styleFrom( minimumSize: Size(height/10, height/12) , backgroundColor: Colors.black , shape: CircleBorder()) ,onPressed: () {
-                        Helper.userEtkinlikKayit(widget.etkinlikID);
-                      },
-                        child: Text("KATIL" , style: TextStyle(color: Colors.white , fontWeight: FontWeight.bold)),
-                      ),
+                    ElevatedButton(style: ElevatedButton.styleFrom( minimumSize: Size(height/10, height/12) , backgroundColor: Colors.black , shape: CircleBorder()) ,onPressed: () {
+                      if(user.currentUser.id != "-1") Helper.userEtkinlikKayit(widget.etkinlikID);
+                    },
+                      child: Text(user.currentUser.id != "-1" ? "KATIL" : "Giriş Yapman Gerekli", style: TextStyle(color: Colors.white , fontWeight: FontWeight.bold)),
+                    ),
                   ],
                 ),
               ),

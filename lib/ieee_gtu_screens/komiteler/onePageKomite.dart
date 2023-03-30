@@ -19,10 +19,10 @@ class _komite_one_pageState extends State<komite_one_page> {
   var galeri2 = "https://via.placeholder.com/150";  // GALERİDEN FOTO SEÇER - PAKETİ VAR GALİBA IMAGEPİCKER
   var galeri3 = "https://via.placeholder.com/150";  // GALERİDEN FOTO SEÇER - PAKETİ VAR GALİBA IMAGEPİCKER
   var galeri4 = "https://via.placeholder.com/150";  // GALERİDEN FOTO SEÇER - PAKETİ VAR GALİBA IMAGEPİCKER
-  var isim = "Ahmet Yigit";
-  var posta = "yigit.ahmet@turkcell.com.tr";
-  var tel = "0545 973 9699";
-  var bolum = "Bilgisayar Mühendisliği";
+  var isim = "isim";
+  var posta = "posta";
+  var tel = "telNo";
+  var bolum = "bolum";
   var aboutCommite = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
   var etkinlik1 = "Mobiletech";
   var etkinlik2 = "HelloWorld";
