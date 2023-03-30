@@ -75,7 +75,18 @@ class user{
     SharedPreferences preferences = await SharedPreferences.getInstance();
     await preferences.clear();
 
+    currentUser = new user(id: "-1",
+        name: "name",
+        surname: "surname",
+        mail: "mail",
+        telNum: "telNum",
+        sClass: "sClass",
+        department: "department",
+        committee: "committee",
+        password: "password",
+        level: 0);
+
+    Helper.isLogin = false;
     this.id = "-1";
-    Helper.logout();
   }
 }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ieee_mobile_app/helper/helper.dart';
 import "package:ieee_mobile_app/helper/user.dart";
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 
 class etkinlik_kayit_panel extends StatefulWidget {
@@ -125,7 +126,15 @@ class _etkinlik_kayit_panel_kontrolState extends State<etkinlik_kayit_panel> {
           ),
           ElevatedButton(onPressed: () async{
             await Helper.etkinlik_kayit(nameController.text, notController.text, dateController.text );
-
+            Fluttertoast.showToast(
+                msg: "Etkinlik Basariyla Olusturuldu",
+                toastLength: Toast.LENGTH_SHORT,
+                gravity: ToastGravity.CENTER,
+                timeInSecForIosWeb: 1,
+                backgroundColor: Colors.amber,
+                textColor: Colors.white,
+                fontSize: 16.0
+            );
           }, child: Text('etkinlik_kayit')),
 
           ElevatedButton(onPressed: () async{

@@ -1,9 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:ieee_mobile_app/helper/user.dart';
 import 'package:ieee_mobile_app/mixin/firebaseMixin.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
+import 'package:fluttertoast/fluttertoast.dart';
 import 'etkinlik.dart';
 
 class Helper with firebaseMixin, ChangeNotifier{
@@ -14,7 +15,7 @@ class Helper with firebaseMixin, ChangeNotifier{
   late user registerUser;
   static int etkinlikSayisi = 0;
   static List<List<String>> etkinlikler = [[]];
-
+  static bool isRegistered = false;
   // yonetici ozel
   static List<String> katilimcilar = [];
   static List<List<String>> etkinlikListesi = [[]];
@@ -28,7 +29,19 @@ class Helper with firebaseMixin, ChangeNotifier{
      FirebaseFirestore.instance.collection('users');
      final currentUser = await Helper().createUser(mail, password);
 
-     if(currentUser == null) return;
+     if(currentUser == null) {
+       Fluttertoast.showToast(
+           msg: "Lütfen Geçerli bir e-posta ve/ya şifre gir!",
+           toastLength: Toast.LENGTH_SHORT,
+           gravity: ToastGravity.CENTER,
+           timeInSecForIosWeb: 1,
+           backgroundColor: Colors.amber,
+           textColor: Colors.white,
+           fontSize: 16.0
+       );
+       return;
+     }
+     isRegistered = true;
      // final CollectionReference _userRef =
      // FirebaseFirestore.instance.collection('user');
      // final currentUser = await Helper().createUser(mail, password);
@@ -57,6 +70,16 @@ class Helper with firebaseMixin, ChangeNotifier{
      List<dynamic> l = [currentUser!.uid];
 
      firestore.collection("komiteler").doc(committee).update({"uyeler": FieldValue.arrayUnion(l) });
+
+     Fluttertoast.showToast(
+         msg: "Başarıyla Kayıt Oldun Seni Giriş Sayfasına Yöneltiyorum!",
+         toastLength: Toast.LENGTH_SHORT,
+         gravity: ToastGravity.CENTER,
+         timeInSecForIosWeb: 1,
+         backgroundColor: Colors.amber,
+         textColor: Colors.white,
+         fontSize: 16.0
+     );
 
   }
 

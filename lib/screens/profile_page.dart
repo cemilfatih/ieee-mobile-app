@@ -17,43 +17,18 @@ class profile_page extends StatefulWidget {
 class _profile_pageState extends State<profile_page> {
   @override
   Widget build(BuildContext context) {
-    var currentIndex = Provider
-        .of<StateData>(context)
-        .profileIndex;
-    ;
-    var height = MediaQuery.of(context).size.height;
-    var width = MediaQuery.of(context).size.width;
 
-    var _pages = [
-
-      if ( Helper.isLogin ) loginTrue()
-      else notLogin()
-
-     // loginTrue(), // GİRİŞ YAPTIYSA GÖZÜKECEK EKRAN
-     // notLogin(), // GİRİŞ YAPMAN GEREK EKRANI
-
-      //LoginPage(), // GİRİŞ YAPMA EKRANI
-      //SignupPage(), // KAYIT OLMANI EKRANI
-    ];
-
-    // LOGİNİN SAYFA DÖNÜŞÜMLERİNİ YAPMAK İÇİN BENİMLE KONUSMANIZ GEREKİYOR
-
-    if (currentIndex == 0) {
-      return _pages[currentIndex];
-        //CURRENTINDEX 0 İKEN GİRİŞ YAPILMIŞ HALDEKİ EKRAN GÖZÜKÜR
-    } else {
-      return WillPopScope(
-        onWillPop: () async {
-          setState(() {
-            Provider.of<StateData>(context, listen: false).newIndexProfile(0);
-          });
-          return false;
-        },
-        child: Scaffold(
-          body: _pages[currentIndex],
-        ),
-      );
-    }
+    return WillPopScope(
+      onWillPop: () async {
+        setState(() {
+          Provider.of<StateData>(context, listen: true).newIndexProfile(0);
+        });
+        return false;
+      },
+      child: Scaffold(
+        body: Helper.isLogin ? loginTrue() : notLogin(),
+      ),
+    );
   }
 }
 
