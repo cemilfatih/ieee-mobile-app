@@ -81,10 +81,15 @@ class _kayit_buttonState extends State<kayit_button> {
                 child: Column( mainAxisAlignment: MainAxisAlignment.center,
                   children: [
 
-                    ElevatedButton(style: ElevatedButton.styleFrom( minimumSize: Size(height/10, height/12) , backgroundColor: Colors.black , shape: CircleBorder()) ,onPressed: () {
-                      if(user.currentUser.id != "-1") Helper.userEtkinlikKayit(widget.etkinlikID);
-                    },
-                      child: Text(user.currentUser.id != "-1" ? "KATIL" : "Giriş Yapman Gerekli", style: TextStyle(color: Colors.white , fontWeight: FontWeight.bold)),
+                    SingleChildScrollView(
+                      child: ElevatedButton(style: ElevatedButton.styleFrom( minimumSize: Size(height/10, height/10.5) , backgroundColor: Colors.black , shape: CircleBorder()) ,onPressed: () {
+                        if(user.currentUser.id != "-1") Helper.userEtkinlikKayit(widget.etkinlikID);
+                      },
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(user.currentUser.id != "-1" ? "KATIL" : "Giriş Gerekli", style: TextStyle(color: Colors.white , fontWeight: FontWeight.bold)),
+                        ),
+                      ),
                     ),
 
                   ],

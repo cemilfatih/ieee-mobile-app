@@ -6,6 +6,7 @@ import 'package:ieee_mobile_app/gtu_screens/marmaray/marmaray_page.dart';
 import 'package:ieee_mobile_app/gtu_screens/yemekhane/yemekhane.dart';
 import 'package:ieee_mobile_app/ieee_gtu_screens/komiteler/komiteler_menu.dart';
 import 'package:ieee_mobile_app/screens/ieee_gtu_menu.dart';
+import 'package:ieee_mobile_app/ieee_gtu_screens/sosyalMedya/sosyal_medya.dart';
 
 class ana_sayfa extends StatefulWidget {
   const ana_sayfa({
@@ -25,7 +26,7 @@ class ana_sayfa extends StatefulWidget {
 
 var defaultIndex = 0;
 
-var pages = [null, marmaray_page(), bus_menu(), ieee_gtu_menu(), yemekhane()];
+var pages = [null, marmaray_page(), bus_menu(), sosyal_medya(), yemekhane()];
 
 class _ana_sayfaState extends State<ana_sayfa> {
   @override

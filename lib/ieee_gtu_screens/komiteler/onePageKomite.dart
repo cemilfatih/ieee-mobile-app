@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ieee_mobile_app/helper/helper.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:ieee_mobile_app/helper/user.dart';
+import 'package:ieee_mobile_app/constants/photoHero.dart';
 
 class komite_one_page extends StatefulWidget {
   komite_one_page({Key? key}) : super(key: key);
@@ -203,7 +204,7 @@ class _komite_one_pageState extends State<komite_one_page> {
                         '${etkinlik1} \n${etkinlik2}  \n${etkinlik3}  \n${etkinlik4} ',
                         style: TextStyle(fontSize: 16),
                       ),
-                      SizedBox(height: 16),
+                      SizedBox(height: 1),
 
                     ],
                   ),
@@ -232,7 +233,7 @@ class _komite_one_pageState extends State<komite_one_page> {
                               margin: EdgeInsets.only(right: 8),
                               color: Colors.grey,
                               child: Center(
-                                child: Image(image: NetworkImage(galeri1)),
+                                child: HeroImage(imageUrl: galeri1),
                               ),
                             ),
                             Container(
@@ -240,7 +241,7 @@ class _komite_one_pageState extends State<komite_one_page> {
                               margin: EdgeInsets.only(right: 8),
                               color: Colors.grey,
                               child: Center(
-                                child: Image(image: NetworkImage(galeri2)),
+                                child: HeroImage(imageUrl: galeri2),
                               ),
                             ),
                             Container(
@@ -248,7 +249,7 @@ class _komite_one_pageState extends State<komite_one_page> {
                               margin: EdgeInsets.only(right: 8),
                               color: Colors.grey,
                               child: Center(
-                                child: Image(image: NetworkImage(galeri3)),
+                                child: HeroImage(imageUrl: galeri3),
                               ),
                             ),
                             Container(
@@ -256,7 +257,7 @@ class _komite_one_pageState extends State<komite_one_page> {
                               margin: EdgeInsets.only(right: 8),
                               color: Colors.grey,
                               child: Center(
-                                child: Image(image: NetworkImage(galeri4)),
+                                child: HeroImage(imageUrl: galeri4),
                               ),
                             ),
                           ],

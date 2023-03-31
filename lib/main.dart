@@ -139,6 +139,9 @@ class _HomeState extends State<Home> {
           onTap: (i) => setState(
             () {
               Provider.of<StateData>(context, listen: false).newIndexMain(i);
+              Provider.of<StateData>(context, listen: false).newIndexIeee(0);
+              Provider.of<StateData>(context, listen: false).newIndexGtu(0);
+              Provider.of<StateData>(context, listen: false).newIndexProfile(0);
               // _currentIndex = i;
             },
           ), //SizedBox(

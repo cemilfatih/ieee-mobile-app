@@ -3,7 +3,8 @@ import 'package:ieee_mobile_app/extensions/isValid.dart';
 import '../helper/helper.dart';
 import 'loginPage.dart';
 
-const List<String> komiteList = <String>['Communication Society', 'Computer Society', 'EAC', 'EMBS', 'External Relations','Girisimcilik Komitesi','İnsan Kaynakları Komitesi','Kişisel Gelilişim ve K.','Malzeme Bilimi Komitesi','Matematik Komitesi','Medya ve Tasarım Komitesi','Power and Energy Society','Robotic and Automation Society','Woman in Engineering Society'];
+const List<String> komiteList = <String>['comsoc', 'cs', 'eac', 'embs', 'External Relations','Girisimcilik Komitesi','İnsan Kaynakları Komitesi','Kişisel Gelilişim ve K.','Malzeme Bilimi Komitesi','Matematik Komitesi','Medya ve Tasarım Komitesi','Power and Energy Society','Robotic and Automation Society','Woman in Engineering Society'];
+// DATABASEYE GÖRE DÜZENLE
 String secilenKomite = "";
 
 class SignupPage extends StatefulWidget {
