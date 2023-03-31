@@ -7,6 +7,8 @@ import 'package:ieee_mobile_app/gtu_screens/yemekhane/yemekhane.dart';
 import 'package:ieee_mobile_app/ieee_gtu_screens/komiteler/komiteler_menu.dart';
 import 'package:ieee_mobile_app/screens/ieee_gtu_menu.dart';
 import 'package:ieee_mobile_app/ieee_gtu_screens/sosyalMedya/sosyal_medya.dart';
+import 'package:provider/provider.dart';
+import 'package:ieee_mobile_app/constants/stateData.dart';
 
 class ana_sayfa extends StatefulWidget {
   const ana_sayfa({
@@ -24,17 +26,20 @@ class ana_sayfa extends StatefulWidget {
   State<ana_sayfa> createState() => _ana_sayfaState();
 }
 
-var defaultIndex = 0;
+
 
 var pages = [null, marmaray_page(), bus_menu(), sosyal_medya(), yemekhane()];
 
 class _ana_sayfaState extends State<ana_sayfa> {
   @override
   Widget build(BuildContext context) {
+
+    var defaultIndex = Provider.of<StateData>(context, listen: false).fastIndex;
+
     if (defaultIndex == 0) {
       return Column(children: [
         Expanded(
-            flex: 3,
+            flex: 30,
             child: Column(
               children: [
                 Expanded(
@@ -92,7 +97,7 @@ class _ana_sayfaState extends State<ana_sayfa> {
               ],
             )),
         Expanded(
-            flex: 7,
+            flex: 75,
             child: Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.only(topRight: Radius.circular(100)),
@@ -124,7 +129,7 @@ class _ana_sayfaState extends State<ana_sayfa> {
                           InkWell(
                             onTap: () {
                               setState(() {
-                                defaultIndex = 1;
+                                Provider.of<StateData>(context, listen: false).newIndexHizliErisim(1);
                               });
                             },
                             child: fast_button(
@@ -136,7 +141,7 @@ class _ana_sayfaState extends State<ana_sayfa> {
                           ),
                           InkWell(onTap: () {
                             setState(() {
-                              defaultIndex = 2;
+                              Provider.of<StateData>(context, listen: false).newIndexHizliErisim(2);
                             });
                           },
                             child: fast_button(
@@ -154,7 +159,7 @@ class _ana_sayfaState extends State<ana_sayfa> {
                         children: [
                           InkWell(onTap: () {
                             setState(() {
-                              defaultIndex = 3;
+                              Provider.of<StateData>(context, listen: false).newIndexHizliErisim(3);
                             });
                           },
                             child: fast_button(Color(0xffF00000), Color(0xffbe1238),
@@ -162,7 +167,7 @@ class _ana_sayfaState extends State<ana_sayfa> {
                           ),
                           InkWell(onTap: () {
                             setState(() {
-                              defaultIndex = 4;
+                              Provider.of<StateData>(context, listen: false).newIndexHizliErisim(4);
                             });
                           },
                             child: fast_button(
@@ -184,7 +189,7 @@ class _ana_sayfaState extends State<ana_sayfa> {
       return WillPopScope(
         onWillPop: () async {
           setState(() {
-            defaultIndex = 0;
+            Provider.of<StateData>(context, listen: false).newIndexHizliErisim(0);
           });
           return false;
         },

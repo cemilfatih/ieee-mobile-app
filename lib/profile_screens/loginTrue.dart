@@ -175,11 +175,11 @@ class _loginTrueState extends State<loginTrue> {
 
         tercih_card(height, Icons.school, user.currentUser.department),
 
-        tercih_card(
-          height,
-          Icons.notification_important,
-          "Computer Society Bildirimleri \n Elk müh bildirimleri \n Comsoc Bildirimleri \n Genel Okul Duyuruları",
-        ),
+        // tercih_card(
+        //   height,
+        //   Icons.notification_important,
+        //   "Computer Society Bildirimleri \n Elk müh bildirimleri \n Comsoc Bildirimleri \n Genel Okul Duyuruları",
+        // ),
         ElevatedButton(onPressed: () {
 
           user.currentUser.logout();

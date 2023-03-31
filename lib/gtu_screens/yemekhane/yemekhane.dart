@@ -20,3 +20,4 @@ class _yemekhaneState extends State<yemekhane> {
     return Center(child : GununMenusu());
   }
 }
+

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ieee_mobile_app/helper/helper.dart';
 import 'package:ieee_mobile_app/helper/user.dart';
-
+import 'package:fluttertoast/fluttertoast.dart';
 
 class kayit_button extends StatefulWidget {
   // Color renk1;
@@ -21,11 +21,10 @@ class _kayit_buttonState extends State<kayit_button> {
 
   @override
   Widget build(BuildContext context) {
-
     //var boy= ( MediaQuery.of(context).size.height * 0.18);
     // var ic_boy = ( MediaQuery.of(context).size.height * 0.11);
-    var width = ( MediaQuery.of(context).size.width);
-    var height = ( MediaQuery.of(context).size.height);
+    var width = (MediaQuery.of(context).size.width);
+    var height = (MediaQuery.of(context).size.height);
     return Padding(
       padding: EdgeInsets.all(15),
       child: Container(
@@ -83,7 +82,18 @@ class _kayit_buttonState extends State<kayit_button> {
 
                     SingleChildScrollView(
                       child: ElevatedButton(style: ElevatedButton.styleFrom( minimumSize: Size(height/10, height/10.5) , backgroundColor: Colors.black , shape: CircleBorder()) ,onPressed: () {
-                        if(user.currentUser.id != "-1") Helper.userEtkinlikKayit(widget.etkinlikID);
+
+                        if(user.currentUser.id != "-1")  {
+                          Fluttertoast.showToast(
+                              msg: "Kayıt Oldunuz",
+                              toastLength: Toast.LENGTH_SHORT,
+                              gravity: ToastGravity.CENTER,
+                              timeInSecForIosWeb: 1,
+                              backgroundColor: Colors.amber,
+                              textColor: Colors.white,
+                              fontSize: 16.0
+                          );
+                          Helper.userEtkinlikKayit(widget.etkinlikID) ;}
                       },
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),

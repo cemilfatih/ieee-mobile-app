@@ -10,7 +10,7 @@ class StateData extends ChangeNotifier{
   int viewIndex = 0 ;
 
   int profileIndex = 0 ;
-
+  int fastIndex = 0 ;
   int busesIndex = 1 ;
 
   void newIndexGtu(x){ gtuIndex = x ;
@@ -21,6 +21,10 @@ class StateData extends ChangeNotifier{
   }
 
   void newIndexMain(x){ mainIndex = x ;
+  notifyListeners();
+  }
+
+  void newIndexHizliErisim(x){ fastIndex = x ;
   notifyListeners();
   }
 
