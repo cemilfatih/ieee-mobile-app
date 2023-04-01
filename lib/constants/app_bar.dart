@@ -45,7 +45,7 @@ class app_bar extends StatelessWidget {
                 builder: (BuildContext context) {
                   return AlertDialog(icon: Icon(Icons.help_center_outlined),
                     title: Text('IEEE GTÜ MOBILE APP' , style: TextStyle(fontWeight: FontWeight.bold),),
-                    content: Text('Uygulamamız geliştirme aşamasındadır. Hata görürsen veya önerin olursa bize bildirir misin? \n \nieeegtu.mobileapp@gmail.com' ),
+                    content: Text('Uygulamamız geliştirme aşamasındadır. Hata görürsen veya önerin olursa bize bildirir misin? \nÖneri sayfasına yazarak veya mail atarak bize ulaşabilirsin. \n\nieeegtu.mobileapp@gmail.com' ),
                     actions: <Widget>[
                       ElevatedButton(
                         child: Text('Çıkış'),

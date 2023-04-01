@@ -11,6 +11,7 @@ import 'package:ieee_mobile_app/ieee_gtu_screens/komiteler/komiteler_menu.dart';
 import 'package:ieee_mobile_app/ieee_gtu_screens/sosyalMedya/sosyal_medya.dart';
 import "package:provider/provider.dart";
 import 'package:ieee_mobile_app/constants/stateData.dart';
+import 'package:ieee_mobile_app/ieee_gtu_screens/oneri_tavsiye.dart';
 
 
 
@@ -27,7 +28,7 @@ class _ieee_gtu_menuState extends State<ieee_gtu_menu> {
   @override
 
 
-  var pages = [null, btg(), etkinlik_takvim(),etkinlik_kayit(),sosyal_medya(),haberler(),komiteler_menu(),yonetim_kurulu(),idari_kurul(),yoklama()];
+  var pages = [null, btg(), etkinlik_takvim(),etkinlik_kayit(),sosyal_medya(),haberler(),komiteler_menu(),yonetim_kurulu(),idari_kurul(),yoklama(),TavsiyeOneriSayfa()];
 
   Widget build(BuildContext context) {
 
@@ -85,7 +86,9 @@ var sekmeler = [
   "Komitelerimiz",
   "Yönetim Kurulu",
   "İdari Kurul",
-  "Yoklama"
+  "Yoklama",
+  "Öneri/Tavsiye"
+
 ];
 var sekme_resim = [
    "lib/assets/images/btg.png",
@@ -96,7 +99,8 @@ var sekme_resim = [
   "lib/assets/images/komiteler-icon_beyaz.png",
   "lib/assets/images/yk_icon.png",
   "lib/assets/images/ik_icon_siyah.png",
-  "lib/assets/images/yoklama.png"
+  "lib/assets/images/yoklama.png",
+  "lib/assets/images/advice_icon.png"
 ];
 
 var rota = [
@@ -109,6 +113,7 @@ var rota = [
   7,
   8,
   9,
+  10
 ];
 
 var colours = [
@@ -156,7 +161,9 @@ var text_colours = [
   Colors.white,
   Colors.white,
   Colors.black,
-  Colors.black
+  Colors.black,
+  Colors.white,
+  Colors.white,
 ];
 
 
