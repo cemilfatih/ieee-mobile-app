@@ -26,7 +26,7 @@ class _mailVerifyServiceState extends State<mailVerifyService> {
     user!.sendEmailVerification();
 
     timer = Timer.periodic( Duration(seconds: 3), (timer) async {
-      mailVerifyService().checkEmailVerified(timer , context);
+        mailVerifyService().checkEmailVerified(timer , context);
     });
 
 

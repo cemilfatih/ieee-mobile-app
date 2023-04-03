@@ -11,7 +11,6 @@ class Helper with firebaseMixin, ChangeNotifier{
   static int komitePage = 0;
   static bool isLogin = false;
   static int counter = 0;
-  static bool isVerified = false;
   late user registerUser;
   static int etkinlikSayisi = 0;
   static List<List<String>> etkinlikler = [[]];
@@ -20,7 +19,7 @@ class Helper with firebaseMixin, ChangeNotifier{
   static List<String> katilimcilar = [];
   static List<List<String>> etkinlikListesi = [[]];
 
-  static Future<void> register(name, surname, mail, telNum, sClass, department, committee, password) async {
+  static Future<bool> register(name, surname, mail, telNum, sClass, department, committee, password) async {
 
      final docUser = Helper().setCollection('users');
      //final docUsers = FirebaseFirestore.instance.collection('users').doc();
@@ -39,9 +38,7 @@ class Helper with firebaseMixin, ChangeNotifier{
            textColor: Colors.white,
            fontSize: 16.0
        );
-       return;
      }
-     isRegistered = true;
      // final CollectionReference _userRef =
      // FirebaseFirestore.instance.collection('user');
      // final currentUser = await Helper().createUser(mail, password);
@@ -60,7 +57,6 @@ class Helper with firebaseMixin, ChangeNotifier{
 
      );
 
-
     final json = registerUser.toJson();
      //await docUsers.set(json);
   //navigate to verify page and get register
@@ -69,7 +65,10 @@ class Helper with firebaseMixin, ChangeNotifier{
      FirebaseFirestore firestore = FirebaseFirestore.instance;
      List<dynamic> l = [currentUser!.uid];
 
-     firestore.collection("komiteler").doc(committee).update({"uyeler": FieldValue.arrayUnion(l) });
+     //hata veriyor
+     //await firestore.collection("komiteler").doc(committee).update({"uyeler": FieldValue.arrayUnion(l) });
+     isRegistered = true;
+
 
      Fluttertoast.showToast(
          msg: "Başarıyla Kayıt Oldun Seni Giriş Sayfasına Yöneltiyorum!",
@@ -80,7 +79,7 @@ class Helper with firebaseMixin, ChangeNotifier{
          textColor: Colors.white,
          fontSize: 16.0
      );
-
+    return isRegistered;
   }
 
   static Future<void> loginwithID() async {
