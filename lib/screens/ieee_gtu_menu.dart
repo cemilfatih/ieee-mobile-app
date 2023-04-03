@@ -29,7 +29,7 @@ class _ieee_gtu_menuState extends State<ieee_gtu_menu> {
   @override
 
 
-  var pages = [null, btg(), etkinlik_takvim(),etkinlik_kayit(),sosyal_medya(),haberler(),komiteler_menu(),yonetim_kurulu(),idari_kurul(),yoklama(),TavsiyeOneriSayfa(),YouTubeScreen(videoId: "https://youtu.be/J19HFnLw04w")];
+  var pages = [null, btg(), etkinlik_takvim(),etkinlik_kayit(),sosyal_medya(),haberler(),komiteler_menu(),yonetim_kurulu(),idari_kurul(),yoklama(),TavsiyeOneriSayfa(),YouTubeScreen(videoId: "https://www.youtube.com/embed/2Xh8_ielHsk" )];
 
   Widget build(BuildContext context) {
 

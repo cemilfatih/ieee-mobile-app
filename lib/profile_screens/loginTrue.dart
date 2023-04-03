@@ -180,7 +180,7 @@ class _loginTrueState extends State<loginTrue> {
                             "Hoşgeldin, "+"- "+ "${user.currentUser.name[0].toUpperCase()}${user.currentUser.name.substring(1).toUpperCase()} "
                                 "${user.currentUser.surname.toUpperCase()}",
                             style: TextStyle(
-                              fontSize: height / 30,
+                              fontSize: height / 35,
                               fontWeight: FontWeight.bold,
                             ),
                           ),

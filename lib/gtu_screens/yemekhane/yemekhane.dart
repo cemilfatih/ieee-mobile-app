@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:ieee_mobile_app/gtu_screens/yemekhane/fortry.dart';
 import 'package:html/parser.dart' as parser;
 import 'package:http/http.dart' as http;
 import 'package:photo_view/photo_view.dart';
@@ -12,10 +11,11 @@ class yemekhane extends StatefulWidget {
 }
 
 class _yemekhaneState extends State<yemekhane> {
-  late String imageUrl ;
+  late String imageUrl;
 
   Future<void> fetchData() async {
-    final url = Uri.parse('https://www.gtu.edu.tr/kategori/2589/0/display.aspx');
+    final url =
+    Uri.parse('https://www.gtu.edu.tr/kategori/2589/0/display.aspx');
     final response = await http.get(url);
     final body = response.body;
     final document = parser.parse(body);
@@ -26,7 +26,8 @@ class _yemekhaneState extends State<yemekhane> {
         .children[1]
         .attributes['src']
         .toString();
-    imageUrl = 'https://www.gtu.edu.tr' + Uri.encodeFull(responseUrl).toString();
+    imageUrl =
+        'https://www.gtu.edu.tr' + Uri.encodeFull(responseUrl).toString();
   }
 
   @override
@@ -38,24 +39,25 @@ class _yemekhaneState extends State<yemekhane> {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-      future : fetchData(),
-      builder: (context, snapshot) {
-        return RotatedBox( quarterTurns: 1,
-          child: ClipRect(
-            child: PhotoView(
-              backgroundDecoration: BoxDecoration(color: Colors.white),
-              imageProvider: NetworkImage(imageUrl),
-              maxScale: PhotoViewComputedScale.covered * 5.0,
-              minScale: PhotoViewComputedScale.contained * 0.8,
-              initialScale: PhotoViewComputedScale.covered,
-              enableRotation: true,
-            ),
-          ),
-        );
-      }
-    );
+        future: fetchData(),
+        builder: (BuildContext context, AsyncSnapshot snapshot) {
+          if (snapshot.connectionState == ConnectionState.done) {
+            return RotatedBox(
+              quarterTurns: 1,
+              child: ClipRect(
+                child: PhotoView(
+                  backgroundDecoration: BoxDecoration(color: Colors.white),
+                  imageProvider:  NetworkImage(imageUrl),
+                  maxScale: PhotoViewComputedScale.covered * 5.0,
+                  minScale: PhotoViewComputedScale.contained * 0.8,
+                  initialScale: PhotoViewComputedScale.covered,
+                  enableRotation: true,
+                ),
+              ),
+            );
+          } else {
+            return Center(child: CircularProgressIndicator());
+          }
+        });
   }
 }
-
-
-
