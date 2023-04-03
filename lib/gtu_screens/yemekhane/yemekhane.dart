@@ -12,7 +12,7 @@ class yemekhane extends StatefulWidget {
 }
 
 class _yemekhaneState extends State<yemekhane> {
-  String? imageUrl;
+  late String imageUrl ;
 
   Future<void> fetchData() async {
     final url = Uri.parse('https://www.gtu.edu.tr/kategori/2589/0/display.aspx');
@@ -37,11 +37,25 @@ class _yemekhaneState extends State<yemekhane> {
 
   @override
   Widget build(BuildContext context) {
-    return RotatedBox( quarterTurns: 1,
-      child: Container(color: Colors.white,
-        child: PhotoView(backgroundDecoration: BoxDecoration(color: Colors.white) ,imageProvider: NetworkImage(imageUrl!) ,)
-        //Image.network(imageUrl!)
-      ),
+    return FutureBuilder(
+      future : fetchData(),
+      builder: (context, snapshot) {
+        return RotatedBox( quarterTurns: 1,
+          child: ClipRect(
+            child: PhotoView(
+              backgroundDecoration: BoxDecoration(color: Colors.white),
+              imageProvider: NetworkImage(imageUrl),
+              maxScale: PhotoViewComputedScale.covered * 5.0,
+              minScale: PhotoViewComputedScale.contained * 0.8,
+              initialScale: PhotoViewComputedScale.covered,
+              enableRotation: true,
+            ),
+          ),
+        );
+      }
     );
   }
 }
+
+
+

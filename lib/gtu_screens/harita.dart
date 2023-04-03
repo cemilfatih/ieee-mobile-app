@@ -15,28 +15,22 @@ class _haritaState extends State<harita> {
     var width = MediaQuery.of(context).size.width;
 
     return Container(
-      decoration: BoxDecoration(color: Color(0xff6AA8D9)),
-      child: Row(
-        mainAxisSize: MainAxisSize.max,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              SafeArea(
-                child: Container(
-                    height: height / 1.5,
-                    width: width / 1.3,
-                    child: PhotoView(
-                      backgroundDecoration:
-                          BoxDecoration(color: Color(0xff6AA8D9)),
-                      imageProvider: AssetImage("lib/assets/images/kampus.jpeg"),
-                    )),
-              ),
-            ],
+        decoration: BoxDecoration(color: Color(0xff6AA8D9)),
+        child: Container(
+          margin: const EdgeInsets.all(10),
+          child: ClipRect(
+            child: PhotoView(
+              backgroundDecoration: BoxDecoration(color: Color(0xff6AA8D9)),
+              imageProvider: const AssetImage("lib/assets/images/kampus.jpeg"),
+              maxScale: PhotoViewComputedScale.covered * 5.0,
+              minScale: PhotoViewComputedScale.contained * 0.8,
+              initialScale: PhotoViewComputedScale.covered,
+              enableRotation: true,
+            ),
           ),
-        ],
-      ),
-    );
+        ));
   }
 }
+
+
+//Color(0xff6AA8D9)
