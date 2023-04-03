@@ -23,22 +23,21 @@ class _yoklamaState extends State<yoklama> {
   }
 
   Future<void> loadData() async {
-    if(user.currentUser.id != "-1"){
-      await FirebaseFirestore.instance
-          .collection('komiteler')
-          .doc(user.currentUser.committee)
-          .get()
-          .then((value) {
-              if(value["toplantı"] == "1") {
-                toplanti = true;
-                tarih = value["toplantıTarihi"];
-                sifre = value["toplantıSifresi"];
-              }
-        setState(() {
-          _isLoading = false;
-        });
+    await FirebaseFirestore.instance
+        .collection('komiteler')
+        .doc(user.currentUser.committee)
+        .get()
+        .then((value) {
+            if(value["toplantı"] == "1") {
+              toplanti = true;
+              tarih = value["toplantıTarihi"];
+              sifre = value["toplantıSifresi"];
+            }
+      setState(() {
+        _isLoading = false;
       });
-    }else _isLoading = false;
+    });
+
   }
 
   @override
