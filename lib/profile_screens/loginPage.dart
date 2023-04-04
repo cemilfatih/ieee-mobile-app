@@ -7,7 +7,7 @@ import '../main.dart';
 
 
 class LoginPage extends StatefulWidget {
-   const LoginPage({Key? key}) : super(key: key);
+  const LoginPage({Key? key}) : super(key: key);
 
   @override
   State<LoginPage> createState() => _LoginPageState();
@@ -158,8 +158,8 @@ class _LoginPageState extends State<LoginPage> {
       /* burada sayfa donusumleri ayarlanmalı */
       if ( Helper.isLogin ) {
         Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => const main_page())
+            context,
+            MaterialPageRoute(builder: (context) => const main_page())
         );
       } else ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('Wrong email or password...')),

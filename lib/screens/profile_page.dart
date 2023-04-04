@@ -32,8 +32,8 @@ class _profile_pageState extends State<profile_page> {
   }
 }
 
-  //
-  // return Scaffold(
-  // body: Center(child : _pages.elementAt(currentIndex),
-  //
+//
+// return Scaffold(
+// body: Center(child : _pages.elementAt(currentIndex),
+//
 

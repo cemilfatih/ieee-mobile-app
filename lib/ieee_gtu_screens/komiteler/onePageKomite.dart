@@ -3,6 +3,7 @@ import 'package:ieee_mobile_app/helper/helper.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:ieee_mobile_app/helper/user.dart';
 import 'package:ieee_mobile_app/constants/photoHero.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class komite_one_page extends StatefulWidget {
   komite_one_page({Key? key}) : super(key: key);
@@ -57,30 +58,88 @@ class _komite_one_pageState extends State<komite_one_page> {
 
 
     title = komite;
+    final prefs = await SharedPreferences.getInstance();
+    final List<String>? komiteInfo = prefs.getStringList(komite);
+    print(komiteInfo);
 
-    await FirebaseFirestore.instance
-        .collection('komiteler')
-        .doc(komite)
-        .get()
-        .then((value) {
-            isim = value["isim"];
-            posta =  value["posta"];
-            tel = value["telephone"];
-            bolum = value["bolum"];
-            aboutCommite = value["about"];
-            etkinlik1 = value["e1"];
-            etkinlik2 = value["e2"];
-            etkinlik3 = value["e3"];
-            etkinlik4 = value["e4"];
-            galeri1 = value["e1img"];
-            galeri2 = value["e2img"];
-            galeri3 = value["e3img"];
-            galeri4 = value["e4img"];
-            setState(() {
-              _isLoading = false;
-            });
+
+
+    if(komiteInfo != null){
+      DateTime lastUpdatedDate = DateTime.parse((komiteInfo[13]));
+      DateTime oneMonthAgo = DateTime.now().subtract(Duration(days: 30));
+
+      if(lastUpdatedDate.isBefore(oneMonthAgo)){
+        print("i am here");
+        await FirebaseFirestore.instance
+            .collection('komiteler')
+            .doc(komite)
+            .get()
+            .then((value) {
+          isim = value["isim"];
+          posta =  value["posta"];
+          tel = value["telephone"];
+          bolum = value["bolum"];
+          aboutCommite = value["about"];
+          etkinlik1 = value["e1"];
+          etkinlik2 = value["e2"];
+          etkinlik3 = value["e3"];
+          etkinlik4 = value["e4"];
+          galeri1 = value["e1img"];
+          galeri2 = value["e2img"];
+          galeri3 = value["e3img"];
+          galeri4 = value["e4img"];
+          setState(() {
+            _isLoading = false;
+          });
         });
 
+        final prefs = await SharedPreferences.getInstance();
+        await prefs.setStringList(komite, [isim, posta, tel, bolum, aboutCommite, etkinlik1, etkinlik2, etkinlik3, etkinlik4, galeri1,galeri2,galeri3,galeri4, DateTime.now().toString()]);
+      }else {
+        isim = komiteInfo[0];
+        posta = komiteInfo[1];
+        tel = komiteInfo[2];
+        bolum = komiteInfo[3];
+        aboutCommite = komiteInfo[4];
+        etkinlik1 = komiteInfo[5];
+        etkinlik2 = komiteInfo[6];
+        etkinlik3 = komiteInfo[7];
+        etkinlik4 = komiteInfo[8];
+        galeri1 = komiteInfo[9];
+        galeri2 = komiteInfo[10];
+        galeri3 = komiteInfo[11];
+        galeri4 = komiteInfo[12];
+        setState(() {
+          _isLoading = false;
+        });
+      }
+    }else{
+      await FirebaseFirestore.instance
+          .collection('komiteler')
+          .doc(komite)
+          .get()
+          .then((value) {
+        isim = value["isim"];
+        posta =  value["posta"];
+        tel = value["telephone"];
+        bolum = value["bolum"];
+        aboutCommite = value["about"];
+        etkinlik1 = value["e1"];
+        etkinlik2 = value["e2"];
+        etkinlik3 = value["e3"];
+        etkinlik4 = value["e4"];
+        galeri1 = value["e1img"];
+        galeri2 = value["e2img"];
+        galeri3 = value["e3img"];
+        galeri4 = value["e4img"];
+        setState(() {
+          _isLoading = false;
+        });
+      });
+
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.setStringList(komite, [isim, posta, tel, bolum, aboutCommite, etkinlik1, etkinlik2, etkinlik3, etkinlik4, galeri1,galeri2,galeri3,galeri4,DateTime.now().toString()]);
+    }
   }
 
   @override
@@ -92,7 +151,7 @@ class _komite_one_pageState extends State<komite_one_page> {
       )
           : SafeArea(
         child: Scaffold(
-          
+
           body: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
