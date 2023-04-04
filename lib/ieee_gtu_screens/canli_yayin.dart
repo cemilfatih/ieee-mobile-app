@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
+import 'package:ieee_mobile_app/helper/helper.dart';
 import 'dart:ui';
 
 class YouTubeScreen extends StatefulWidget {
-  final String videoId;
-
-  YouTubeScreen({required this.videoId});
+  final String videoId = Helper.liveEventID;
+  YouTubeScreen();
 
   @override
   _YouTubeScreenState createState() => _YouTubeScreenState();
@@ -17,6 +17,7 @@ class _YouTubeScreenState extends State<YouTubeScreen> {
 
   @override
   void initState() {
+
     super.initState();
     _controller = YoutubePlayerController(
       initialVideoId: widget.videoId,

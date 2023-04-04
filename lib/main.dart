@@ -26,14 +26,13 @@ void main() async {
 
   SystemChrome.setPreferredOrientations(
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
-    // YAN DÖNDÜRMEMESİ İÇİN KOD
+  // YAN DÖNDÜRMEMESİ İÇİN KOD
 
   await Firebase.initializeApp(
-      options: DefaultFirebaseOptions.currentPlatform,);
+    options: DefaultFirebaseOptions.currentPlatform,);
 // checking user is already login or not
   Helper.loginwithID();
-
-
+  Helper.getLiveEventId();
 
   runApp(ChangeNotifierProvider(
       create: (BuildContext context) => StateData(), child: const main_page()));
@@ -87,7 +86,7 @@ class main_page extends StatelessWidget {
           "/verifyPage"   :(context) => mailVerifyService(),
           "/registerPage" :(context) => SignupPage(),
           "/homePage"     :(context) => Home()
-         },
+        },
         theme: ThemeData(
           fontFamily: "TitilliumWeb",
         ),
@@ -138,7 +137,7 @@ class _HomeState extends State<Home> {
         bottomNavigationBar: BottomNavBar(
           currentIndex: _currentIndex,
           onTap: (i) => setState(
-            () {
+                () {
               Provider.of<StateData>(context, listen: false).newIndexMain(i);
               Provider.of<StateData>(context, listen: false).newIndexIeee(0);
               Provider.of<StateData>(context, listen: false).newIndexGtu(0);

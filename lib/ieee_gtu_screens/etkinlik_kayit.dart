@@ -14,7 +14,6 @@ class etkinlik_kayit extends StatefulWidget {
 }
 
 class _etkinlik_kayitState extends State<etkinlik_kayit> {
-  final databaseRef = FirebaseFirestore.instance;
 
   bool _isLoading = true;
 
@@ -55,41 +54,41 @@ class _etkinlik_kayitState extends State<etkinlik_kayit> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: _isLoading
-            ? Center(
-          child: CircularProgressIndicator(),
-        )
-            : SafeArea(
-          child: Scaffold(
-              floatingActionButton: Visibility(
-                  visible: user.currentUser.level > 1,
-                  child: FloatingActionButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => etkinlik_kayit_panel()),
-                        );
-                      },
-                      child: Icon(Icons.add_circle_outline_rounded),
-                      backgroundColor: Colors.indigo)),
-              body: SingleChildScrollView(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,mainAxisSize: MainAxisSize.max,
-                  children: [
-                    for (int x = 0; x < Helper.etkinlikSayisi; x++) ...[
-                      Container(width: double.infinity,
-                        child: kayit_button(
-                            Helper.etkinlikler[x][2],
-                            Helper.etkinlikler[x][0],
-                            Helper.etkinlikler[x][1],
-                            Helper.etkinlikler[x][3]),
-                      ),
-                    ],
+      body: _isLoading
+          ? Center(
+        child: CircularProgressIndicator(),
+      )
+          : SafeArea(
+        child: Scaffold(
+            floatingActionButton: Visibility(
+                visible: user.currentUser.level > 1,
+                child: FloatingActionButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => etkinlik_kayit_panel()),
+                      );
+                    },
+                    child: Icon(Icons.add_circle_outline_rounded),
+                    backgroundColor: Colors.indigo)),
+            body: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,mainAxisSize: MainAxisSize.max,
+                children: [
+                  for (int x = 0; x < Helper.etkinlikSayisi; x++) ...[
+                    Container(width: double.infinity,
+                      child: kayit_button(
+                          Helper.etkinlikler[x][2],
+                          Helper.etkinlikler[x][0],
+                          Helper.etkinlikler[x][1],
+                          Helper.etkinlikler[x][3]),
+                    ),
                   ],
-                ),
-              )),
-        ),
+                ],
+              ),
+            )),
+      ),
     );
   }
 }

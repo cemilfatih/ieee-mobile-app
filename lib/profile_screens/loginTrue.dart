@@ -1,9 +1,8 @@
 import "package:flutter/material.dart";
+import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import "package:ieee_mobile_app/helper/user.dart";
-import "package:ieee_mobile_app/helper/helper.dart";
-import 'package:ieee_mobile_app/ieee_gtu_screens/etkinlik_kayit_panel.dart';
-import 'package:ieee_mobile_app/mixin/firebaseMixin.dart';
+import 'package:ieee_mobile_app/profile_screens/yetki_ver.dart';
 import '../main.dart';
 import 'toplantı_yoklama_kontrol.dart';
 import 'etkinlik_yoklama_kontrol.dart';
@@ -147,6 +146,27 @@ class _loginTrueState extends State<loginTrue> {
                 ],
               ),
             ),
+            Visibility(
+              visible: user.currentUser.level > 2 ? true : false,
+              child:
+              Row( mainAxisAlignment: MainAxisAlignment.end,
+                children: <Widget>[
+                  Text("Yetki VER" , style: TextStyle(fontWeight: FontWeight.bold , color: Colors.blue),),
+                  SizedBox(width: 10),
+                  FloatingActionButton(
+                    onPressed: () => {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => yetki_ver()),
+                      )
+                    },
+                    // YOKLAMAYI LİSTEYELEN SAYFAYA GİDER
+                    child: Icon(Icons.event_busy_outlined),
+                    heroTag: "yoklama",
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
         body: Stack(
@@ -175,7 +195,9 @@ class _loginTrueState extends State<loginTrue> {
                             backgroundImage:
                             NetworkImage('https://www.example.com/images/profile.jpg'),
                           ),*/
-                          Text(
+                          TextButton(onPressed: (){
+                            Clipboard.setData(ClipboardData(text: user.currentUser.id));
+                          }, child: Text(
 
                             "Hoşgeldin, "+"- "+ "${user.currentUser.name[0].toUpperCase()}${user.currentUser.name.substring(1).toUpperCase()} "
                                 "${user.currentUser.surname.toUpperCase()}",
@@ -183,6 +205,8 @@ class _loginTrueState extends State<loginTrue> {
                               fontSize: height / 35,
                               fontWeight: FontWeight.bold,
                             ),
+
+                          ),
                           ),
 
                           Text(
