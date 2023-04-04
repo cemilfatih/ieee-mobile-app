@@ -175,6 +175,10 @@ class _TablePageState extends State<TablePage> {
                             //color: Colors.white,
                             alignment: Alignment.center,
                           ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text("Veriler hafta içi için çekilmektedir. Haftasonu verileri değişkenlik gösterebilir." , style: TextStyle(fontSize: 10,fontStyle: FontStyle.italic),),
+                          ),
                           //SizedBox(
                           // height: 10,
                           //),

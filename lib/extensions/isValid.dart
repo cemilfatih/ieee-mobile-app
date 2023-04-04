@@ -4,7 +4,9 @@ extension validator on String{
 
   bool get isValidMail{
 
-    final emailRegExp = RegExp(r'^[a-zA-Z0-9_.+-]+@gtu\.edu\.tr$');
+    //final emailRegExp = RegExp(r'^[a-zA-Z0-9_.+-]+@gtu\.edu\.tr$');
+    // Spam sorunu çözülünce düzenlenecek kod .
+    final emailRegExp = RegExp(r'^[a-zA-Z0-9_.+-@]$');
     return emailRegExp.hasMatch(this);
 
 

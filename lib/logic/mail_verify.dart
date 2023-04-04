@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:ieee_mobile_app/mixin/firebaseMixin.dart';
+import 'package:ieee_mobile_app/main.dart';
 
 class mailVerifyService extends StatefulWidget with firebaseMixin {
    mailVerifyService({Key? key}) : super(key: key);
@@ -66,6 +67,12 @@ class _mailVerifyServiceState extends State<mailVerifyService> {
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: height/50 , fontWeight: FontWeight.bold ),
             ),
+            ElevatedButton(onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const main_page())
+              );
+            }, child: Text("Tamam"))
           ],
         ),
       ),

@@ -66,7 +66,7 @@ class _komite_one_pageState extends State<komite_one_page> {
 
     if(komiteInfo != null){
       DateTime lastUpdatedDate = DateTime.parse((komiteInfo[13]));
-      DateTime oneMonthAgo = DateTime.now().subtract(Duration(days: 30));
+      DateTime oneMonthAgo = DateTime.now().subtract(Duration(days: 20));
 
       if(lastUpdatedDate.isBefore(oneMonthAgo)){
         print("i am here");
