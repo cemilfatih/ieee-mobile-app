@@ -61,12 +61,14 @@ class _yoklamaState extends State<yoklama> {
             child: Icon(Icons.add_circle_outline_rounded),
             backgroundColor: Colors.indigo),
         ),
-        body: Container(
-          child:
-          Visibility (
-            visible: toplanti ? true : false,
-            child: yoklama_button( sifre , tarih),),
-
+        body: SingleChildScrollView(
+          child: Column( mainAxisSize: MainAxisSize.max,
+            children: [
+              Visibility (
+                visible: toplanti ? true : false,
+                child: yoklama_button( sifre , tarih),),
+            ],
+          ),
         ),
       ),
     ),

@@ -25,3 +25,11 @@ class haber_gtu {
   });
 }
 
+class Photo {
+
+  String link = "";
+  Photo({
+
+    required this.link,
+  });
+}

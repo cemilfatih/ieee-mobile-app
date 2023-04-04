@@ -17,6 +17,6 @@ class _etkinlik_takvimState extends State<etkinlik_takvim> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(child :Text("takvim"));
+    return Container(child: Image(image: AssetImage("lib/assets/images/yakında.png"),) ,);
   }
 }

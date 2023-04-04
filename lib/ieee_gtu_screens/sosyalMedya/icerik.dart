@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:ieee_mobile_app/constants/photoHero.dart';
 
 
 class sosyal_icerik extends StatefulWidget {
@@ -104,21 +105,30 @@ class _sosyal_icerikState extends State<sosyal_icerik> {
                   itemBuilder: (_, index) => Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      Container(
-                        height: height / 2.3,
-
-                        margin:  EdgeInsets.all(width/20),
-                        decoration: BoxDecoration(
-                          // color: Colors.grey,
-                          borderRadius: BorderRadius.only(topLeft: Radius.circular(30) , topRight: Radius.circular(30)),
-                          image: DecorationImage(
-                              image: NetworkImage(
-                                imagesUrl[index],
-                              ),
-                              fit: BoxFit.cover
+                      Stack(children: [
+                        Container(child: Padding(
+                          padding: const EdgeInsets.all(100.0),
+                          child: CircularProgressIndicator(),
+                        ),),
+                        Container(
+                          height: height / 2.3,
+                          margin:  EdgeInsets.all(width/20),
+                          decoration: BoxDecoration(
+                            // color: Colors.grey,
+                            borderRadius: BorderRadius.only(topLeft: Radius.circular(30) , topRight: Radius.circular(30)),
+                            // image: DecorationImage(
+                            //     image: NetworkImage(
+                            //       imagesUrl[index],
+                            //     ),
+                            //     fit: BoxFit.cover
+                            // ),
                           ),
+                          child: ClipRRect(
+                              borderRadius: BorderRadius.only(topLeft: Radius.circular(30) , topRight: Radius.circular(30)),
+                              child: HeroImage(imageUrl:  imagesUrl[index],)),
                         ),
-                      ),
+                      ],),
+
                       Container(
                         decoration: BoxDecoration(color: Color(0xff00609c), borderRadius: BorderRadius.only(bottomRight: Radius.circular(30) , bottomLeft: Radius.circular(30)) ),
                         height: height/5,
@@ -135,7 +145,9 @@ class _sosyal_icerikState extends State<sosyal_icerik> {
                                 child: Text(texts[index] , style: TextStyle(color: Colors.white) , ),
                               ),
                             ],
-                          ),),
+                          ),
+                        ),
+
                       ),
                     ],
                   ),

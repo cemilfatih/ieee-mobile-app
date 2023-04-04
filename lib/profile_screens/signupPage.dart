@@ -4,7 +4,8 @@ import 'package:ieee_mobile_app/logic/mail_verify.dart';
 import '../helper/helper.dart';
 import 'loginPage.dart';
 
-const List<String> komiteList = <String>['ComSoc', 'CS', 'EAC', 'EMBS', 'EXTERNALRELATIONS','Girisimcilik','ik','kariyer','malzeme','mat','medya','pes','ras','wie'];
+const List<String> komiteList = <String>['comsoc', 'cs', 'eac','embs','externalrelations','girisimcilik','ik','kariyer','malzeme','mat','medya','pes','ras','wie'];
+// DATABASEYE GÖRE DÜZENLE
 String secilenKomite = "";
 
 class SignupPage extends StatefulWidget {
@@ -15,7 +16,6 @@ class SignupPage extends StatefulWidget {
 }
 
 class _SignupPageState extends State<SignupPage> {
-
 
 
   final _signupFormKey = GlobalKey<FormState>();
@@ -188,7 +188,14 @@ class _SignupPageState extends State<SignupPage> {
                           }
                       ),
                       const SizedBox(height: 16,),
-                      komiteSec(),
+                      Container(
+                        child: Column(crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Text("Komite Seç  " , style: TextStyle(fontWeight: FontWeight.bold , fontSize: 17),),
+                            komiteSec(),
+                          ],
+                        ),
+                      ),
 
                       const SizedBox(height: 22,),
                       CustomFormButton(innerText: 'Kayıt Ol', onPressed: _handleSignupUser,),
@@ -405,7 +412,7 @@ class _komiteSecState extends State<komiteSec> {
       value: dropdownValue,
       icon: const Icon(Icons.arrow_downward),
       elevation: 16,
-      style: const TextStyle(color: Colors.deepPurple),
+      style: const TextStyle(color: Colors.black),
       underline: Container(
         height: 2,
         color: Colors.deepPurpleAccent,
