@@ -3,15 +3,15 @@ import 'package:ieee_mobile_app/helper/helper.dart';
 
 class user{
   static user currentUser = user(id: "-1",
-      name: "name",
-      surname: "surname",
-      mail: "mail",
-      telNum: "telNum",
-      sClass: "sClass",
-      department: "department",
-      committee: "committee",
-      password: "password",
-      level: 1,
+    name: "name",
+    surname: "surname",
+    mail: "mail",
+    telNum: "telNum",
+    sClass: "sClass",
+    department: "department",
+    committee: "committee",
+    password: "password",
+    level: 1,
   );
 
   late final String id;
@@ -41,7 +41,7 @@ class user{
     required this.password,
     required this.level,
     this.isVerified = false
-});
+  });
 
 //  User(this._id,this._name, this._surname, this._mail, this._telNum, this._sClass,
   //    this._department, this._committee, this._school, this._password);
@@ -90,6 +90,5 @@ class user{
         level: 0);
 
     Helper.isLogin = false;
-    this.id = "-1";
   }
 }

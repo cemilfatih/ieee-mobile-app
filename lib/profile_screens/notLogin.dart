@@ -44,15 +44,15 @@ class _notLoginState extends State<notLogin> {
             SizedBox(height: 16.0),
             TextButton(
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.blue
+                  backgroundColor: Colors.blue
 
               ),
               onPressed: () {
 
                 Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
                 //   setState(() {
-              //   Provider.of<StateData>(context, listen: false).newIndexProfile(1);
-              // });
+                //   Provider.of<StateData>(context, listen: false).newIndexProfile(1);
+                // });
 
               },
               child: Text("Giriş Yap" ,style:TextStyle(color: Colors.white) ),
@@ -66,9 +66,9 @@ class _notLoginState extends State<notLogin> {
                   MaterialPageRoute(builder: (context) => SignupPage()),
                 );
 
-              //   setState(() {
-              //   Provider.of<StateData>(context, listen: false).newIndexProfile(2);
-              // });
+                //   setState(() {
+                //   Provider.of<StateData>(context, listen: false).newIndexProfile(2);
+                // });
 
               },
               child: Text("Kayıt Ol" ,style:TextStyle(color: Colors.black) ),

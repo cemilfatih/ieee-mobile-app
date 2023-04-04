@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:ieee_mobile_app/extensions/isValid.dart';
 import 'package:ieee_mobile_app/logic/mail_verify.dart';
 import '../helper/helper.dart';
@@ -246,8 +247,7 @@ class _SignupPageState extends State<SignupPage> {
         _signupFormKey.currentState!.save();
 
         // !!!!soy ad ve sınıf eklenmeli
-        bool isRegistered = await Helper.register( name, "-", mail, telNo, "2", department, secilenKomite, psw);
-
+        bool isRegistered = await Helper.register( name, " ", mail, telNo, "2", department, secilenKomite, psw);
 
         if (isRegistered){
           Navigator.push(
