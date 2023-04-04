@@ -60,12 +60,17 @@ class _LoginPageState extends State<LoginPage> {
                               // şu an için gtu uzantılı mailleri invalid olarak ayarladım.
                               //domain sorunu çzöülüp gtu mailleri test edebilir hale geldiğimizde değişecek
 
+
                               else if(textValue.isValidMail){
                                 return 'Invalid Format';
 
                               }
+
+
                               return null;
                             }
+
+
                         ),
                         const SizedBox(height: 16,),
                         CustomInputField(

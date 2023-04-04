@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ieee_mobile_app/extensions/isValid.dart';
+import 'package:ieee_mobile_app/logic/mail_verify.dart';
 import '../helper/helper.dart';
 import 'loginPage.dart';
 
@@ -227,23 +228,32 @@ class _SignupPageState extends State<SignupPage> {
   }
 
   Future<void> _handleSignupUser() async {
-    // signup user
-    if (_signupFormKey.currentState!.validate()) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Submitting data..')),
-      );
 
-      _signupFormKey.currentState!.save();
-
-      // !!!!soy ad ve sınıf eklenmeli
-      await Helper.register( name, "-", mail, telNo, "2", department, secilenKomite, psw);
-      if (Helper.isRegistered){
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => const LoginPage()),
+    try {
+      // signup user
+      if (_signupFormKey.currentState!.validate()) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Submitting data..')),
         );
+
+        _signupFormKey.currentState!.save();
+
+        // !!!!soy ad ve sınıf eklenmeli
+        bool isRegistered = await Helper.register( name, "-", mail, telNo, "2", department, secilenKomite, psw);
+
+
+        if (isRegistered){
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) =>  mailVerifyService()),
+          );
+        }
       }
+
+    }catch(error){
+      print(error.toString());
     }
+
   }
 }
 

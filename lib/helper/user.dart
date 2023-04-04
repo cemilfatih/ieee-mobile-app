@@ -11,7 +11,8 @@ class user{
       department: "department",
       committee: "committee",
       password: "password",
-      level: 1);
+      level: 1,
+  );
 
   late final String id;
   final String name;
@@ -23,6 +24,7 @@ class user{
   final String committee;
   final String password;
   final int level;
+  bool isVerified = false;
 
 
   late int _getAuth;
@@ -38,6 +40,7 @@ class user{
     required this.committee,
     required this.password,
     required this.level,
+    this.isVerified = false
 });
 
 //  User(this._id,this._name, this._surname, this._mail, this._telNum, this._sClass,

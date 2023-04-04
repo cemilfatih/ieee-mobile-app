@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:ieee_mobile_app/helper/etkinlik.dart';
 import 'package:ieee_mobile_app/helper/helper.dart';
+import 'package:ieee_mobile_app/main.dart';
+
 import 'package:ieee_mobile_app/helper/user.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
@@ -18,6 +21,7 @@ class kayit_button extends StatefulWidget {
   State<kayit_button> createState() => _kayit_buttonState();
 }
 class _kayit_buttonState extends State<kayit_button> {
+
 
   @override
   Widget build(BuildContext context) {
@@ -99,6 +103,7 @@ class _kayit_buttonState extends State<kayit_button> {
                           padding: const EdgeInsets.all(8.0),
                           child: Text(user.currentUser.id != "-1" ? "KATIL" : "Giriş Gerekli", style: TextStyle(color: Colors.white , fontWeight: FontWeight.bold)),
                         ),
+
                       ),
                     ),
 

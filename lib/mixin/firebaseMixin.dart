@@ -79,8 +79,11 @@ mixin firebaseMixin {
   }
   Future<bool> loginUser(String email , String password) async{
     try{
-      await fire_auth.signInWithEmailAndPassword(email: email, password: password);
+
       bool flag = false;
+      await fire_auth.signInWithEmailAndPassword(email: email, password: password);
+      flag = true;
+
 
       await FirebaseFirestore.instance
           .collection('users')
@@ -101,6 +104,9 @@ mixin firebaseMixin {
         flag = true;
       });
 
+
+
+
       if(flag){ // save user local
         final prefs = await SharedPreferences.getInstance();
         await prefs.setString('user', user.currentUser.id);
@@ -113,14 +119,21 @@ mixin firebaseMixin {
     }
   }
 
-  Future<void> checkEmailVerified(Timer timer, BuildContext context) async{
-    final user = fire_auth.currentUser;
+  Future<bool> checkEmailVerified(Timer timer, BuildContext context) async{
+    bool status = false;
 
-    await user!.reload();
+    final fire_user = fire_auth.currentUser;
+    await fire_user!.reload();
 
-    if(user!.emailVerified){
+    if(fire_user!.emailVerified){
+
+      status = true;
+      user.currentUser.isVerified = status;
       timer.cancel();
       Navigator.pushReplacementNamed(context, "/homePage");
+      return status;
+
     }
+    return status;
   }
 }
