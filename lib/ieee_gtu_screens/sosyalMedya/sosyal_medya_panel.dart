@@ -22,6 +22,7 @@ class _panelState extends State<panel> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(title: Text("Sosyal Medya Panel")),
         body: SingleChildScrollView(
           child: Column(mainAxisAlignment: MainAxisAlignment.center,crossAxisAlignment: CrossAxisAlignment.center,
             children: [

@@ -32,6 +32,13 @@ class _SignupPageState extends State<SignupPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        floatingActionButtonLocation: FloatingActionButtonLocation.startTop,
+        floatingActionButton: FloatingActionButton( backgroundColor: Colors.black,mini: true,onPressed:() {
+          Navigator.pop(context);
+
+        },
+          child : Icon(Icons.arrow_back),
+        ),
         backgroundColor: Color(0xff00609c),
         body: SingleChildScrollView(
           child: Form(
@@ -82,8 +89,8 @@ class _SignupPageState extends State<SignupPage> {
                       ),
                       const SizedBox(height: 16,),
                       CustomInputField(
-                          labelText: 'İsim',
-                          hintText: 'İsminizi Giriniz',
+                          labelText: 'İsim ve Soyisim',
+                          hintText: 'İsmi & Soyisim Giriniz',
                           isDense: true,
                           onSaved: (textValue){
                             name = textValue!;
