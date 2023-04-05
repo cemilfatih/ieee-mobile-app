@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class TavsiyeOneriSayfa extends StatefulWidget {
   const TavsiyeOneriSayfa({Key? key}) : super(key: key);
@@ -44,7 +46,29 @@ class _TavsiyeOneriSayfaState extends State<TavsiyeOneriSayfa> {
                       height: MediaQuery.of(context).size.height/20 ,
                       child: ElevatedButton(
                         child: Text('Gönder' ,style: TextStyle(fontSize: 20),),
-                        onPressed: () {},
+                        onPressed: () {
+                          String text = "Lütfen en az 10 Karakter giriniz!";
+                          if(_fikirController.text.length > 10) {
+                            FirebaseFirestore firestore = FirebaseFirestore
+                                .instance;
+                            List<dynamic> l = [_fikirController.text];
+
+                            firestore.collection("oneriler")
+                                .doc("oneri")
+                                .update({"oneriler": FieldValue.arrayUnion(l)});
+                            text = "Oneriniz başarıyla alındı teşekkürler!";
+                          }
+                          Fluttertoast.showToast(
+                              msg: text,
+                              toastLength: Toast.LENGTH_SHORT,
+                              gravity: ToastGravity.CENTER,
+                              timeInSecForIosWeb: 1,
+                              backgroundColor: Colors.amber,
+                              textColor: Colors.white,
+                              fontSize: 16.0
+                          );
+
+                        },
                         style: ElevatedButton.styleFrom(
                           primary: Colors.blueAccent, // background color
                           shape: RoundedRectangleBorder(
