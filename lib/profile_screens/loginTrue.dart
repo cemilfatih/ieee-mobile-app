@@ -151,9 +151,9 @@ class _loginTrueState extends State<loginTrue> {
               child:
               Row( mainAxisAlignment: MainAxisAlignment.end,
                 children: <Widget>[
-                  Text("Yetki VER" , style: TextStyle(fontWeight: FontWeight.bold , color: Colors.blue),),
+                  Text("Yetki VER" , style: TextStyle(fontWeight: FontWeight.bold , color: Colors.black),),
                   SizedBox(width: 10),
-                  FloatingActionButton(
+                  FloatingActionButton( backgroundColor: Colors.black,
                     onPressed: () => {
                       Navigator.push(
                         context,
@@ -161,7 +161,7 @@ class _loginTrueState extends State<loginTrue> {
                       )
                     },
                     // YOKLAMAYI LİSTEYELEN SAYFAYA GİDER
-                    child: Icon(Icons.event_busy_outlined),
+                    child: Icon(Icons.admin_panel_settings),
                     heroTag: "yoklama",
                   ),
                 ],

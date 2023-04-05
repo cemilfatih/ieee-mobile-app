@@ -27,6 +27,13 @@ class _LoginPageState extends State<LoginPage> {
     Size size = MediaQuery.of(context).size;
     return SafeArea(
       child: Scaffold(
+        floatingActionButtonLocation: FloatingActionButtonLocation.startTop,
+        floatingActionButton: FloatingActionButton( backgroundColor: Colors.black,mini: true,onPressed:() {
+          Navigator.pop(context);
+
+        },
+          child : Icon(Icons.arrow_back),
+        ),
         backgroundColor:Color(0xffe71d73),
         body: Column(
           children: [

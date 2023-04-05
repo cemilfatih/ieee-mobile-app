@@ -102,7 +102,7 @@ var sekme_resim = [
   "lib/assets/images/ik_icon_siyah.png",
   "lib/assets/images/yoklama.png",
   "lib/assets/images/advice_icon.png",
-  "lib/assets/images/advice_icon.png"
+  "lib/assets/images/youtube.png"
 ];
 
 var rota = [

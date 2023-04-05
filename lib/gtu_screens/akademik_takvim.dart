@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:path_provider/path_provider.dart';
-
+//import 'package:ieee_mobile_app/logic/mail_verify.dart';
 
 
 
@@ -19,7 +18,8 @@ class _akademik_takvimState extends State<akademik_takvim> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(child: Image(image: AssetImage("lib/assets/images/yakında.png"),) ,);
+    return
+      Container(child: Image(image: AssetImage("lib/assets/images/yakında.png"),) ,);
   }
 }
 

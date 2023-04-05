@@ -178,7 +178,7 @@ class Helper with firebaseMixin, ChangeNotifier{
 
   static yetki_ver(String id) {
     FirebaseFirestore firestore = FirebaseFirestore.instance;
-    firestore.collection("users").doc(id).update({'level':3});
+    firestore.collection("users").doc(id).update({'level':2});
   }
 
 

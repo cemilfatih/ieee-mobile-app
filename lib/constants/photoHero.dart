@@ -20,6 +20,13 @@ class HeroImage extends StatelessWidget {
           MaterialPageRoute<void>(
             builder: (BuildContext context) {
               return Scaffold(
+                floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+                floatingActionButton: FloatingActionButton( backgroundColor: Colors.black,onPressed:() {
+                  Navigator.pop(context);
+
+                },
+                  child : Icon(Icons.arrow_back),
+                ),
                 body: SizedBox.expand(
                   child: Hero(
                     tag: imageUrl,

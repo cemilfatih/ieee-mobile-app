@@ -127,152 +127,170 @@ class _TablePageState extends State<TablePage> {
             child: MaterialApp(
               debugShowCheckedModeBanner: false,
               home: Scaffold(
+                floatingActionButtonLocation: FloatingActionButtonLocation.startTop,
+                floatingActionButton: FloatingActionButton( backgroundColor: Colors.black,mini: true,onPressed:() {
+                  Navigator.pop(context);
+
+                },
+                    child : Icon(Icons.arrow_back),
+                ),
                // backgroundColor: Colors.grey.shade400,
                 body: Container(width: double.infinity , height: double.infinity ,color: Color(0xffffe9d4),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.end,crossAxisAlignment: CrossAxisAlignment.center, mainAxisSize: MainAxisSize.max,
+                  child: Stack(
                     children: [
-                      Container(
-                        margin: EdgeInsets.only(
-                            top: 50, right: 6, left: 6, bottom: 8),
-                        width: width/1.2,
-                        height: height/7,
-                        decoration: BoxDecoration(
-                          color: Color(0xFF00609c),
-                          borderRadius: BorderRadiusDirectional.circular(20.0),
+                      Column( mainAxisAlignment: MainAxisAlignment.end,mainAxisSize: MainAxisSize.max,
+                        children: [
+                        Container( height: height/5,
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                              image: AssetImage("lib/assets/images/bus_back.png" ),
+                              fit: BoxFit.fitWidth,
+                            ),
+                          ),
                         ),
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text(
-                              ' ${busNums[widget.busIndex]} \n ${busNames[widget.busIndex]} ',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: height/40,
-                              ),
-                              textAlign: TextAlign.center),
-                        ),
-
-                        //color: Colors.white,
-                        alignment: Alignment.center,
-                      ),
-                      //SizedBox(
-                      // height: 10,
-                      //),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
+                      ],),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.start,crossAxisAlignment: CrossAxisAlignment.center, mainAxisSize: MainAxisSize.max,
                         children: [
                           Container(
-                            margin:
-                            EdgeInsets.symmetric(horizontal: 6, vertical: 5),
-                            width: width/2.5,
-                            height: height/21,
+                            margin: EdgeInsets.only(
+                                top: 50, right: 6, left: 6, bottom: 8),
+                            width: width/1.2,
+                            height: height/7,
                             decoration: BoxDecoration(
-                              color: Color(0xFFbe1238),
-                              borderRadius:
-                              BorderRadiusDirectional.circular(15.0),
+                              color: Color(0xFF00609c),
+                              borderRadius: BorderRadiusDirectional.circular(20.0),
                             ),
-                            child: Text('Fatih Durağına Gidiş',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 15,
-                                ),
-                                textAlign: TextAlign.center),
-                            //color: Colors.white,
-                            alignment: Alignment.center,
-                          ),
-                          SizedBox(
-                            width: 5,
-                          ),
-                          Container(
-                            margin:
-                            EdgeInsets.symmetric(horizontal: 6, vertical: 5),
-                            width: width/2.5,
-                            height: height/21,
-                            decoration: BoxDecoration(
-                              color: Color(0xFFbe1238),
-                              borderRadius:
-                              BorderRadiusDirectional.circular(15.0),
-                            ),
-                            child: Text('Fatih Durağından Kalkış',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 15,
-                                ),
-                                textAlign: TextAlign.center),
-                            //color: Colors.white,
-                            alignment: Alignment.center,
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 12,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Container(
-                            margin:
-                            EdgeInsets.symmetric(horizontal: 6, vertical: 5),
-                            width: width/2.5,
-                            height: height/2.1,
-                            decoration: BoxDecoration(
-                                color: Color(0xFFFFF3E0),
-                                borderRadius:
-                                BorderRadiusDirectional.circular(20.0)),
-                            padding: EdgeInsets.symmetric(vertical: 5),
-                            child: GridView.count(
-                              controller: ScrollController(),
-                              crossAxisCount: 1,
-                              childAspectRatio: 4,
-                              children: _table1.map((item) {
-                                return Container(
-                                  child: Text(
-                                    item.replaceAll("\"", ""),
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(fontSize: 25),
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                  ' ${busNums[widget.busIndex]} \n ${busNames[widget.busIndex]} ',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: height/40,
                                   ),
-                                );
-                              }).toList(),
+                                  textAlign: TextAlign.center),
                             ),
+
+                            //color: Colors.white,
                             alignment: Alignment.center,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text("Veriler hafta içi için çekilmektedir. Haftasonu verileri değişkenlik gösterebilir." , style: TextStyle(fontSize: 10,fontStyle: FontStyle.italic),),
+                          ),
+                          //SizedBox(
+                          // height: 10,
+                          //),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Container(
+                                margin:
+                                EdgeInsets.symmetric(horizontal: 6, vertical: 5),
+                                width: width/2.5,
+                                height: height/21,
+                                decoration: BoxDecoration(
+                                  color: Color(0xFFbe1238),
+                                  borderRadius:
+                                  BorderRadiusDirectional.circular(15.0),
+                                ),
+                                child: Text('Fatih Durağına Gidiş',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 15,
+                                    ),
+                                    textAlign: TextAlign.center),
+                                //color: Colors.white,
+                                alignment: Alignment.center,
+                              ),
+                              SizedBox(
+                                width: 5,
+                              ),
+                              Container(
+                                margin:
+                                EdgeInsets.symmetric(horizontal: 6, vertical: 5),
+                                width: width/2.5,
+                                height: height/21,
+                                decoration: BoxDecoration(
+                                  color: Color(0xFFbe1238),
+                                  borderRadius:
+                                  BorderRadiusDirectional.circular(15.0),
+                                ),
+                                child: Text('Fatih Durağından Kalkış',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 15,
+                                    ),
+                                    textAlign: TextAlign.center),
+                                //color: Colors.white,
+                                alignment: Alignment.center,
+                              ),
+                            ],
                           ),
                           SizedBox(
-                            width: 10,
+                            height: 12,
                           ),
-                          Container(
-                            margin:
-                            EdgeInsets.symmetric(horizontal: 6, vertical: 5),
-                            width: width/2.5,
-                            height: height/2.1,
-                            decoration: BoxDecoration(
-                                color: Color(0xFFFFF3E0),
-                                borderRadius:
-                                BorderRadiusDirectional.circular(20.0)),
-                            padding: EdgeInsets.symmetric(vertical: 5),
-                            child: GridView.count(
-                              controller: ScrollController(),
-                              crossAxisCount: 1,
-                              childAspectRatio: 4,
-                              children: _table2.map((item) {
-                                return Container(
-                                    child: Text(
-                                      item.replaceAll("\"", ""),
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(fontSize: 25),
-                                    ));
-                              }).toList(),
-                            ),
-                            alignment: Alignment.center,
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Container(
+                                margin:
+                                EdgeInsets.symmetric(horizontal: 6, vertical: 5),
+                                width: width/2.5,
+                                height: height/2.1,
+                                decoration: BoxDecoration(
+                                    color: Color(0xFFFFF3E0),
+                                    borderRadius:
+                                    BorderRadiusDirectional.circular(20.0)),
+                                padding: EdgeInsets.symmetric(vertical: 5),
+                                child: GridView.count(
+                                  controller: ScrollController(),
+                                  crossAxisCount: 1,
+                                  childAspectRatio: 4,
+                                  children: _table1.map((item) {
+                                    return Container(
+                                      child: Text(
+                                        item.replaceAll("\"", ""),
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(fontSize: 25),
+                                      ),
+                                    );
+                                  }).toList(),
+                                ),
+                                alignment: Alignment.center,
+                              ),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              Container(
+                                margin:
+                                EdgeInsets.symmetric(horizontal: 6, vertical: 5),
+                                width: width/2.5,
+                                height: height/2.1,
+                                decoration: BoxDecoration(
+                                    color: Color(0xFFFFF3E0),
+                                    borderRadius:
+                                    BorderRadiusDirectional.circular(20.0)),
+                                padding: EdgeInsets.symmetric(vertical: 5),
+                                child: GridView.count(
+                                  controller: ScrollController(),
+                                  crossAxisCount: 1,
+                                  childAspectRatio: 4,
+                                  children: _table2.map((item) {
+                                    return Container(
+                                        child: Text(
+                                          item.replaceAll("\"", ""),
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(fontSize: 25),
+                                        ));
+                                  }).toList(),
+                                ),
+                                alignment: Alignment.center,
+                              ),
+                            ],
                           ),
                         ],
-                      ),
-                      Container( height: height/5,
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: AssetImage("lib/assets/images/bus_back.png" ),
-                            fit: BoxFit.fitWidth,
-                          ),
-                        ),
                       ),
                     ],
                   ),

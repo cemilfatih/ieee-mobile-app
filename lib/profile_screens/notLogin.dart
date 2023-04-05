@@ -32,9 +32,14 @@ class _notLoginState extends State<notLogin> {
                   "lib/assets/images/login.png"),
             ),
             Text(
-              "Profil ekranını görebilmek için giriş yapmış olman gerekli",
+              "Profil ekranını görebilmek için giriş yapmış olman gerekli.",
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: height/40),
+            ),
+            Text(
+              "Eğer kayıt olduysan fakat doğrulama maili göremiyorsan, 'spam' veya 'gereksiz e-postalar' klasörünü kontol et.",
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: height/60 , fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 16.0),
             TextButton(
