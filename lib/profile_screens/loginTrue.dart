@@ -2,6 +2,7 @@ import "package:flutter/material.dart";
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import "package:ieee_mobile_app/helper/user.dart";
+import 'package:ieee_mobile_app/profile_screens/uye_al.dart';
 import 'package:ieee_mobile_app/profile_screens/yetki_ver.dart';
 import '../main.dart';
 import 'toplantı_yoklama_kontrol.dart';
@@ -163,6 +164,27 @@ class _loginTrueState extends State<loginTrue> {
                     // YOKLAMAYI LİSTEYELEN SAYFAYA GİDER
                     child: Icon(Icons.admin_panel_settings),
                     heroTag: "yoklama",
+                  ),
+                ],
+              ),
+            ),
+            Visibility(
+              visible: user.currentUser.level > 1 ? true : false,
+              child:
+              Row( mainAxisAlignment: MainAxisAlignment.end,
+                children: <Widget>[
+                  Text("Uye Onayla" , style: TextStyle(fontWeight: FontWeight.bold , color: Colors.black),),
+                  SizedBox(width: 10),
+                  FloatingActionButton( backgroundColor: Colors.black,
+                    onPressed: () => {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => uye_al()),
+                      )
+                    },
+                    // YOKLAMAYI LİSTEYELEN SAYFAYA GİDER
+                    child: Icon(Icons.admin_panel_settings),
+                    heroTag: "uye Onay",
                   ),
                 ],
               ),
