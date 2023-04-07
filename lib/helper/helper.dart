@@ -12,15 +12,19 @@ class Helper with firebaseMixin, ChangeNotifier{
   static bool isLogin = false;
   static int etkinlikSayisi = 0;
   static List<List<String>> etkinlikler = [[]];
+
+  static List<List<String>> onaylanacakUyeler = [[]];
+  static int onaylanacakUyeSayisi = 0;
+
   static bool isRegistered = false;
   static String liveEventID = "";
+  static bool isVerifiedUser = false;
   // yonetici ozel
 
   static Future<bool> register(name, surname, mail, telNum, sClass, department, committee, password) async {
 
     final docUser = Helper().setCollection('users');
     //final docUsers = FirebaseFirestore.instance.collection('users').doc();
-
 
     final currentUser = await Helper().createUser(mail, password);
 
@@ -34,6 +38,7 @@ class Helper with firebaseMixin, ChangeNotifier{
           textColor: Colors.white,
           fontSize: 16.0
       );
+      return false;
     }
     // final CollectionReference _userRef =
     // FirebaseFirestore.instance.collection('user');
@@ -63,7 +68,7 @@ class Helper with firebaseMixin, ChangeNotifier{
 
     //hata veriyor
 
-    await firestore.collection("komiteler").doc(committee).update({"uyeler": FieldValue.arrayUnion(l) });
+    await firestore.collection("komiteler").doc(committee).update({"onaylanacakUyeler": FieldValue.arrayUnion(l) });
     isRegistered = true;
 
 
@@ -76,7 +81,7 @@ class Helper with firebaseMixin, ChangeNotifier{
         textColor: Colors.white,
         fontSize: 16.0
     );
-    return isRegistered;
+    return true;
   }
 
   static Future<void> loginwithID() async {
@@ -179,6 +184,28 @@ class Helper with firebaseMixin, ChangeNotifier{
   static yetki_ver(String id) {
     FirebaseFirestore firestore = FirebaseFirestore.instance;
     firestore.collection("users").doc(id).update({'level':2});
+  }
+
+  static Future<void> isVerified(String? uid) async {
+
+    await FirebaseFirestore.instance
+        .collection('users')
+        .doc(uid)
+        .get()
+        .then((value){
+        if(value["onay"].toString() == "1") isVerifiedUser = true;
+    });
+
+  }
+
+  static void userOnay(String id) {
+    FirebaseFirestore firestore = FirebaseFirestore.instance;
+    firestore.collection("users").doc(id).update({'onay':1});
+
+    List<dynamic> l = [id];
+    firestore.collection("komiteler").doc(user.currentUser.committee).update({"onaylanacakUyeler": FieldValue.arrayRemove(l)} );
+
+    firestore.collection("komiteler").doc(user.currentUser.committee).update({"uyeler": FieldValue.arrayUnion(l) });
   }
 
 

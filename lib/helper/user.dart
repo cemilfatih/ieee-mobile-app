@@ -50,13 +50,14 @@ class user{
     'id':id,
     'name':name,
     'surname':surname,
-    'password':password,
+    'password':0,
     'mail':mail,
     'telephone':telNum,
     'sClass':sClass,
     'department':department,
     'committee':committee,
     'level':level,
+    'onay':0, // 0 => onaylı degil 1 => onayli
     'katEtkinlikler': [],
     'yapilanEtkinlikler': [],
   };

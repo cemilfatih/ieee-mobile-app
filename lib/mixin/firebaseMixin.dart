@@ -5,6 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:ieee_mobile_app/helper/user.dart';
+import 'package:ieee_mobile_app/helper/helper.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 
@@ -66,7 +67,7 @@ mixin firebaseMixin {
             sClass: value["sClass"],
             department: value["department"],
             committee: value["committee"],
-            password: value["password"],
+            password: "1",
             level: value["level"]
         );
         flag = true;
@@ -83,9 +84,11 @@ mixin firebaseMixin {
     try{
 
       bool flag = false;
-      await fire_auth.signInWithEmailAndPassword(email: email, password: password);
 
-      if ( (fire_auth.currentUser?.emailVerified ?? false) ){
+      await fire_auth.signInWithEmailAndPassword(email: email, password: password);
+      await Helper.isVerified(fire_auth.currentUser?.uid);
+
+      if ( Helper.isVerifiedUser ){
         await FirebaseFirestore.instance
             .collection('users')
             .doc(fire_auth.currentUser?.uid)
@@ -99,7 +102,7 @@ mixin firebaseMixin {
               sClass: value["sClass"],
               department: value["department"],
               committee: value["committee"],
-              password: value["password"],
+              password: "1",
               level: value["level"]
           );
           flag = true;
@@ -107,7 +110,7 @@ mixin firebaseMixin {
       }
       else{
         Fluttertoast.showToast(
-          msg: "Eğer daha önceden login olduysan lütfen emailini onayla, mail junk/gereksiz'e düşmüş olabilir!",
+          msg: "Eğer daha önceden register olduysan komite başkanından onay iste!",
           toastLength: Toast.LENGTH_SHORT,
           gravity: ToastGravity.CENTER,
           timeInSecForIosWeb: 1,
