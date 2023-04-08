@@ -114,42 +114,28 @@ final drawerItems = [
   "Yemekhane",
   "Otobüs",
   "Okul Duyuruları",
+  "Canlı Yayın",
   "Akademik Takvim",
   "Akademisyenler",
   "Uygulama Hakkında",
   "Öneri/Şikayet"
 ];
-//
-// final rota = [
-//   Provider.of<StateData>(context, listen: false).newIndexMain(2) , Provider.of<StateData>(context, listen: false).newIndexIeee(1) , //BTG
-//   [ Provider.of<StateData>(context, listen: false).newIndexMain(2) , Provider.of<StateData>(context, listen: false).newIndexIeee(6) ] , //Komitelerimiz
-//   [ Provider.of<StateData>(context, listen: false).newIndexMain(2) , Provider.of<StateData>(context, listen: false).newIndexIeee(2) ] , //Etkinlikler
-//   [ Provider.of<StateData>(context, listen: false).newIndexMain(1) , Provider.of<StateData>(context, listen: false).newIndexMain(1) ] , //"Yoklama"
-//   [ Provider.of<StateData>(context, listen: false).newIndexMain(2) , Provider.of<StateData>(context, listen: false).newIndexIeee(4) ] , //Sosyal Medya
-//   [ Provider.of<StateData>(context, listen: false).newIndexMain(1) , Provider.of<StateData>(context, listen: false).newIndexGtu(2) ] , //Yemekhane
-//   [ Provider.of<StateData>(context, listen: false).newIndexMain(1) , Provider.of<StateData>(context, listen: false).newIndexGtu(3) ] , //Otobüs
-//   [ Provider.of<StateData>(context, listen: false).newIndexMain(1) , Provider.of<StateData>(context, listen: false).newIndexGtu(1) ] , //Okul Duyuruları
-//   [ Provider.of<StateData>(context, listen: false).newIndexMain(1) , Provider.of<StateData>(context, listen: false).newIndexGtu(5) ] , //Akademik Takvim
-//   [ Provider.of<StateData>(context, listen: false).newIndexMain(1) , Provider.of<StateData>(context, listen: false).newIndexGtu(6) ] , //Akademisyenler
-//   [ Provider.of<StateData>(context, listen: false).newIndexMain(1) , Provider.of<StateData>(context, listen: false).newIndexMain(1) ] , //Uygulama Hakkında
-//   [ Provider.of<StateData>(context, listen: false).newIndexMain(1) , Provider.of<StateData>(context, listen: false).newIndexMain(1) ] ]; //Öneri/Şikayet
-//
 
-
-
+// YENİ EKLENİLENLERİ BU SAYFADAN AYARLAYABİLİRSİN , -melih
 final rota = [
   // main , gtu , ieee
   [2, 0, 1], // BTG
   [2, 0, 6], //Komitelerimiz
   [2, 0, 2], // Etkinlikler
-  [2, 0, 1], // Yoklama  EKSİKKKKKKKKKKKK
+  [2, 0, 9], // Yoklama
   [2, 0, 4], // Sosyal Medya
   [1, 2, 0], // Yemekhane
   [1, 3, 0], // Otobüs
   [1, 1, 0], // Okul Duyuruları
+  [2, 0 ,10], //Canlı Yayın
   [1, 5, 0], // Akademik Takvim
   [1, 6, 0], // Akademisyenler
-  [2, 0, 1], // Uygulama Hakkında EKSİKKKKKKKKKK
-  [2, 0, 1], // Öneri Şikayet EKSİKKKKKKKKKKK
+  [2, 0, 12], // Uygulama Hakkında
+  [2, 0, 11], // Öneri Şikayet
 
 ];

@@ -14,8 +14,8 @@ class mailVerifyService extends StatefulWidget with firebaseMixin {
 class _mailVerifyServiceState extends State<mailVerifyService> {
 
   // firebase service
-  final _auth = mailVerifyService().fire_auth;
-
+  // final _auth = mailVerifyService().fire_auth;
+  //
   late Timer timer;
   late User? user;
   late bool isVerified;
@@ -35,11 +35,11 @@ class _mailVerifyServiceState extends State<mailVerifyService> {
   // }
 
   @override
-  void dispose() {
-    // TODO: implement dispose
-    timer?.cancel();
-    super.dispose();
-  }
+  // void dispose() {
+  //   // TODO: implement dispose
+  //   timer?.cancel();
+  //   super.dispose();
+  // }
 
 
   @override

@@ -37,7 +37,7 @@ class _notLoginState extends State<notLogin> {
               style: TextStyle(fontSize: height/40),
             ),
             Text(
-              "Eğer kayıt olduysan fakat doğrulama maili göremiyorsan, 'spam' veya 'gereksiz e-postalar' klasörünü kontol et.",
+              "Eğer kulübe üyeysen, uygulamaya kayıt olabilirsin. Daha önce kayıt olduysan ve giremiyorsan komite başkanından seni onaylamasını iste.",
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: height/60 , fontWeight: FontWeight.bold),
             ),

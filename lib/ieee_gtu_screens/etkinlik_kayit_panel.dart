@@ -140,7 +140,15 @@ class _etkinlik_kayit_panel_kontrolState extends State<etkinlik_kayit_panel> {
                 ElevatedButton(onPressed: () async{
                   if(etkinlikListsi.length == 1) {
                     Helper.etkinlikSil(etkinlikListsi[0]);
-                    const SnackBar(content: Text('Etkinlik Kaldırıldı!'));
+                    Fluttertoast.showToast(
+                        msg: "Etkinlik Kaldırılıyor",
+                        toastLength: Toast.LENGTH_SHORT,
+                        gravity: ToastGravity.CENTER,
+                        timeInSecForIosWeb: 1,
+                        backgroundColor: Colors.amber,
+                        textColor: Colors.white,
+                        fontSize: 16.0
+                    );
                   }
                 }, child: Text(etkinlikListsi.length == 1 ? "Şuanda bir adet etkinliğin var silmek istiyorsan tıkla!" : "Önemsemeyebilirsin")),
               ],

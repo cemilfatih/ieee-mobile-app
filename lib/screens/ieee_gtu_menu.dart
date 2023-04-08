@@ -91,7 +91,7 @@ var sekmeler = [
   "Yoklama",
   "Canlı Yayın",
   "Öneri/Tavsiye",
-  "Uygulama Hakkında"
+  "Uygulama Hk."
 ];
 var sekme_resim = [
   "lib/assets/images/btg.png",
@@ -105,7 +105,7 @@ var sekme_resim = [
   "lib/assets/images/yoklama.png",
   "lib/assets/images/youtube.png",
   "lib/assets/images/advice_icon.png",
-  "lib/assets/images/advice_icon.png",
+  "lib/assets/images/about_icon.png",
 
 ];
 
