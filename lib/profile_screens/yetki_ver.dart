@@ -43,14 +43,14 @@ class _yetki_verState extends State<yetki_ver> {
               children: <Widget>[
                 TextField( decoration: InputDecoration(
                     border: InputBorder.none,
-                    labelText: 'Yetki alacak kişinin idsi',
+                    labelText: "İlgili kişinin ID'si",
                     hintText: 'id gir'
                 ),
                   controller: nameController,
                 ),
 
 
-                ElevatedButton(onPressed: () async{
+                ElevatedButton( style: ButtonStyle(backgroundColor: MaterialStatePropertyAll(Colors.green)),onPressed: () async{
                   await Helper.yetki_ver(nameController.text );
                   Fluttertoast.showToast(
                       msg: "Yetki başarıyla verildi",
@@ -61,7 +61,31 @@ class _yetki_verState extends State<yetki_ver> {
                       textColor: Colors.white,
                       fontSize: 16.0
                   );
-                }, child: Text('Yetki Ver')),
+                }, child: Text('2.seviye Yetki Ver')),
+                ElevatedButton(style: ButtonStyle(backgroundColor: MaterialStatePropertyAll(Colors.red)),onPressed: () async{
+                  await Helper.yetki_al(nameController.text );
+                  Fluttertoast.showToast(
+                      msg: "Yetki başarıyla verildi",
+                      toastLength: Toast.LENGTH_SHORT,
+                      gravity: ToastGravity.CENTER,
+                      timeInSecForIosWeb: 1,
+                      backgroundColor: Colors.amber,
+                      textColor: Colors.white,
+                      fontSize: 16.0
+                  );
+                }, child: Text('Yetkileri al')),
+                ElevatedButton( style: ButtonStyle(backgroundColor: MaterialStatePropertyAll(Colors.black)),onPressed: () async{
+                  await Helper.yuksek_yetki_ver(nameController.text );
+                  Fluttertoast.showToast(
+                      msg: "Yetki başarıyla verildi",
+                      toastLength: Toast.LENGTH_SHORT,
+                      gravity: ToastGravity.CENTER,
+                      timeInSecForIosWeb: 1,
+                      backgroundColor: Colors.amber,
+                      textColor: Colors.white,
+                      fontSize: 16.0
+                  );
+                }, child: Text('!!!Yüksek Yetki Ver!!!')),
 
 
               ],

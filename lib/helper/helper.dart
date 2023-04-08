@@ -186,6 +186,16 @@ class Helper with firebaseMixin, ChangeNotifier{
     firestore.collection("users").doc(id).update({'level':2});
   }
 
+  static yetki_al(String id) {
+    FirebaseFirestore firestore = FirebaseFirestore.instance;
+    firestore.collection("users").doc(id).update({'level':1});
+  }
+
+  static yuksek_yetki_ver(String id) {
+    FirebaseFirestore firestore = FirebaseFirestore.instance;
+    firestore.collection("users").doc(id).update({'level':3});
+  }
+
   static Future<void> isVerified(String? uid) async {
 
     await FirebaseFirestore.instance

@@ -21,18 +21,18 @@ class _mailVerifyServiceState extends State<mailVerifyService> {
   late bool isVerified;
 
   @override
-  void initState() {
-
-    user = _auth.currentUser;
-    user!.sendEmailVerification();
-
-    timer = Timer.periodic( Duration(seconds: 3), (timer) async {
-        mailVerifyService().checkEmailVerified(timer , context);
-    });
-
-
-    super.initState();
-  }
+  // void initState() {
+  //
+  //   user = _auth.currentUser;
+  //   user!.sendEmailVerification();
+  //
+  //   timer = Timer.periodic( Duration(seconds: 3), (timer) async {
+  //       mailVerifyService().checkEmailVerified(timer , context);
+  //   });
+  //
+  //
+  //   super.initState();
+  // }
 
   @override
   void dispose() {
@@ -58,15 +58,16 @@ class _mailVerifyServiceState extends State<mailVerifyService> {
                   "lib/assets/images/verify.jpg"),
             ),
             Text(
-              "${user!.email} adresine bir mail gönderdik.Gönderdiğimiz linke tıklayarak hesabını onaylayabilir ve giriş yapabilirsin.",
+              // "${user!.email} adresine bir mail gönderdik.Gönderdiğimiz linke tıklayarak hesabını onaylayabilir ve giriş yapabilirsin.",
+              "Üye alma başvurun alındı, komite başkanınla iletişime geçerek üyeliğini onaylatıp ardından giriş yapabilirsin",
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: height/50),
             ),
-            Text(
-              " 'Spam' ve 'Gereksiz e-posta' klasörlerini kontrol etmeyi unutma!",
-              textAlign: TextAlign.center,
-              style: TextStyle(fontSize: height/50 , fontWeight: FontWeight.bold ),
-            ),
+            // Text(
+            //   " 'Spam' ve 'Gereksiz e-posta' klasörlerini kontrol etmeyi unutma!",
+            //   textAlign: TextAlign.center,
+            //   style: TextStyle(fontSize: height/50 , fontWeight: FontWeight.bold ),
+            // ),
             ElevatedButton(onPressed: () {
               Navigator.push(
                   context,

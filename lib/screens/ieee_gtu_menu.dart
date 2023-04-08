@@ -13,6 +13,7 @@ import "package:provider/provider.dart";
 import 'package:ieee_mobile_app/constants/stateData.dart';
 import 'package:ieee_mobile_app/ieee_gtu_screens/oneri_tavsiye.dart';
 import "package:ieee_mobile_app/ieee_gtu_screens/canli_yayin.dart";
+import "package:ieee_mobile_app/ieee_gtu_screens/hakkinda.dart";
 
 
 
@@ -29,7 +30,7 @@ class _ieee_gtu_menuState extends State<ieee_gtu_menu> {
   @override
 
 
-  var pages = [null, btg(), etkinlik_takvim(),etkinlik_kayit(),sosyal_medya(),haberler(),komiteler_menu(),yonetim_kurulu(),idari_kurul(),yoklama(),TavsiyeOneriSayfa(),YouTubeScreen()];
+  var pages = [null, btg(), etkinlik_takvim(),etkinlik_kayit(),sosyal_medya(),haberler(),komiteler_menu(),yonetim_kurulu(),idari_kurul(),yoklama(),YouTubeScreen(),TavsiyeOneriSayfa(),hakkinda()];
 
   Widget build(BuildContext context) {
 
@@ -88,8 +89,9 @@ var sekmeler = [
   "Yönetim Kurulu",
   "İdari Kurul",
   "Yoklama",
+  "Canlı Yayın",
   "Öneri/Tavsiye",
-  "Canlı Yayın"
+  "Uygulama Hakkında"
 ];
 var sekme_resim = [
   "lib/assets/images/btg.png",
@@ -101,8 +103,10 @@ var sekme_resim = [
   "lib/assets/images/yk_icon.png",
   "lib/assets/images/ik_icon_siyah.png",
   "lib/assets/images/yoklama.png",
+  "lib/assets/images/youtube.png",
   "lib/assets/images/advice_icon.png",
-  "lib/assets/images/youtube.png"
+  "lib/assets/images/advice_icon.png",
+
 ];
 
 var rota = [
@@ -116,7 +120,8 @@ var rota = [
   8,
   9,
   10,
-  11
+  11,
+  12
 ];
 
 var colours = [

@@ -9,6 +9,7 @@ import 'package:ieee_mobile_app/screens/ieee_gtu_menu.dart';
 import 'package:ieee_mobile_app/ieee_gtu_screens/sosyalMedya/sosyal_medya.dart';
 import 'package:provider/provider.dart';
 import 'package:ieee_mobile_app/constants/stateData.dart';
+import 'package:ieee_mobile_app/ieee_gtu_screens/etkinlik_kayit.dart';
 
 class ana_sayfa extends StatefulWidget {
   const ana_sayfa({
@@ -28,7 +29,13 @@ class ana_sayfa extends StatefulWidget {
 
 
 
-var pages = [null, marmaray_page(), bus_menu(), sosyal_medya(), yemekhane()];
+var pages = [
+  null,
+  //marmaray_page(),
+  etkinlik_kayit(),
+  bus_menu(),
+  sosyal_medya(),
+  yemekhane()];
 
 class _ana_sayfaState extends State<ana_sayfa> {
   @override
@@ -136,8 +143,8 @@ class _ana_sayfaState extends State<ana_sayfa> {
                                 Color(0xfff12711),
                                 Color(0xfff5af19),
                                 Colors.black,
-                                "lib/assets/images/marma2.png",
-                                "Marmaray"),
+                                "lib/assets/images/takvim3.png",
+                                "Etkinlikler"),
                           ),
                           InkWell(onTap: () {
                             setState(() {

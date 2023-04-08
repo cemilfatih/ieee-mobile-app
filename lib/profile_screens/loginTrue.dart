@@ -107,6 +107,27 @@ class _loginTrueState extends State<loginTrue> {
           mainAxisAlignment: MainAxisAlignment.end ,
           children: [
             Visibility(
+              visible: user.currentUser.level > 2 ? true : false,
+              child:
+              Row( mainAxisAlignment: MainAxisAlignment.end,
+                children: <Widget>[
+                  Text("Yetki VER" , style: TextStyle(fontWeight: FontWeight.bold , color: Colors.black),),
+                  SizedBox(width: 10),
+                  FloatingActionButton( backgroundColor: Colors.black,
+                    onPressed: () => {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => yetki_ver()),
+                      )
+                    },
+                    // YOKLAMAYI LİSTEYELEN SAYFAYA GİDER
+                    child: Icon(Icons.admin_panel_settings),
+                    heroTag: "yetki",
+                  ),
+                ],
+              ),
+            ),
+            Visibility(
               visible: user.currentUser.level > 1 ? true : false,
               child:
               Row( mainAxisAlignment: MainAxisAlignment.end,
@@ -126,12 +147,13 @@ class _loginTrueState extends State<loginTrue> {
                   ),
                 ],
               ),),
+
             Visibility(
               visible: user.currentUser.level > 1 ? true : false,
               child:
               Row( mainAxisAlignment: MainAxisAlignment.end,
                 children: <Widget>[
-                  Text("Etkinlik Yoklamaları" , style: TextStyle(fontWeight: FontWeight.bold , color: Colors.blue),),
+                  Text("Etkinlik Katılımcıları" , style: TextStyle(fontWeight: FontWeight.bold , color: Colors.blue),),
                   SizedBox(width: 10),
                   FloatingActionButton(
                     onPressed: () => {
@@ -147,27 +169,7 @@ class _loginTrueState extends State<loginTrue> {
                 ],
               ),
             ),
-            Visibility(
-              visible: user.currentUser.level > 2 ? true : false,
-              child:
-              Row( mainAxisAlignment: MainAxisAlignment.end,
-                children: <Widget>[
-                  Text("Yetki VER" , style: TextStyle(fontWeight: FontWeight.bold , color: Colors.black),),
-                  SizedBox(width: 10),
-                  FloatingActionButton( backgroundColor: Colors.black,
-                    onPressed: () => {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => yetki_ver()),
-                      )
-                    },
-                    // YOKLAMAYI LİSTEYELEN SAYFAYA GİDER
-                    child: Icon(Icons.admin_panel_settings),
-                    heroTag: "yoklama",
-                  ),
-                ],
-              ),
-            ),
+
             Visibility(
               visible: user.currentUser.level > 1 ? true : false,
               child:
@@ -175,7 +177,7 @@ class _loginTrueState extends State<loginTrue> {
                 children: <Widget>[
                   Text("Uye Onayla" , style: TextStyle(fontWeight: FontWeight.bold , color: Colors.black),),
                   SizedBox(width: 10),
-                  FloatingActionButton( backgroundColor: Colors.black,
+                  FloatingActionButton( backgroundColor: Colors.deepPurple,
                     onPressed: () => {
                       Navigator.push(
                         context,
@@ -183,7 +185,7 @@ class _loginTrueState extends State<loginTrue> {
                       )
                     },
                     // YOKLAMAYI LİSTEYELEN SAYFAYA GİDER
-                    child: Icon(Icons.admin_panel_settings),
+                    child: Icon(Icons.account_box_outlined),
                     heroTag: "uye Onay",
                   ),
                 ],
