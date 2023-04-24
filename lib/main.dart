@@ -1,11 +1,14 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:ieee_mobile_app/features/splash/splashScreen.dart';
+import 'package:ieee_mobile_app/features/splash/splashView.dart';
 import 'package:ieee_mobile_app/ieee_gtu_screens/etkinlik_kayit_panel.dart';
 import 'package:ieee_mobile_app/logic/isLoading.dart';
 import 'package:ieee_mobile_app/logic/mail_verify.dart';
 import 'package:ieee_mobile_app/screens/ana_sayfa.dart';
 import 'package:ieee_mobile_app/screens/profile_page.dart';
 import 'package:ieee_mobile_app/screens/gtu_menu.dart';
+import 'package:kartal/kartal.dart';
 import 'Firebase/firebase_options.dart';
 import 'constants/app_bar.dart';
 import 'constants/nvg_bar.dart'; // yedek animasyonsuz navbar
@@ -30,12 +33,12 @@ void main() async {
 
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,);
+  DeviceUtility.instance.initPackageInfo();
 // checking user is already login or not
   Helper.loginwithID();
   Helper.getLiveEventId();
 
-  runApp(ChangeNotifierProvider(
-      create: (BuildContext context) => StateData(), child: const main_page()));
+  runApp(main_page());
 
 }
 // //////////////////splash screen
@@ -85,13 +88,14 @@ class main_page extends StatelessWidget {
         routes: {
           "/verifyPage"   :(context) => mailVerifyService(),
           "/registerPage" :(context) => SignupPage(),
-          "/homePage"     :(context) => Home()
-        },
+          "/homePage"     :(context) => Home(),
+          "/splashCodePage":(context)=> splashPassCodeView()
+         },
         theme: ThemeData(
           fontFamily: "TitilliumWeb",
         ),
         debugShowCheckedModeBanner: false,
-        home: Home(),
+        home: splashView(),
       ),
 
     );
