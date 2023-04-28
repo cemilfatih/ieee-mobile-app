@@ -1,7 +1,11 @@
 import "package:flutter/material.dart";
 import "package:ieee_mobile_app/helper/user.dart";
 import 'package:cloud_firestore/cloud_firestore.dart';
-
+import 'package:excel/excel.dart';
+import 'package:ieee_mobile_app/profile_screens/signupPage.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:permission_handler/permission_handler.dart';
+import 'dart:io';
 
 class etkinlik_yoklama_kontrol extends StatefulWidget {
   etkinlik_yoklama_kontrol({Key? key}) : super(key: key);
@@ -23,6 +27,9 @@ class _etkinlik_yoklama_kontrolState extends State<etkinlik_yoklama_kontrol> {
     super.initState();
     loadData();
   }
+
+
+
 
   Future<void> loadData() async {
     List<String> yapilanEtkinlikler = [];
@@ -121,9 +128,32 @@ class _etkinlik_yoklama_kontrolState extends State<etkinlik_yoklama_kontrol> {
       )
           : SafeArea(
         child: Scaffold(
+          //floatingActionButtonLocation: FloatingActionButtonLocation.center,
+          floatingActionButton: Column(
+            mainAxisAlignment: MainAxisAlignment.end,mainAxisSize: MainAxisSize.max,
+            children: [
+              Row(mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  FloatingActionButton(
+                    backgroundColor: Colors.red,
+                    child: Icon(Icons.download_for_offline_outlined),
+                    onPressed: (){
+                    createExcelFile(katilimcilist1 , "kırmızı");
+                  },),
+                  FloatingActionButton(
+                    backgroundColor: Colors.green,
+                    child: Icon(Icons.download_for_offline_outlined),
+                    onPressed: (){
+                    createExcelFile(katilimcilist2 , "yeşil");
+                  },),
+                ],
+              ),
+            ],
+          ),
             body: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
+
                 Container(decoration: BoxDecoration(color: Colors.red),
                   height: MediaQuery.of(context).size.height/3,
                   child: ListView.builder(
@@ -159,4 +189,30 @@ class _etkinlik_yoklama_kontrolState extends State<etkinlik_yoklama_kontrol> {
   }
 }
 
+void createExcelFile(x ,y) async {
+  var status = await Permission.storage.status;
+  if (!status.isGranted) {
+    await Permission.storage.request();
+  }
+
+  if (await Permission.storage.request().isGranted) {
+    final directory = await getExternalStorageDirectory();
+    final file = File('${directory?.path}/katilimci${y}.xlsx');
+    // final directory = await getExternalStorageDirectory();
+    // final file = File('${directory?.parent.path}/KAYITLAR/katilimci.xlsx');
+
+    var excel = Excel.createExcel();
+    var sheet = excel['Sheet1'];
+
+    sheet.cell(CellIndex.indexByString("A1")).value = "İsimler";
+    sheet.cell(CellIndex.indexByString("B1")).value = "Numaralar";
+
+    for (var i=2 ; i < x.length ; i++ ){
+      sheet.cell(CellIndex.indexByString("A${i}")).value = x[i-2];
+    };
+
+    file.writeAsBytesSync(excel.encode()!);
+    print("deneme");
+  }
+}
 

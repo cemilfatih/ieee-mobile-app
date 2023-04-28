@@ -59,11 +59,11 @@ class _imagesScreenState extends State<imagesScreen> {
       print(fotolar[i].link);
     }}
 
-
-  void initState() {
-    super.initState();
-    getData();
-  }
+  //
+  // void initState() {
+  //   super.initState();
+  //   getData();
+  // }
   @override
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;

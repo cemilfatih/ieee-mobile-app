@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-
+import 'package:ieee_mobile_app/constants/duyuru_haber.dart';
+import 'package:html/parser.dart' as parser;
+import 'package:http/http.dart' as http;
 
 class yonetim_kurulu extends StatelessWidget {
   const yonetim_kurulu({Key? key}) : super(key: key);
@@ -26,15 +28,6 @@ class _imagesScreenState extends State<imagesScreen> {
   final PageController _pageController =
   PageController(viewportFraction: 0.8, keepPage: true);
 
-  List<String> imagesUrl = [
-    "https://ieeegtu.com/wp-content/uploads/2022/07/Calisma-Yuzeyi-1-kopya-4.png",
-    "https://ieeegtu.com/wp-content/uploads/2022/07/yk-web-1.png",
-    "https://ieeegtu.com/wp-content/uploads/2022/07/Varlik-1-1.png",
-    "https://ieeegtu.com/wp-content/uploads/2022/07/Calisma-Yuzeyi-1-kopya-2.png",
-    "https://ieeegtu.com/wp-content/uploads/2022/07/Calisma-Yuzeyi-1-1.png",
-    "https://ieeegtu.com/wp-content/uploads/2022/07/yk-web.png",
-  ];
-  // DATABASEDEN GÜNCELlENECEK
 
 
   List<Color> colors =[
@@ -42,66 +35,101 @@ class _imagesScreenState extends State<imagesScreen> {
     Color(0xfff5af19),
     Color(0xfff12711),Colors.black,Color(0xfff5af19),
   ];
+  List<Photo> fotolar = [];
+  Future getData() async {
+    var res = await http.get(Uri.parse('https://ieeegtu.com/yonetimkurulu/'));
+    final document = parser.parse(res.body);
+    var response = document.getElementsByClassName('jl_3col_wrapin');
+    var link;
+    for (int i = 0; i < 3; i++) {
+      for (int j = 0; j < 3; j++) {
+        link = response[0]
+            .getElementsByClassName('panel-layout')[0]
+            .children[i]
+            .children[j]
+            .children[0]
+            .children[0]
+            .attributes["src"];
+        if (link != null) {
+          fotolar.add(Photo(link: link));
+        }
+      }
+    }
+    for (int i = 0; i < 6; i++) {
+      print(fotolar[i].link);
+    }}
 
 
+  // void initState() {
+  //   super.initState();
+  //   getData();
+  // }
   @override
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
 
+
+
+
     return Scaffold(
-      body: ListView(
-        children: [
-          SizedBox(height: height/50),
-          Container(
+      body: FutureBuilder(
+          future: getData(),
+          builder: (context, snapshot) {
+            return ListView(
+              children: [
+                SizedBox(height: height/50),
+                Container(
+                  height: height / 1.5,
+                  child: PageView.builder(
+                    controller: _pageController,
+                    itemCount: fotolar.length,
+                    itemBuilder: (_, index) => Card(
 
-            height: height / 1.7,
-            child: PageView.builder(
-
-              controller: _pageController,
-              itemCount: imagesUrl.length,
-              itemBuilder: (_, index) => Card(
-
-                //borderOnForeground: true,
-                //shadowColor: colors[index],
-                //elevation: 5,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Container(
-                      height: height / 2,
-                      margin:  EdgeInsets.all(width/20),
-                      decoration: BoxDecoration(
-                        // color: Colors.grey,
-                        borderRadius: BorderRadius.circular(5),
-                        image: DecorationImage(
-                            image: NetworkImage(
-                              imagesUrl[index],
+                      //borderOnForeground: true,
+                      //shadowColor: colors[index],
+                      //elevation: 5,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Container(
+                            height: height / 1.8,
+                            margin:  EdgeInsets.all(width/20),
+                            decoration: BoxDecoration(
+                              // color: Colors.grey,
+                              borderRadius: BorderRadius.circular(5),
+                              image: DecorationImage(
+                                  image: NetworkImage(
+                                    fotolar[index].link,
+                                  ),
+                                  fit: BoxFit.fitWidth
+                              ),
                             ),
-                            fit: BoxFit.cover
-                        ),
+                          ),
+
+                        ],
                       ),
                     ),
-
+                  ),
+                ),
+                SizedBox( height : height/30),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    SmoothPageIndicator(
+                      controller: _pageController, // PageController
+                      count: fotolar.length,
+                      effect:ScrollingDotsEffect(dotColor: Color(0x4000609c),activeDotColor: Color(0xffbe1238),),
+                      onDotClicked: (index) {},
+                    ),
                   ],
                 ),
-              ),
-            ),
-          ),
-          SizedBox( height : height/30),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              SmoothPageIndicator(
-                controller: _pageController, // PageController
-                count: imagesUrl.length,
-                effect:ScrollingDotsEffect(dotColor: Color(0x4000609c),activeDotColor: Color(0xffbe1238),),
-                onDotClicked: (index) {},
-              ),
-            ],
-          ),
-        ],
+              ],
+            );
+          }
       ),
     );
   }
 }
+
+

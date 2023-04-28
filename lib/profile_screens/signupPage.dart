@@ -6,6 +6,11 @@ import '../helper/helper.dart';
 import 'loginPage.dart';
 
 const List<String> komiteList = <String>['comsoc', 'cs', 'eac','embs','externalrelations','girisimcilik','ik','kariyer','malzeme','mat','medya','pes','ras','wie'];
+
+const List<String> komiteList2 = <String>['ComSoc ', 'Computer Society', 'EAC','EMBS','External Relations','Girişmcilik','İnsan Kaynakları','Kişisel G. ve Kariyer','Malzeme','Matematik','Medya ve Tasarım','PES','RAS','WİE'];
+
+
+
 // DATABASEYE GÖRE DÜZENLE
 String secilenKomite = "";
 
@@ -55,39 +60,40 @@ class _SignupPageState extends State<SignupPage> {
                   child: Column(
                     children: [
                       const PageHeading(title: 'Kayıt Ol',),
-                      SizedBox(
-                        width: 130,
-                        height: 130,
-                        child: CircleAvatar(
-                          backgroundColor: Colors.grey.shade200,
-
-                          child: Stack(
-                            children: [
-                              Positioned(
-                                bottom: 5,
-                                right: 5,
-                                child: GestureDetector(
-                                  onTap:(){},
-                                  child: Container(
-                                    height: 50,
-                                    width: 50,
-                                    decoration: BoxDecoration(
-                                      color: Colors.blue.shade400,
-                                      border: Border.all(color: Colors.white, width: 3),
-                                      borderRadius: BorderRadius.circular(25),
-                                    ),
-                                    child: const Icon(
-                                      Icons.camera_alt_sharp,
-                                      color: Colors.white,
-                                      size: 25,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
+                      // FOTOĞRAF SEÇME YERİ
+                      // SizedBox(
+                      //   width: 130,
+                      //   height: 130,
+                      //   child: CircleAvatar(
+                      //     backgroundColor: Colors.grey.shade200,
+                      //
+                      //     child: Stack(
+                      //       children: [
+                      //         Positioned(
+                      //           bottom: 5,
+                      //           right: 5,
+                      //           child: GestureDetector(
+                      //             onTap:(){},
+                      //             child: Container(
+                      //               height: 50,
+                      //               width: 50,
+                      //               decoration: BoxDecoration(
+                      //                 color: Colors.blue.shade400,
+                      //                 border: Border.all(color: Colors.white, width: 3),
+                      //                 borderRadius: BorderRadius.circular(25),
+                      //               ),
+                      //               child: const Icon(
+                      //                 Icons.camera_alt_sharp,
+                      //                 color: Colors.white,
+                      //                 size: 25,
+                      //               ),
+                      //             ),
+                      //           ),
+                      //         ),
+                      //       ],
+                      //     ),
+                      //   ),
+                      // ),
                       const SizedBox(height: 16,),
                       CustomInputField(
                           labelText: 'İsim ve Soyisim',
@@ -241,7 +247,7 @@ class _SignupPageState extends State<SignupPage> {
       // signup user
       if (_signupFormKey.currentState!.validate()) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Submitting data..')),
+          const SnackBar(content: Text('Veri Gönderiliyor..')),
         );
 
         _signupFormKey.currentState!.save();
@@ -411,6 +417,7 @@ class komiteSec extends StatefulWidget {
 }
 
 class _komiteSecState extends State<komiteSec> {
+
   String dropdownValue = komiteList.first;
 
   @override
@@ -440,3 +447,4 @@ class _komiteSecState extends State<komiteSec> {
     );
   }
 }
+

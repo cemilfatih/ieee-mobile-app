@@ -291,32 +291,52 @@ class _komite_one_pageState extends State<komite_one_page> {
                               width: 192,
                               margin: EdgeInsets.only(right: 8),
                               color: Colors.grey,
-                              child: Center(
-                                child: HeroImage(imageUrl: galeri1),
+                              child: Stack(
+                                children: [
+                                  LinearProgressIndicator(minHeight: 8),
+                                  Center(
+                                    child: HeroImage(imageUrl: galeri1),
+                                  ),
+                                ],
                               ),
                             ),
                             Container(
                               width: 192,
                               margin: EdgeInsets.only(right: 8),
                               color: Colors.grey,
-                              child: Center(
-                                child: HeroImage(imageUrl: galeri2),
+                              child: Stack(
+                                children: [
+                                  LinearProgressIndicator(minHeight: 8),
+                                  Center(
+                                    child: HeroImage(imageUrl: galeri2),
+                                  ),
+                                ],
                               ),
                             ),
                             Container(
                               width: 192,
                               margin: EdgeInsets.only(right: 8),
                               color: Colors.grey,
-                              child: Center(
-                                child: HeroImage(imageUrl: galeri3),
+                              child: Stack(
+                                children: [
+                                  LinearProgressIndicator(minHeight: 8),
+                                  Center(
+                                    child: HeroImage(imageUrl: galeri3),
+                                  ),
+                                ],
                               ),
                             ),
                             Container(
                               width: 192,
                               margin: EdgeInsets.only(right: 8),
                               color: Colors.grey,
-                              child: Center(
-                                child: HeroImage(imageUrl: galeri4),
+                              child: Stack(
+                                children: [
+                                  LinearProgressIndicator(minHeight: 8),
+                                  Center(
+                                    child: HeroImage(imageUrl: galeri4),
+                                  ),
+                                ],
                               ),
                             ),
                           ],

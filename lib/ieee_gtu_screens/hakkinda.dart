@@ -55,7 +55,7 @@ class _hakkindaState extends State<hakkinda> {
 
 List<Item> _items = <Item>[
   Item(
-    headerValue: 'Mobil Uygulama Ekibimiz',
+    headerValue: 'Mobil Uygulamayı Oluşturan Ekibimiz',
     expandedValue: icerik(),
     isExpanded: false,
   ),
@@ -157,7 +157,7 @@ class icerik extends StatelessWidget {
           ElevatedButton( style: ElevatedButton.styleFrom( minimumSize: Size(30,30) , backgroundColor: Colors.blueAccent ),
               child: Text("in"),
               onPressed: () async{
-                final x = "https://www.linkedin.com/in/muhammet-melih-tumur-6069261ba/";
+                final x = "https://www.linkedin.com/in/ahmetyigit1/";
                 if(await canLaunchUrlString(x)){
                   await launchUrlString(x,mode: LaunchMode.externalApplication);
                 }
@@ -166,7 +166,7 @@ class icerik extends StatelessWidget {
           ElevatedButton( style: ElevatedButton.styleFrom( minimumSize: Size(30,30) , backgroundColor: Colors.blueAccent ),
               child: Text("in"),
               onPressed: () async{
-                final x = "https://www.linkedin.com/in/muhammet-melih-tumur-6069261ba/";
+                final x = "https://www.linkedin.com/in/erdoganselenn/";
                 if(await canLaunchUrlString(x)){
                   await launchUrlString(x ,mode: LaunchMode.externalApplication);
 
@@ -218,7 +218,7 @@ class icerik extends StatelessWidget {
             ElevatedButton( style: ElevatedButton.styleFrom( minimumSize: Size(30,30) , backgroundColor: Colors.blueAccent ),
                 child: Text("in"),
                 onPressed: () async{
-                  final x = "https://www.linkedin.com/in/muhammet-melih-tumur-6069261ba/";
+                  final x = "https://www.linkedin.com/in/cemil-fatih-yol-1b285a1a3/";
                   if(await canLaunchUrlString(x)){
                     await launchUrlString(x , mode: LaunchMode.externalApplication);
                   }
@@ -227,7 +227,7 @@ class icerik extends StatelessWidget {
             ElevatedButton( style: ElevatedButton.styleFrom( minimumSize: Size(30,30) , backgroundColor: Colors.blueAccent ),
                 child: Text("in"),
                 onPressed: () async{
-                  final x = "https://www.linkedin.com/in/muhammet-melih-tumur-6069261ba/";
+                  final x = "https://www.linkedin.com/in/yusuf-eren-nalbant/";
                   if(await canLaunchUrlString(x)){
                     await launchUrlString(x,mode: LaunchMode.externalApplication);
                   }
@@ -278,7 +278,7 @@ class icerik extends StatelessWidget {
             ElevatedButton( style: ElevatedButton.styleFrom( minimumSize: Size(30,30) , backgroundColor: Colors.blueAccent ),
                 child: Text("in"),
                 onPressed: () async{
-                  final x = "https://www.linkedin.com/in/muhammet-melih-tumur-6069261ba/";
+                  final x = "https://www.linkedin.com/in/ahmet-baha-çepni-aa11b01ab/";
                   if(await canLaunchUrlString(x)){
                     await launchUrlString(x , mode: LaunchMode.externalApplication);
                   }
@@ -287,7 +287,7 @@ class icerik extends StatelessWidget {
             ElevatedButton( style: ElevatedButton.styleFrom( minimumSize: Size(30,30) , backgroundColor: Colors.blueAccent ),
                 child: Text("in"),
                 onPressed: () async{
-                  final x = "https://www.linkedin.com/in/muhammet-melih-tumur-6069261ba/";
+                  final x = "https://www.linkedin.com/in/damlaakkaya/";
                   if(await canLaunchUrlString(x)){
                     await launchUrlString(x,mode: LaunchMode.externalApplication);
                   }
@@ -338,7 +338,7 @@ class icerik extends StatelessWidget {
             ElevatedButton( style: ElevatedButton.styleFrom( minimumSize: Size(30,30) , backgroundColor: Colors.blueAccent ),
                 child: Text("in"),
                 onPressed: () async{
-                  final x = "https://www.linkedin.com/in/muhammet-melih-tumur-6069261ba/";
+                  final x = "https://www.linkedin.com/in/ömer-faruk-olkay-aa74401b4/";
                   if(await canLaunchUrlString(x)){
                     await launchUrlString(x,mode: LaunchMode.externalApplication);
                   }
@@ -347,7 +347,7 @@ class icerik extends StatelessWidget {
             ElevatedButton( style: ElevatedButton.styleFrom( minimumSize: Size(30,30) , backgroundColor: Colors.blueAccent ),
                 child: Text("in"),
                 onPressed: () async{
-                  final x = "https://www.linkedin.com/in/muhammet-melih-tumur-6069261ba/";
+                  final x = "https://www.linkedin.com/in/ayşe-zuhal-yilmaz-0ab545209/";
                   if(await canLaunchUrlString(x)){
                     await launchUrlString(x,mode: LaunchMode.externalApplication);
                   }
@@ -383,7 +383,7 @@ class icerik extends StatelessWidget {
             ElevatedButton( style: ElevatedButton.styleFrom( minimumSize: Size(30,30) , backgroundColor: Colors.blueAccent ),
                 child: Text("in"),
                 onPressed: () async{
-                  final x = "https://www.linkedin.com/in/muhammet-melih-tumur-6069261ba/";
+                  final x = "https://www.linkedin.com/in/sıla-buse-can-250b83245/";
                   if(await canLaunchUrlString(x)){
                     await launchUrlString(x,mode: LaunchMode.externalApplication);
                   }
@@ -396,30 +396,30 @@ class icerik extends StatelessWidget {
   }
 }
 
-class linkbuton extends StatefulWidget {
-
-  final String url ;
-  linkbuton(this.url);
-
-  @override
-  State<linkbuton> createState() => _linkbutonState();
-}
-
-class _linkbutonState extends State<linkbuton> {
-  @override
-  Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: () async {
-        if (await canLaunchUrl(Uri.parse(widget.url))) {
-          await launchUrl(Uri.parse(widget.url));
-        } else {
-          throw 'Could not launch ${widget.url}';
-        }
-      },
-      child: Text('Linke git'),
-    );
-  }
-}
+// class linkbuton extends StatefulWidget {
+//
+//   final String url ;
+//   linkbuton(this.url);
+//
+//   @override
+//   State<linkbuton> createState() => _linkbutonState();
+// }
+//
+// class _linkbutonState extends State<linkbuton> {
+//   @override
+//   Widget build(BuildContext context) {
+//     return ElevatedButton(
+//       onPressed: () async {
+//         if (await canLaunchUrl(Uri.parse(widget.url))) {
+//           await launchUrl(Uri.parse(widget.url));
+//         } else {
+//           throw 'Could not launch ${widget.url}';
+//         }
+//       },
+//       child: Text('Linke git'),
+//     );
+//   }
+// }
 
 
 String about = "IEEE GTÜ Mobil Uygulama ekibi olarak sizler için hazırladığımız IEEE GTÜ Mobil Uygulamasına  HOŞGELDİNİZ ! \nIEEE GTÜ Öğrenci Topluluğu olarak 14 komitemizle birlikte teknik ve sosyal konularda birçok etkinlik, teknik gezi ve eğitimlerle üyelerimizin iyi donanımı ve tecribeyi katıyoruz. Mobil uygulamamızla birlikte de artık kulübümüzün etkinliklerinden, yayınlarından ,duyurularından , okulumuzun ve kampüsümüzün önemli ihtiyaçlarından ve daha birçok şeyden anında haberdar olabileceksiniz." ;

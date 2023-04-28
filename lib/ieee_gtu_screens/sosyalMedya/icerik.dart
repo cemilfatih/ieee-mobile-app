@@ -108,7 +108,7 @@ class _sosyal_icerikState extends State<sosyal_icerik> {
                       Stack(children: [
                         Container(child: Padding(
                           padding: const EdgeInsets.all(100.0),
-                          child: CircularProgressIndicator(),
+                          child: CircularProgressIndicator( color: Colors.red, ),
                         ),),
                         Container(
                           height: height / 2.3,

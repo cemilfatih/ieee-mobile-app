@@ -28,6 +28,7 @@ class _yemekhaneState extends State<yemekhane> {
         .toString();
     imageUrl =
         'https://www.gtu.edu.tr' + Uri.encodeFull(responseUrl).toString();
+
   }
 
   @override
@@ -51,7 +52,7 @@ class _yemekhaneState extends State<yemekhane> {
                   maxScale: PhotoViewComputedScale.covered * 5.0,
                   minScale: PhotoViewComputedScale.contained * 0.8,
                   initialScale: PhotoViewComputedScale.covered,
-                  enableRotation: true,
+                  enableRotation: false,
                 ),
               ),
             );
