@@ -5,14 +5,14 @@ abstract class IDModel{
   String? get id;
 }
 
-abstract class  baseFirebaseModel <T extends IDModel>{
+abstract class  baseFirebaseModel <T extends IDModel> {
 
-  T fromJson(Map<String ,dynamic> json);
+  T fromJson(Map<String, dynamic> json);
 
-  T fromFirebase(DocumentSnapshot<Map<String,dynamic>> snapshot){
+  T fromFirebase(DocumentSnapshot<Map<String, dynamic>> snapshot) {
     final data = snapshot.data();
 
-    if(data == null){
+    if (data == null) {
       throw Exception("data is null");
     }
 

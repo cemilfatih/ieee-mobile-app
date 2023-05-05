@@ -6,7 +6,10 @@ import 'package:ieee_mobile_app/mixin/firebaseMixin.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'etkinlik.dart';
-
+/*
+* uzun surecler sonunda guzel bir son oldu, uygulamanin daha bir cok asamasi olacaktir ieee ekibine ve ailesine armaginimiz.
+* @mens1s
+*/
 class Helper with firebaseMixin, ChangeNotifier{
   static int komitePage = 0;
   static bool isLogin = false;
