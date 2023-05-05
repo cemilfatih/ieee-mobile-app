@@ -13,19 +13,19 @@ class splashScreen extends StatelessWidget {
     return Scaffold(
       body: Container(child:
       Center(child:
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(Icons.ac_unit_outlined),
-            Padding(padding: EdgeInsets.all(20.0),
+      Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Icon(Icons.ac_unit_outlined),
+          Padding(padding: EdgeInsets.all(20.0),
             child: Text("Splash Sreen"),),
-            TextButton(onPressed: (){
-              Navigator.pushNamed(context, '/splashCodePage');
-            }, child: Text("are you admin?"))
+          TextButton(onPressed: (){
+            Navigator.pushNamed(context, '/splashCodePage');
+          }, child: Text("are you admin?"))
 
-          ],
-        ))),
+        ],
+      ))),
     );
   }
 }
@@ -61,14 +61,9 @@ class _splashPassCodeViewState extends State<splashPassCodeView> {
               code == _controller.text ? Navigator.pushNamed(context, "/homePage") : print("Invalid passcode");
 
 
-              }, child: Text("Check the code"))
-        ],),
+            }, child: Text("Check the code"))
+          ],),
       ),
     );
   }
 }
-
-
-
-
-

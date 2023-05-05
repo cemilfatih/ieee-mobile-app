@@ -8,7 +8,6 @@ import 'package:ieee_mobile_app/logic/mail_verify.dart';
 import 'package:ieee_mobile_app/screens/ana_sayfa.dart';
 import 'package:ieee_mobile_app/screens/profile_page.dart';
 import 'package:ieee_mobile_app/screens/gtu_menu.dart';
-import 'package:kartal/kartal.dart';
 import 'Firebase/firebase_options.dart';
 import 'constants/app_bar.dart';
 import 'constants/nvg_bar.dart'; // yedek animasyonsuz navbar
@@ -19,6 +18,7 @@ import 'package:ieee_mobile_app/constants/stateData.dart';
 import 'package:provider/provider.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:ieee_mobile_app/profile_screens/signupPage.dart';
+
 
 
 import 'helper/helper.dart';
@@ -33,7 +33,7 @@ void main() async {
 
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,);
-  DeviceUtility.instance.initPackageInfo();
+  //DeviceUtility.instance.initPackageInfo();
 // checking user is already login or not
   Helper.loginwithID();
   Helper.getLiveEventId();
@@ -90,7 +90,7 @@ class main_page extends StatelessWidget {
           "/registerPage" :(context) => SignupPage(),
           "/homePage"     :(context) => Home(),
           "/splashCodePage":(context)=> splashPassCodeView()
-         },
+        },
         theme: ThemeData(
           fontFamily: "TitilliumWeb",
         ),

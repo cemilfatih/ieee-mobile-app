@@ -75,4 +75,3 @@ class splashCodeModel  with IDModel,baseFirebaseModel<splashCodeModel> {
   String? get id => throw UnimplementedError();
 
 }
-
