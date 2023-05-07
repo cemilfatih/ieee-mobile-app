@@ -8,13 +8,13 @@ import 'dart:math';
 import '../../models/baseFirebaseModel.dart';
 
 List<String> gifList = [
+  'lib/assets/images/splash_gifs/gif0.json',
   'lib/assets/images/splash_gifs/gif1.json',
   'lib/assets/images/splash_gifs/gif2.json',
   'lib/assets/images/splash_gifs/gif3.json',
   'lib/assets/images/splash_gifs/gif4.json',
   'lib/assets/images/splash_gifs/gif5.json',
   'lib/assets/images/splash_gifs/gif6.json',
-  //'lib/assets/images/splash_gifs/gif7.json',
 ];
 
 Random random = Random();
@@ -39,7 +39,7 @@ class splashScreen extends StatelessWidget {
             // )
           ),
           child: Center(
-              child: Expanded(
+              child: SingleChildScrollView(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
