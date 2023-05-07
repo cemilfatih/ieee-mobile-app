@@ -14,7 +14,7 @@ List<String> gifList = [
   'lib/assets/images/splash_gifs/gif3.json',
   'lib/assets/images/splash_gifs/gif4.json',
   'lib/assets/images/splash_gifs/gif5.json',
-  'lib/assets/images/splash_gifs/gif6.json',
+  // 'lib/assets/images/splash_gifs/gif6.json',
 ];
 
 Random random = Random();
@@ -39,79 +39,74 @@ class splashScreen extends StatelessWidget {
             // )
           ),
           child: Center(
-              child: SingleChildScrollView(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Container(height: height/2.5,
-                          child: Lottie.asset(
-                            // "lib/assets/images/splash_gifs/gif7.json"   ,
-                            gifList[randomIndex],
-                            frameRate: FrameRate(60),
-                            repeat: true,
-                          )),
-                    ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(height: height/2.5,
+                        child: Lottie.asset(
+                          // "lib/assets/images/splash_gifs/gif7.json"   ,
+                          gifList[randomIndex],
+                          frameRate: FrameRate(60),
+                          repeat: true,
+                        )),
+                  ),
 
-                    //Lottie.network("https://assets2.lottiefiles.com/packages/lf20_puciaact.json"),
-                    Container(
-                        height: height / 9,
-                        width: width / 1.2,
-                        child: Image.asset("lib/assets/images/ieee_white.png")),
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(10, 0, 0, 30),
-                      child: Text(
-                        "IEEE GTÜ MOBİL UYGULAMASI",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                    Container(height: height / 15,
+                  //Lottie.network("https://assets2.lottiefiles.com/packages/lf20_puciaact.json"),
+                  Container(
+                      height: height / 9,
                       width: width / 1.2,
-                      child : Image.asset("lib/assets/images/splash_gifs/sosyal_medya.png"),
-                    ),
-                    Container(height: height/5,
-                      child: Expanded(
-                        child: AnimatedTextKit(repeatForever: true, animatedTexts: [
-                          TypewriterAnimatedText(
-                              speed: Duration(milliseconds: 100),
-                              'ÇOK YAKINDA \nBURADAYIZ',
-                              textAlign: TextAlign.center,
-                              textStyle: TextStyle(
-                                  fontSize: height/20,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.bold))
-                        ]),
+                      child: Image.asset("lib/assets/images/ieee_white.png")),
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(10, 0, 0, 30),
+                    child: Text(
+                      "IEEE GTÜ MOBİL UYGULAMASI",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
-                    // Text("Uygulamamız yakında sizlerle!",
-                    //   style: TextStyle(
-                    //     fontSize: 25,
-                    //     fontWeight: FontWeight.bold,
-                    //   ),
+                  ),
+                  Container(height: height / 15,
+                    width: width / 1.2,
+                    child : Image.asset("lib/assets/images/splash_gifs/sosyal_medya.png"),
+                  ),
+                  Container(height: height/5,
+                    child: AnimatedTextKit(repeatForever: true, animatedTexts: [
+                      TypewriterAnimatedText(
+                          speed: Duration(milliseconds: 100),
+                          'ÇOK YAKINDA \nBURADAYIZ',
+                          textAlign: TextAlign.center,
+                          textStyle: TextStyle(
+                              fontSize: height/20,
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold))
+                    ]),
+                  ),
+                  // Text("Uygulamamız yakında sizlerle!",
+                  //   style: TextStyle(
+                  //     fontSize: 25,
+                  //     fontWeight: FontWeight.bold,
+                  //   ),
 
-                    // ),
-                    // SizedBox(
-                    //   height: 50,
-                    // ),
-
-                    CustomTextButton(
-                      buttonText: "Admin Login",
-                      buttonColor: Colors.blue,
-                      textColor: Colors.white,
-                      borderColor: Colors.black,
-                      onTap: () {
-                        Navigator.pushNamed(context, '/splashCodePage');
-                      },
-                    ),
-                  ],
-                ),
+                  // ),
+                  // SizedBox(
+                  //   height: 50,
+                  // ),
+                  CustomTextButton(
+                    buttonText: "Admin Login",
+                    buttonColor: Colors.blue,
+                    textColor: Colors.white,
+                    borderColor: Colors.black,
+                    onTap: () {
+                      Navigator.pushNamed(context, '/splashCodePage');
+                    },
+                  ),
+                ],
               ))),
     );
   }
