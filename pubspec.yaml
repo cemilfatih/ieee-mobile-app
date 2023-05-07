@@ -64,11 +64,15 @@ dependencies:
   excel: ^2.0.4
  # csv: ^5.0.1
   url_launcher: ^6.1.10
+
   permission_handler: ^10.2.0
-  kartal: ^2.8.0
+
   share_plus: ^6.3.4
+
   #flutter_inappwebview: ^5.7.2+3
 
+  package_info: ^2.0.0
+  lottie: ^2.3.2
 dev_dependencies:
 #  flutter_native_splash: ^2.2.19
   flutter_launcher_icons: ^0.11.0
@@ -108,6 +112,7 @@ flutter:
   assets:
     - lib/assets/images/
     - lib/assets/images/btg_images/
+    - lib/assets/images/splash_gifs/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

@@ -1,9 +1,15 @@
 import 'package:flutter/foundation.dart';
-import 'package:kartal/kartal.dart';
 import '../../enums/FirebaseCollectionsEnum.dart';
 import '../../enums/PlatformEnum.dart';
 import '../../models/appVersionModel.dart';
 import '../../utility/versionManager.dart';
+
+import 'package:package_info/package_info.dart';
+
+Future<String> getAppVersion() async {
+  PackageInfo packageInfo = await PackageInfo.fromPlatform();
+  return packageInfo.version;
+}
 
 class splashLogic {
 
@@ -14,8 +20,9 @@ class splashLogic {
 
   Future<bool> checkAppVersion() async {
     try {
+
       final databaseVersion = await getVersionFromDatabase();
-      final clientVersion = ''.version;
+      final clientVersion = await getAppVersion();
 
       if (databaseVersion == null || databaseVersion.isEmpty) {
         isRequiredForceUpdate == true;
