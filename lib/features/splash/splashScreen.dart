@@ -98,7 +98,7 @@ class splashScreen extends StatelessWidget {
                   //   height: 50,
                   // ),
                   CustomTextButton(
-                    buttonText: "Admin Login",
+                    buttonText: "Admin Girişi",
                     buttonColor: Colors.blue,
                     textColor: Colors.white,
                     borderColor: Colors.black,

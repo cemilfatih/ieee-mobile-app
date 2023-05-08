@@ -241,7 +241,7 @@ class icerik extends StatelessWidget {
               text: TextSpan(
                 children: [
                   TextSpan(
-                    text: 'Ahmet B. Çepni ',
+                    text: 'A. Baha Çepni ',
                     style: TextStyle(fontSize: 20, color: Colors.black),
                   ),
                   TextSpan(
